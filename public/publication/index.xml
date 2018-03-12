@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Chuliang Xiao</title>
+    <link>/publication/</link>
+    <description>Recent content in Publications on Chuliang Xiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title> Evaluating and improving modeled turbulent heat fluxes across the North American Great Lakes</title>
+      <link>/publication/2018-eddy/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2018-eddy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> Improving the lake scheme within a coupled WRF-Lake model in the Laurentian Great Lakes</title>
+      <link>/publication/2017-flux/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2017-flux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> Improving the lake scheme within a coupled WRF-Lake model in the Laurentian Great Lakes</title>
+      <link>/publication/2016-lake/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2016-lake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Observed variability of summer precipitation pattern and extreme events in China associated with variations of the East Asian summer monsoon</title>
+      <link>/publication/2016-precipiation/</link>
+      <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2016-precipiation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The concurrent variability of East Asian subtropical and polar-front jets and its implication for the winter climate anomaly in China</title>
+      <link>/publication/2016-jet/</link>
+      <pubDate>Wed, 22 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2016-jet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projected changes of wintertime synoptic-scale transient eddy activities in the East Asian eddy-driven jet from CMIP5 experiments</title>
+      <link>/publication/2015-cmip5/</link>
+      <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2015-cmip5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simulation of the westerly jet axis in boreal winter by the climate system model FGOALS-g2</title>
+      <link>/publication/2013-fgoals/</link>
+      <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2013-fgoals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Variability modes of the winter upper-level wind field over Asian mid-high latitude region</title>
+      <link>/publication/2013-zhang/</link>
+      <pubDate>Sat, 05 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2013-zhang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The East Asian upper-tropospheric jet streams and associated transient eddy activities simulated by a climate system model BCC_CSM1.1</title>
+      <link>/publication/2012-bcc/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2012-bcc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
