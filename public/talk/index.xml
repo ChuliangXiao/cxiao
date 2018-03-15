@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on Chuliang Xiao</title>
+    <link>/talk/</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on Chuliang Xiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>West Michigan Big Data Meetup</title>
+      <link>/talk/2018-meetup-big-data/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/talk/2018-meetup-big-data/</guid>
+      <description>At 6 PM, Dr. Xiao will present on Big Data and Climate Modeling. Dr. Xiao works at the National Oceanic and Atmospheric Administration (NOAA) Great Lakes Environmental Research Laboratory (GLERL) in Ann Arbor. He specializes in hydro-climatology and climate change in the Great Lakes region using regional numerical climate models. As a climate modeler, Dr. Xiao deals with &amp;ldquo;Big Meteorological Data&amp;rdquo; from in-situ observation stations, buoys, radars, satellites, and mostly numerical models.</description>
+    </item>
+    
+    <item>
+      <title>Implementing the WRF-Hydro Modeling System in the Great Lakes Region</title>
+      <link>/talk/2018-ams-austin/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/talk/2018-ams-austin/</guid>
+      <description>As a physics-based, spatially-distributed hydrologic modeling system, the community Weather Research and Forecasting model (WRF) hydrological extension package (WRF-Hydro) has been used in several streamflow prediction applications in the U.S. and around the world, including the National Water Model (NWM) at the newly established NOAA National Water Center. However, because of lack of consistency of the geofabric data along the U.S. and Canada borders, the Great Lakes basin is not entirely included in NWM, leaving a substantial gap for applying the national model to the water-dominated region.</description>
+    </item>
+    
+  </channel>
+</rss>
