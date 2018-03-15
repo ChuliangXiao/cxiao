@@ -13,13 +13,21 @@
     
     
     <item>
+      <title>From NCL to R</title>
+      <link>/post/from-ncl-to-r/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/from-ncl-to-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hello World</title>
       <link>/post/hello-world/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/hello-world/</guid>
-      <description>I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now.
-As a meteorological researcher working with numerical models and datasets, I am more of a data scientist. Programming wise, I have being on the traditional track: starting with the basis of C and Fortran, then the script visualization tool in Atmospheric Science GrADS for a while before transitioning to NCL.</description>
+      <description>I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp;amp; Data Science from a geoscience perspective.</description>
     </item>
     
   </channel>

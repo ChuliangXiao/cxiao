@@ -1,0 +1,15 @@
+---
+title: From NCL to R
+author: Chuliang Xiao
+date: '2018-03-16'
+slug: from-ncl-to-r
+categories:
+  - Data Science
+tags:
+  - R
+  - NCL
+header:
+  caption: ''
+  image: 'post/NCL2R.jpg'
+---
+

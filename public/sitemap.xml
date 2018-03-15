@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/from-ncl-to-r/</loc>
+      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/hello-world/</loc>
       <lastmod>2018-03-15T00:00:00+00:00</lastmod>
     </url>
@@ -188,6 +197,26 @@
     
     <url>
     
+      <loc>/categories/data-science/</loc>
+      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/ncl/</loc>
+      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/</loc>
       <lastmod>2016-10-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -199,7 +228,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-03-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -209,7 +238,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2018-03-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
