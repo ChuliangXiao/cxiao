@@ -10,7 +10,7 @@ title = "Chuliang Xiao"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2018"
+copyright = "&copy; 2018 Chuliang Xiao"
 
 theme = "hugo-academic"
 enableEmoji = true
@@ -151,7 +151,7 @@ defaultContentLanguageInSubdir = false
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
-  custom_css = []
+  custom_css = ["blue.css"]
   custom_js  = []
 
   # Publication types.
