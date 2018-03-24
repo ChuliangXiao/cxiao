@@ -33,4 +33,9 @@ weight = 5
 
   I am a postdoctoral research fellow at the University of Michigan's [Cooperative Institute for Great Lakes Research (CIGLR)](http://ciglr.seas.umich.edu) working at the National Oceanic and Atmospheric Administration (NOAA) [Great Lakes Environmental Research Laboratory (GLERL)](http://glerl.noaa.gov) in Ann Arbor, Michigan. My fields of specialization include research on hydroclimatology and climate change in the Great Lakes region using numerical models ([WRF](https://www.mmm.ucar.edu/weather-research-and-forecasting-model) and [WRF-Hydro](https://ral.ucar.edu/projects/wrf_hydro/overview)).
 
-  As a modeler in Atmospheric Sciences, I am playing with "Big Meteorological Data" from in-situ observation stations, buoys, radars, satellites, and mostly numerical models. Specifically, I employ a sophisticated regional climate model (WRF-Lake)  to conduct long-term simulations and projections of the hydroclimatology in Great Lakes region.
+- **Data Analysis**
+Developing novel approaches to analyze a variety of datasets in climate science using advanced diagnostic and statistical tools like _Linux/BASH_, NCAR Command Language (_NCL_), _Python_ (`NumPy`, `Pandas`, `XArray`), and _R_ language.
+- **R Developer**
+Focusing on R-based on packages including data manipulation and visualization (`tidyverse`, `gridExtra`), meteorological big data (`data.table`, `ncdf4`, `rwrfhydro`) and R geospatial analysis (`raster`, `rgdal`, `ggmap`), and interactive web applications (`mapview`, `RStudio/shiny`, `plotly.R`)
+- **Numerical Modeling**
+Implementing state-of-the-art climatic and hydrological models to improve the understanding of air-lake interaction, regional climate responses to global warming, flooding and lake level.
