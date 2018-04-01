@@ -11,6 +11,36 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Comparison: sort, order and arrange</title>
+      <link>/post/comparison-sort-order-and-arrange/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-sort-order-and-arrange/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.cookbook-r.com/Manipulating_data/Sorting/&#34; class=&#34;uri&#34;&gt;http://www.cookbook-r.com/Manipulating_data/Sorting/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Comparison: transform, within and mutate</title>
+      <link>/post/comparison-transform-within-and-mutate/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-transform-within-and-mutate/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/22417662/what-is-the-difference-between-transform-and-within&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/22417662/what-is-the-difference-between-transform-and-within&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Comparison: subset and filter</title>
+      <link>/post/comparison-subset-and-filter/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-subset-and-filter/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/39882463/difference-between-subset-and-filter-from-dplyr&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/39882463/difference-between-subset-and-filter-from-dplyr&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>From NCL to R</title>
       <link>/post/from-ncl-to-r/</link>
       <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
@@ -151,33 +181,6 @@
       <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>/publication/2015-cmip5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simulation of the westerly jet axis in boreal winter by the climate system model FGOALS-g2</title>
-      <link>/publication/2013-fgoals/</link>
-      <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2013-fgoals/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Variability modes of the winter upper-level wind field over Asian mid-high latitude region</title>
-      <link>/publication/2013-zhang/</link>
-      <pubDate>Sat, 05 Jan 2013 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2013-zhang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The East Asian upper-tropospheric jet streams and associated transient eddy activities simulated by a climate system model BCC_CSM1.1</title>
-      <link>/publication/2012-bcc/</link>
-      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2012-bcc/</guid>
       <description></description>
     </item>
     

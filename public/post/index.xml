@@ -13,6 +13,33 @@
     
     
     <item>
+      <title>Comparison: sort, order and arrange</title>
+      <link>/post/comparison-sort-order-and-arrange/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-sort-order-and-arrange/</guid>
+      <description>http://www.cookbook-r.com/Manipulating_data/Sorting/</description>
+    </item>
+    
+    <item>
+      <title>Comparison: transform, within and mutate</title>
+      <link>/post/comparison-transform-within-and-mutate/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-transform-within-and-mutate/</guid>
+      <description>https://stackoverflow.com/questions/22417662/what-is-the-difference-between-transform-and-within</description>
+    </item>
+    
+    <item>
+      <title>Comparison: subset and filter</title>
+      <link>/post/comparison-subset-and-filter/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/comparison-subset-and-filter/</guid>
+      <description>https://stackoverflow.com/questions/39882463/difference-between-subset-and-filter-from-dplyr</description>
+    </item>
+    
+    <item>
       <title>From NCL to R</title>
       <link>/post/from-ncl-to-r/</link>
       <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
