@@ -12,5 +12,59 @@ header:
   caption: ''
   image: ''
 ---
+* **vector** (or factor)  
+---  
+```{r}
+(x <- swiss$Education[1:20])
+# sort the vector
+sort(x)
+# partial sort ing
+sort(x, partial = c(10, 15))
+```
+Partial sorting in R is different with that in [Wikipedia](http://en.wikipedia.org/wiki/Partial_sorting). See [Stack Overflow](https://stackoverflow.com/a/23579512)
 
-http://www.cookbook-r.com/Manipulating_data/Sorting/
+* **data.frame**  
+--- 
+1. order
+```{r}
+head(mtcars)
+# sort by mpg
+Rank1 <- mtcars[order(mtcars$mpg), ]
+head(Rank1)
+# sort by cyl, then by hp
+Rank2 <- mtcars[order(mtcars$cyl, mtcars$hp), ]
+head(Rank2)
+# reverse sort
+Rank3 <- mtcars[order(-mtcars$cyl, mtcars$hp), ]
+head(Rank3)
+```
+If data.frame mtcars is `attach()`, then
+```{r}
+attach(mtcars)
+mpgRank <- mtcars[order(mpg), ]
+head(mpgRank)
+```
+2. dplyr::arrange
+```{r message = F, error = F, warning = F}
+library(dplyr)
+```
+
+```{r warning = F}
+Rank4 <- arrange(mtcars, mpg)
+head(Rank4)
+
+Rank5 <- arrange(mtcars, cyl, hp)
+head(Rank5)
+
+Rank6 <- arrange(mtcars, -cyl, hp)
+head(Rank6)
+```
+
+3. difference between order and arrange  
+    + row names: `order` keep the row names of mtcars, while not in `dplyr::arrange`  
+    + efficency: `dplyr::arrange` tends to be faster when there are lots of rows.  
+
+
+Refer to  
+1. [Cookbook for R](http://www.cookbook-r.com/Manipulating_data/Sorting/)  
+2. [Quick-R](https://www.statmethods.net/management/sorting.html)  

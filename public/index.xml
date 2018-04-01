@@ -16,7 +16,115 @@
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-sort-order-and-arrange/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.cookbook-r.com/Manipulating_data/Sorting/&#34; class=&#34;uri&#34;&gt;http://www.cookbook-r.com/Manipulating_data/Sorting/&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&#34;vector-or-factor&#34;&gt;&lt;strong&gt;vector&lt;/strong&gt; (or factor)&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(x &amp;lt;- swiss$Education[1:20])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 12  9  5  7 15  7  7  8  7 13  6 12  7 12  5  2  8 28 20  9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# sort the vector
+sort(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  2  5  5  6  7  7  7  7  7  8  8  9  9 12 12 12 13 15 20 28&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# partial sort ing
+sort(x, partial = c(10, 15))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  2  5  5  7  7  7  7  6  7  8  8  9  9 12 12 12 13 28 20 15&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Partial sorting in R is different with that in &lt;a href=&#34;http://en.wikipedia.org/wiki/Partial_sorting&#34;&gt;Wikipedia&lt;/a&gt;. See &lt;a href=&#34;https://stackoverflow.com/a/23579512&#34;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&#34;data.frame&#34;&gt;&lt;strong&gt;data.frame&lt;/strong&gt;&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;order&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# sort by mpg
+Rank1 &amp;lt;- mtcars[order(mtcars$mpg), ]
+head(Rank1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8  301 335 3.54 3.570 14.60  0  1    5    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# sort by cyl, then by hp
+Rank2 &amp;lt;- mtcars[order(mtcars$cyl, mtcars$hp), ]
+head(Rank2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 mpg cyl  disp hp drat    wt  qsec vs am gear carb
+## Honda Civic    30.4   4  75.7 52 4.93 1.615 18.52  1  1    4    2
+## Merc 240D      24.4   4 146.7 62 3.69 3.190 20.00  1  0    4    2
+## Toyota Corolla 33.9   4  71.1 65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128       32.4   4  78.7 66 4.08 2.200 19.47  1  1    4    1
+## Fiat X1-9      27.3   4  79.0 66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3 91 4.43 2.140 16.70  0  1    5    2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# reverse sort
+Rank3 &amp;lt;- mtcars[order(-mtcars$cyl, mtcars$hp), ]
+head(Rank3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Dodge Challenger  15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Pontiac Firebird  19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Merc 450SE        16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL        17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If data.frame mtcars is &lt;code&gt;attach()&lt;/code&gt;, then&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(mtcars)
+mpgRank &amp;lt;- mtcars[order(mpg), ]
+head(mpgRank)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8  301 335 3.54 3.570 14.60  0  1    5    8&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;dplyr::arrange&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Rank4 &amp;lt;- arrange(mtcars, mpg)
+head(Rank4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1 10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+## 2 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+## 3 13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
+## 4 14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+## 5 14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+## 6 15.0   8  301 335 3.54 3.570 14.60  0  1    5    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Rank5 &amp;lt;- arrange(mtcars, cyl, hp)
+head(Rank5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    mpg cyl  disp hp drat    wt  qsec vs am gear carb
+## 1 30.4   4  75.7 52 4.93 1.615 18.52  1  1    4    2
+## 2 24.4   4 146.7 62 3.69 3.190 20.00  1  0    4    2
+## 3 33.9   4  71.1 65 4.22 1.835 19.90  1  1    4    1
+## 4 32.4   4  78.7 66 4.08 2.200 19.47  1  1    4    1
+## 5 27.3   4  79.0 66 4.08 1.935 18.90  1  1    4    1
+## 6 26.0   4 120.3 91 4.43 2.140 16.70  0  1    5    2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Rank6 &amp;lt;- arrange(mtcars, -cyl, hp)
+head(Rank6)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1 15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## 2 15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## 3 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## 4 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## 5 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## 6 17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;difference between order and arrange
+&lt;ul&gt;
+&lt;li&gt;row names: &lt;code&gt;order&lt;/code&gt; keep the row names of mtcars, while not in &lt;code&gt;dplyr::arrange&lt;/code&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;efficency: &lt;code&gt;dplyr::arrange&lt;/code&gt; tends to be faster when there are lots of rows.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Refer to&lt;br /&gt;
+1. &lt;a href=&#34;http://www.cookbook-r.com/Manipulating_data/Sorting/&#34;&gt;Cookbook for R&lt;/a&gt;&lt;br /&gt;
+2. &lt;a href=&#34;https://www.statmethods.net/management/sorting.html&#34;&gt;Quick-R&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -36,7 +144,7 @@
       <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-subset-and-filter/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/39882463/difference-between-subset-and-filter-from-dplyr&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/39882463/difference-between-subset-and-filter-from-dplyr&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/a/39882777&#34;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
