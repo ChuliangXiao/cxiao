@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="vector (or factor)(x &lt;- swiss$Education[1:20])## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9# sort the vectorsort(x)## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28# partial sort ingsort(x, partial = c(10, 15))## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15Partial sorting in R is different with that in Wikipedia.">
+  <meta name="description" content="vector (or factor)(x &lt;- swiss$Education[1:20])## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9# sort the vectorsort(x)## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28# partial sortingsort(x, partial = c(10, 15))## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15Partial sorting in R is different with that in Wikipedia.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/comparison-sort-order-and-arrange/">
@@ -81,7 +81,7 @@
   <meta property="og:site_name" content="Chuliang Xiao">
   <meta property="og:url" content="/post/comparison-sort-order-and-arrange/">
   <meta property="og:title" content="Comparison: sort, order and arrange | Chuliang Xiao">
-  <meta property="og:description" content="vector (or factor)(x &lt;- swiss$Education[1:20])## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9# sort the vectorsort(x)## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28# partial sort ingsort(x, partial = c(10, 15))## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15Partial sorting in R is different with that in Wikipedia.">
+  <meta property="og:description" content="vector (or factor)(x &lt;- swiss$Education[1:20])## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9# sort the vectorsort(x)## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28# partial sortingsort(x, partial = c(10, 15))## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15Partial sorting in R is different with that in Wikipedia.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-03-28T00:00:00&#43;00:00">
@@ -349,7 +349,7 @@
 <pre class="r"><code># sort the vector
 sort(x)</code></pre>
 <pre><code>##  [1]  2  5  5  6  7  7  7  7  7  8  8  9  9 12 12 12 13 15 20 28</code></pre>
-<pre class="r"><code># partial sort ing
+<pre class="r"><code># partial sorting
 sort(x, partial = c(10, 15))</code></pre>
 <pre><code>##  [1]  2  5  5  7  7  7  7  6  7  8  8  9  9 12 12 12 13 28 20 15</code></pre>
 <p>Partial sorting in R is different with that in <a href="http://en.wikipedia.org/wiki/Partial_sorting">Wikipedia</a>. See <a href="https://stackoverflow.com/a/23579512">Stack Overflow</a></p>

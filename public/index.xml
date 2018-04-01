@@ -24,7 +24,7 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# sort the vector
 sort(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1]  2  5  5  6  7  7  7  7  7  8  8  9  9 12 12 12 13 15 20 28&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# partial sort ing
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# partial sorting
 sort(x, partial = c(10, 15))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1]  2  5  5  7  7  7  7  6  7  8  8  9  9 12 12 12 13 28 20 15&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Partial sorting in R is different with that in &lt;a href=&#34;http://en.wikipedia.org/wiki/Partial_sorting&#34;&gt;Wikipedia&lt;/a&gt;. See &lt;a href=&#34;https://stackoverflow.com/a/23579512&#34;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
