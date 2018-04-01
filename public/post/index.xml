@@ -18,7 +18,8 @@
       <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/from-ncl-to-r/</guid>
-      <description></description>
+      <description>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
+Unformated BinaryI have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.Self-decribed BinaryNCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
     </item>
     
     <item>

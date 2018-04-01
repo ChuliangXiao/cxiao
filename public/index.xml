@@ -16,7 +16,33 @@
       <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/from-ncl-to-r/</guid>
-      <description></description>
+      <description>&lt;p&gt;From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unformated Binary&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-decribed Binary&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;NCL uses a single function &lt;code&gt;addfile&lt;/code&gt; to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;NCL and R variables not only support &lt;em&gt;attributes&lt;/em&gt;, &lt;em&gt;dimension names&lt;/em&gt;.
+&lt;ul&gt;
+&lt;li&gt;NCL defaultly supports &lt;em&gt;coordinates&lt;/em&gt; to its variables, while R does this in the &lt;code&gt;Spatial*&lt;/code&gt; classes and is more powerful in GIS.&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;For Lambert Conformal Conic (LCC), NCL variables can have 2-dimensional coordinate attributes (lat2d and lon2d), which then can be automatically plotted to a basemap in any projection, which to me is huge advantage.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;N-Dimensional Array&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;The concept of &lt;code&gt;Array&lt;/code&gt; is pretty week in R, such as &lt;em&gt;Vector&lt;/em&gt; and &lt;em&gt;Matrix&lt;/em&gt;, while multi-dimensional arrays, such like a temperature variable T(ensemble, time, lev, lat, lon), are so popular in NCL.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tabular&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;No need to verbose, &lt;code&gt;data.frame&lt;/code&gt; is what makes R what it is.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>

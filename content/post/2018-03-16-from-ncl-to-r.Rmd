@@ -13,3 +13,17 @@ header:
   image: 'post/NCL2R.jpg'
 ---
 
+From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
+
+* **Unformated Binary**
+    + I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.
+
+* **Self-decribed Binary**  
+    + NCL uses a single function `addfile` to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.  
+    + NCL and R variables not only support _attributes_, _dimension names_.  
+        - NCL defaultly supports _coordinates_ to its variables, while R does this in the `Spatial*` classes and is more powerful in GIS.   
+        - For Lambert Conformal Conic (LCC), NCL variables can have 2-dimensional coordinate attributes (lat2d and lon2d), which then can be automatically plotted to a basemap in any projection, which to me is huge advantage.
+* **N-Dimensional Array**  
+    + The concept of `Array` is pretty week in R, such as _Vector_ and _Matrix_, while multi-dimensional arrays, such like a temperature variable T(ensemble, time, lev, lat, lon), are so popular in NCL.
+* **Tabular**  
+    + No need to verbose, `data.frame` is what makes R what it is.
