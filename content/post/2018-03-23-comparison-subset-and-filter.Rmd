@@ -13,4 +13,18 @@ header:
   image: ''
 ---
 
+A detailed [introduction](http://adv-r.had.co.nz/Subsetting.html) on `subsetting` is seen in Hadley Wickham's **Advanced R**.  
+
+> * The three subsetting operators. 
+> * The six types of subsetting. 
+> * Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).  
+
+[Benjamin](https://stackoverflow.com/users/1017276/benjamin) on [Stack Overflow](https://stackoverflow.com/a/39882777) answered the question [^1] of the comparison between `subset()` and `dplyr::filter()`.  
+
+> * They are, indeed, producing the same result, and they are very similar in concept.
+
+> * As the data sets grow, `filter` seems gains the upper hand in efficiency.   
+
+
+[^1]: The use of subsetting in conjunction with assignment.
 [Stack Overflow](https://stackoverflow.com/a/39882777)

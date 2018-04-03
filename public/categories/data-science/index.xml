@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Chuliang Xiao</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Chuliang Xiao</description>
+    <title>Data Science on Chuliang Xiao</title>
+    <link>/categories/data-science/</link>
+    <description>Recent content in Data Science on Chuliang Xiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -50,15 +50,6 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
       <guid>/post/from-ncl-to-r/</guid>
       <description>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
  Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>/post/hello-world/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/hello-world/</guid>
-      <description>I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp;amp; Data Science from a geoscience perspective.</description>
     </item>
     
   </channel>

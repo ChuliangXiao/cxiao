@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Chuliang Xiao</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Chuliang Xiao</description>
+    <title>Comparison on Chuliang Xiao</title>
+    <link>/categories/comparison/</link>
+    <description>Recent content in Comparison on Chuliang Xiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/comparison/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -40,25 +40,6 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
       <description>A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
   The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
   They are, indeed, producing the same result, and they are very similar in concept.</description>
-    </item>
-    
-    <item>
-      <title>From NCL to R</title>
-      <link>/post/from-ncl-to-r/</link>
-      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/from-ncl-to-r/</guid>
-      <description>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>/post/hello-world/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/hello-world/</guid>
-      <description>I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp;amp; Data Science from a geoscience perspective.</description>
     </item>
     
   </channel>

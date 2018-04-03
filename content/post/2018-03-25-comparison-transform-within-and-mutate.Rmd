@@ -12,5 +12,41 @@ header:
   caption: ''
   image: ''
 ---
+Here is another comparison between two basic functions `transform` and `within`, and a tidyverse function `dplyr::mutate`. They all can be used for data munipulation, adding a new column to a data.frame.  
+```{r}
+head(mtcars)  
+```
 
-https://stackoverflow.com/questions/22417662/what-is-the-difference-between-transform-and-within
+### One variable
+Calculate horse power per cylinder (`hp/cyl`) and add it to `mtcars`
+```{r warning = F, message = F}
+tmp1  <- transform(mtcars, hpc = round(hp / cyl))
+head(tmp1)
+tmp2 <- within(mtcars, {hpc <- round(hp / cyl)})
+# tmp1 and tmp2 are identicial
+head(tmp2)
+library(dplyr)
+tmp3 <- mutate(mtcars, hpc = round(hp / cyl))
+# tmp3 is ALMOST the same as tmp1 and tmp2, except that row names are missed
+head(tmp3)
+```
+### two variables
+A variable created by `transform` process cannot be used[^1].  
+The example below fails.
+
+`tmp1  <- transform(mtcars, hpc = round(hp / cyl), hpc1 = hpc + 1)`
+
+While `within` and `dplyr::mutate` are OK[^2].  
+```{r warning = F, message = F}
+tmp2 <- within(mtcars, {hpc  <- round(hp / cyl)
+                        hpc1 <- hpc + 1 })
+head(tmp2)
+
+tmp3 <- mutate(mtcars, hpc = round(hp / cyl), hpc1 = hpc + 1)
+head(tmp3)
+```
+
+
+[^1]: What is the difference between `transform` and `within`
+[Stack Overflow](https://stackoverflow.com/a/22417775)
+[^2]: [Data manipulation using transform(), within(), or plyr::mutate()](http://rstudio-pubs-static.s3.amazonaws.com/1053_c089bd9190624b37b1180b91d2776e10.html)
