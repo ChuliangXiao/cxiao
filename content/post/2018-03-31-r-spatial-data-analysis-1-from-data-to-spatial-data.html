@@ -1,0 +1,167 @@
+---
+title: 'R Spatial Data Analysis 1: from Data to Spatial Data'
+author: CXiao
+date: '2018-03-31'
+slug: r-spatial-data-analysis-1-from-data-to-spatial-data
+categories:
+  - Data Science
+  - Spatial
+tags: 
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.</p>
+<div id="data-and-plots" class="section level3">
+<h3>Data and Plots</h3>
+<div id="basic-plot" class="section level4">
+<h4>basic plot</h4>
+<pre class="r"><code>attach(mtcars)
+par(mfrow = c(1,2))
+plot(mpg, wt, main = &quot;wt vs. mpg&quot;)
+hist(mpg)</code></pre>
+<p><img src="/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ggplot2" class="section level3">
+<h3>ggplot2</h3>
+<pre class="r"><code>library(ggplot2)
+p1  &lt;- ggplot(mtcars, aes(x = mpg, y = wt)) + 
+  geom_point() +
+  ggtitle(&quot;wt vs. mpg&quot;) +
+  theme(plot.title = element_text(hjust = 0.5))
+p2  &lt;- ggplot(mtcars, aes(mpg)) +
+  geom_histogram(binwidth = 5, color = &#39;black&#39;, fill = &#39;white&#39;) +
+  ggtitle(&quot;mpg Histogram&quot;) +
+  theme(plot.title = element_text(hjust = 0.5))  
+library(grid)
+library(gridExtra)
+grid.arrange(p1, p2, ncol = 2)</code></pre>
+<p><img src="/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="spatial-data-and-plots" class="section level4">
+<h4>Spatial Data and Plots</h4>
+</div>
+</div>
+<div id="shape-objects" class="section level3">
+<h3>Shape objects</h3>
+<blockquote>
+<p><strong>shape objects</strong> as objects from the class <code>Spatial</code> or <code>Raster</code>, respectively from the <code>sp</code> and the <code>raster</code> package. The supported subclasses are<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Without data</th>
+<th>With data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Polygons</td>
+<td>SpatialPolygons</td>
+<td>SpatialPolygonsDataFrame</td>
+</tr>
+<tr class="even">
+<td>Points</td>
+<td>SpatialPoints</td>
+<td>SpatialPointsDataFrame</td>
+</tr>
+<tr class="odd">
+<td>Lines</td>
+<td>SpatialLines</td>
+<td>SpatialLinesDataFrame</td>
+</tr>
+<tr class="even">
+<td>Raster</td>
+<td>SpatialGrid</td>
+<td>SpatialGridDataFrame</td>
+</tr>
+<tr class="odd">
+<td>Raster</td>
+<td>SpatialPixels</td>
+<td>SpatialPixelsDataFrame</td>
+</tr>
+<tr class="even">
+<td>Raster</td>
+<td></td>
+<td>RasterLayer</td>
+</tr>
+<tr class="odd">
+<td>Raster</td>
+<td></td>
+<td>RasterBrick</td>
+</tr>
+<tr class="even">
+<td>Raster</td>
+<td></td>
+<td>RasterStack</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="reading" class="section level3">
+<h3>Reading</h3>
+<ul>
+<li>Tutorial: <a href="https://github.com/Robinlovelace/Creating-maps-in-R">Creating maps in R</a> by Robin Lovelance and James Cheshire</li>
+<li>website <a href="https://www.r-spatial.org">r-spaital.org</a> by Edzer Pebesma<br />
+</li>
+<li>CRAN Task View: <a href="https://CRAN.R-project.org/view=Spatial">Analysis of Spatial Data</a> by Roger Bivand</li>
+</ul>
+</div>
+<div id="packages" class="section level3">
+<h3>Packages</h3>
+<ul>
+<li><code>rgdal</code>: R’s interface to Geospatial Data Abstraction Library (GDAL)
+<ul>
+<li><code>rgdal::readOGR</code>, to read OGR vector maps (e.g. shapfile) into Spatial objects<br />
+</li>
+</ul></li>
+<li><code>rgeos</code>: R’s interface to the powerful vector processing library geos<br />
+</li>
+<li><code>maptools</code>: provides various mapping functions<br />
+</li>
+<li><code>tmap</code>: a new packages for rapidly creating beautiful maps
+<ul>
+<li>An extenstion wrap of the basic <code>plot</code></li>
+<li><code>qtm</code>, quick thematic map plot<br />
+</li>
+<li><code>tm_shape</code>, <code>tm_fill</code></li>
+</ul></li>
+<li><code>ggmap</code>: extends the plotting package <code>ggplot2</code> for maps
+<ul>
+<li>add a variaty of basemaps</li>
+</ul></li>
+<li><code>leaflet</code>: interactive map from its <a href="http://leafletjs.com/">JavaScript</a><br />
+</li>
+<li><code>mapview</code>: interactive viewing spatial data based on <code>leaflet</code>
+<ul>
+<li>Personally I like <code>mapview</code>’s popup function, see <a href="https://r-spatial.github.io/mapview/">tutorial</a><br />
+</li>
+<li>It spports <code>sp</code>, <code>raster</code>, <code>sf</code> and <a href="https://cran.r-project.org/package=satellite"><code>satellite</code></a></li>
+</ul></li>
+</ul>
+<div id="maptoolsreadshapespatial" class="section level5">
+<h5>maptools::readShapeSpatial</h5>
+<blockquote>
+<p>The use of <code>maptools::readShapeSpatial</code> has been <strong>deprecated</strong>. Use <code>rgdal::readOGR</code> and <code>sf::st_read</code> instead.</p>
+</blockquote>
+</div>
+</div>
+<div id="beyond-sp-package" class="section level3">
+<h3>Beyond <code>sp</code> package</h3>
+<ul>
+<li><code>sf</code> <a href="../r-spatial-data-analysis-3-simple-features">simple feature package</a><br />
+</li>
+<li><code>star</code> <a href="../r-spatial-data-analysis-4-stars">spatiotemporal didy arrays for R</a></li>
+</ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html">tmap in a nuthell</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>

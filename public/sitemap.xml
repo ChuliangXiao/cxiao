@@ -5,6 +5,42 @@
     
     <url>
     
+      <loc>/post/r-spatial-data-analysis-4-stars/</loc>
+      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/post/r-spatial-data-analysis-3-simple-features/</loc>
+      <lastmod>2018-04-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/post/r-spatial-data-analysis-2-spatial-class/</loc>
+      <lastmod>2018-04-02T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</loc>
+      <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/comparison-sort-order-and-arrange/</loc>
       <lastmod>2018-03-28T00:00:00+00:00</lastmod>
     </url>
@@ -235,7 +271,7 @@
     <url>
     
       <loc>/categories/data-science/</loc>
-      <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -265,7 +301,17 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-03-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/spatial/</loc>
+      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

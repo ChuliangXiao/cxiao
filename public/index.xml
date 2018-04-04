@@ -11,6 +11,216 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>R Spatial Data Analysis 4: stars</title>
+      <link>/post/r-spatial-data-analysis-4-stars/</link>
+      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-4-stars/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2018/03/22/stars2.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2018/03/22/stars2.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R Spatial Data Analysis 3: Simple Features </title>
+      <link>/post/r-spatial-data-analysis-3-simple-features/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-3-simple-features/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R Spatial Data Analysis 2: Spatial Class</title>
+      <link>/post/r-spatial-data-analysis-2-spatial-class/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
+      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;getClass(&amp;#39;Spatial&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]
+## 
+## Slots:
+##                               
+## Name:         bbox proj4string
+## Class:      matrix         CRS
+## 
+## Known Subclasses: 
+## Class &amp;quot;SpatialPoints&amp;quot;, directly
+## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly
+## Class &amp;quot;SpatialGrid&amp;quot;, directly
+## Class &amp;quot;SpatialLines&amp;quot;, directly
+## Class &amp;quot;SpatialPolygons&amp;quot;, directly
+## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2
+## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2
+## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2
+## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2
+## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2
+## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3
+## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R Spatial Data Analysis 1: from Data to Spatial Data</title>
+      <link>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</link>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</guid>
+      <description>&lt;p&gt;As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.&lt;/p&gt;
+&lt;div id=&#34;data-and-plots&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data and Plots&lt;/h3&gt;
+&lt;div id=&#34;basic-plot&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;basic plot&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(mtcars)
+par(mfrow = c(1,2))
+plot(mpg, wt, main = &amp;quot;wt vs. mpg&amp;quot;)
+hist(mpg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ggplot2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;ggplot2&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+p1  &amp;lt;- ggplot(mtcars, aes(x = mpg, y = wt)) + 
+  geom_point() +
+  ggtitle(&amp;quot;wt vs. mpg&amp;quot;) +
+  theme(plot.title = element_text(hjust = 0.5))
+p2  &amp;lt;- ggplot(mtcars, aes(mpg)) +
+  geom_histogram(binwidth = 5, color = &amp;#39;black&amp;#39;, fill = &amp;#39;white&amp;#39;) +
+  ggtitle(&amp;quot;mpg Histogram&amp;quot;) +
+  theme(plot.title = element_text(hjust = 0.5))  
+library(grid)
+library(gridExtra)
+grid.arrange(p1, p2, ncol = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;spatial-data-and-plots&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Spatial Data and Plots&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shape-objects&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Shape objects&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;shape objects&lt;/strong&gt; as objects from the class &lt;code&gt;Spatial&lt;/code&gt; or &lt;code&gt;Raster&lt;/code&gt;, respectively from the &lt;code&gt;sp&lt;/code&gt; and the &lt;code&gt;raster&lt;/code&gt; package. The supported subclasses are&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Without data&lt;/th&gt;
+&lt;th&gt;With data&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Polygons&lt;/td&gt;
+&lt;td&gt;SpatialPolygons&lt;/td&gt;
+&lt;td&gt;SpatialPolygonsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Points&lt;/td&gt;
+&lt;td&gt;SpatialPoints&lt;/td&gt;
+&lt;td&gt;SpatialPointsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Lines&lt;/td&gt;
+&lt;td&gt;SpatialLines&lt;/td&gt;
+&lt;td&gt;SpatialLinesDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;SpatialGrid&lt;/td&gt;
+&lt;td&gt;SpatialGridDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;SpatialPixels&lt;/td&gt;
+&lt;td&gt;SpatialPixelsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterLayer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterBrick&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterStack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reading&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reading&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;https://github.com/Robinlovelace/Creating-maps-in-R&#34;&gt;Creating maps in R&lt;/a&gt; by Robin Lovelance and James Cheshire&lt;/li&gt;
+&lt;li&gt;website &lt;a href=&#34;https://www.r-spatial.org&#34;&gt;r-spaital.org&lt;/a&gt; by Edzer Pebesma&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;CRAN Task View: &lt;a href=&#34;https://CRAN.R-project.org/view=Spatial&#34;&gt;Analysis of Spatial Data&lt;/a&gt; by Roger Bivand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;packages&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Packages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rgdal&lt;/code&gt;: R’s interface to Geospatial Data Abstraction Library (GDAL)
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rgdal::readOGR&lt;/code&gt;, to read OGR vector maps (e.g. shapfile) into Spatial objects&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rgeos&lt;/code&gt;: R’s interface to the powerful vector processing library geos&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;maptools&lt;/code&gt;: provides various mapping functions&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmap&lt;/code&gt;: a new packages for rapidly creating beautiful maps
+&lt;ul&gt;
+&lt;li&gt;An extenstion wrap of the basic &lt;code&gt;plot&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtm&lt;/code&gt;, quick thematic map plot&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tm_shape&lt;/code&gt;, &lt;code&gt;tm_fill&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggmap&lt;/code&gt;: extends the plotting package &lt;code&gt;ggplot2&lt;/code&gt; for maps
+&lt;ul&gt;
+&lt;li&gt;add a variaty of basemaps&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;leaflet&lt;/code&gt;: interactive map from its &lt;a href=&#34;http://leafletjs.com/&#34;&gt;JavaScript&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mapview&lt;/code&gt;: interactive viewing spatial data based on &lt;code&gt;leaflet&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Personally I like &lt;code&gt;mapview&lt;/code&gt;’s popup function, see &lt;a href=&#34;https://r-spatial.github.io/mapview/&#34;&gt;tutorial&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;It spports &lt;code&gt;sp&lt;/code&gt;, &lt;code&gt;raster&lt;/code&gt;, &lt;code&gt;sf&lt;/code&gt; and &lt;a href=&#34;https://cran.r-project.org/package=satellite&#34;&gt;&lt;code&gt;satellite&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;maptoolsreadshapespatial&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;maptools::readShapeSpatial&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The use of &lt;code&gt;maptools::readShapeSpatial&lt;/code&gt; has been &lt;strong&gt;deprecated&lt;/strong&gt;. Use &lt;code&gt;rgdal::readOGR&lt;/code&gt; and &lt;code&gt;sf::st_read&lt;/code&gt; instead.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;beyond-sp-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Beyond &lt;code&gt;sp&lt;/code&gt; package&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sf&lt;/code&gt; &lt;a href=&#34;../r-spatial-data-analysis-3-simple-features&#34;&gt;simple feature package&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;star&lt;/code&gt; &lt;a href=&#34;../r-spatial-data-analysis-4-stars&#34;&gt;spatiotemporal didy arrays for R&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html&#34;&gt;tmap in a nuthell&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Comparison: sort, order and arrange</title>
       <link>/post/comparison-sort-order-and-arrange/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
@@ -359,43 +569,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Because of lack of consistency of high-resolution terrain (also known as “geofabric”) data along the U.S. and Canada borders, the Great Lakes basin is not entirely included in the current version of NWM, leaving a substantial gap for applying the national model to the water-dominated region with the largest lake system on earth. Thus, a specific effort has been devoted to implementing the WRF-Hydro modeling system in the Great Lakes basin, including preparing high-resolution terrain datasets, parameterizing lakes and reservoirs, and calibrating the model.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Observed variability of summer precipitation pattern and extreme events in China associated with variations of the East Asian summer monsoon</title>
-      <link>/publication/2016-precipiation/</link>
-      <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2016-precipiation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The concurrent variability of East Asian subtropical and polar-front jets and its implication for the winter climate anomaly in China</title>
-      <link>/publication/2016-jet/</link>
-      <pubDate>Wed, 22 Jun 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2016-jet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WRF-Lake</title>
-      <link>/project/wrf-lake/</link>
-      <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/project/wrf-lake/</guid>
-      <description>&lt;p&gt;The lake module in WRF (original called LISSS, Subin et al. 2012) was obtained from the Community Land Model version 4.5 with some modifications by Gu et al. (2015), based on the origional concept of Hostetler and Bartlein (1990), which performs quite well in shallow lakes (depth &amp;lt; 50 m). (Incorporated in WRF since v3.6). Our work (Xiao et al. 2016) further updated the lake module in WRF with the surface albedo scheme and vertical diffusivity to improve the lake surface temperature and lake ice simulation in the Great Lakes.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Projected changes of wintertime synoptic-scale transient eddy activities in the East Asian eddy-driven jet from CMIP5 experiments</title>
-      <link>/publication/2015-cmip5/</link>
-      <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2015-cmip5/</guid>
-      <description></description>
     </item>
     
   </channel>

@@ -1,0 +1,19 @@
+---
+title: 'R Spatial Data Analysis 2: Spatial Class'
+author: CXiao
+date: '2018-04-02'
+slug: r-spatial-data-analysis-2-spatial-class
+categories:
+  - Spatial
+  - Data Science
+tags:
+  - R
+---
+```{r}
+library(sp)
+```
+
+```{r}
+getClass('Spatial')
+```
+

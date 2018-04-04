@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Science on Chuliang Xiao</title>
-    <link>/categories/data-science/</link>
-    <description>Recent content in Data Science on Chuliang Xiao</description>
+    <title>Spatial on Chuliang Xiao</title>
+    <link>/categories/spatial/</link>
+    <description>Recent content in Spatial on Chuliang Xiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
     <lastBuildDate>Fri, 06 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/spatial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -47,46 +47,6 @@
       <guid>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</guid>
       <description>As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
 Data and Plots basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &amp;quot;wt vs. mpg&amp;quot;) hist(mpg)   ggplot2 library(ggplot2) p1 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + ggtitle(&amp;quot;wt vs. mpg&amp;quot;) + theme(plot.title = element_text(hjust = 0.5)) p2 &amp;lt;- ggplot(mtcars, aes(mpg)) + geom_histogram(binwidth = 5, color = &amp;#39;black&amp;#39;, fill = &amp;#39;white&amp;#39;) + ggtitle(&amp;quot;mpg Histogram&amp;quot;) + theme(plot.</description>
-    </item>
-    
-    <item>
-      <title>Comparison: sort, order and arrange</title>
-      <link>/post/comparison-sort-order-and-arrange/</link>
-      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/comparison-sort-order-and-arrange/</guid>
-      <description>vector (or factor)  (x &amp;lt;- swiss$Education[1:20]) ## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9 # sort the vector sort(x) ## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28 # partial sorting sort(x, partial = c(10, 15)) ## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15 Partial sorting in R is different with that in Wikipedia.</description>
-    </item>
-    
-    <item>
-      <title>Comparison: transform, within and mutate</title>
-      <link>/post/comparison-transform-within-and-mutate/</link>
-      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/comparison-transform-within-and-mutate/</guid>
-      <description>Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.</description>
-    </item>
-    
-    <item>
-      <title>Comparison: subset and filter</title>
-      <link>/post/comparison-subset-and-filter/</link>
-      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/comparison-subset-and-filter/</guid>
-      <description>A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
-  The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
-  They are, indeed, producing the same result, and they are very similar in concept.</description>
-    </item>
-    
-    <item>
-      <title>From NCL to R</title>
-      <link>/post/from-ncl-to-r/</link>
-      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/from-ncl-to-r/</guid>
-      <description>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
     </item>
     
   </channel>

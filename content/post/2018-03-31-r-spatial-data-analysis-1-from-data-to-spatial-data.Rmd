@@ -1,0 +1,90 @@
+---
+title: 'R Spatial Data Analysis 1: from Data to Spatial Data'
+author: CXiao
+date: '2018-03-31'
+slug: r-spatial-data-analysis-1-from-data-to-spatial-data
+categories:
+  - Data Science
+  - Spatial
+tags: 
+  - R
+header:
+  caption: ''
+  image: ''
+---
+As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.  
+
+### Data and Plots  
+
+#### basic plot  
+```{r message = F}
+attach(mtcars)
+par(mfrow = c(1,2))
+plot(mpg, wt, main = "wt vs. mpg")
+hist(mpg)
+```
+
+### ggplot2 
+```{r message = F}
+library(ggplot2)
+p1  <- ggplot(mtcars, aes(x = mpg, y = wt)) + 
+  geom_point() +
+  ggtitle("wt vs. mpg") +
+  theme(plot.title = element_text(hjust = 0.5))
+p2  <- ggplot(mtcars, aes(mpg)) +
+  geom_histogram(binwidth = 5, color = 'black', fill = 'white') +
+  ggtitle("mpg Histogram") +
+  theme(plot.title = element_text(hjust = 0.5))  
+library(grid)
+library(gridExtra)
+grid.arrange(p1, p2, ncol = 2)
+```
+
+
+#### Spatial Data and Plots
+
+### Shape objects
+
+> **shape objects** as objects from the class `Spatial` or `Raster`, respectively from the `sp` and the `raster` package. The supported subclasses are[^1]
+
+|   	| Without data	| With data   	|
+|---	|---	|---	|
+|Polygons | SpatialPolygons	| SpatialPolygonsDataFrame|
+|Points 	| SpatialPoints  	| SpatialPointsDataFrame	|
+|Lines   	| SpatialLines  	| SpatialLinesDataFrame  	|
+|Raster  	| SpatialGrid  		| SpatialGridDataFrame  	|
+|Raster		| SpatialPixels  	| SpatialPixelsDataFrame 	|
+|Raster		| 					| RasterLayer				|
+|Raster		| 					| RasterBrick				|
+|Raster		| 					| RasterStack				|
+
+### Reading
+* Tutorial: [Creating maps in R](https://github.com/Robinlovelace/Creating-maps-in-R) by Robin Lovelance and James Cheshire
+* website [r-spaital.org](https://www.r-spatial.org) by Edzer Pebesma  
+* CRAN Task View: [Analysis of Spatial Data](https://CRAN.R-project.org/view=Spatial) by Roger Bivand 
+
+### Packages
+* `rgdal`: R's interface to Geospatial Data Abstraction Library (GDAL)  
+    + `rgdal::readOGR`, to read OGR vector maps (e.g. shapfile) into Spatial objects  
+* `rgeos`: R's interface to the powerful vector processing library geos  
+* `maptools`: provides various mapping functions  
+* `tmap`: a new packages for rapidly creating beautiful maps  
+    + An extenstion wrap of the basic `plot`
+    + `qtm`, quick thematic map plot  
+    + `tm_shape`, `tm_fill`
+* `ggmap`: extends the plotting package `ggplot2` for maps 
+    + add a variaty of basemaps
+* `leaflet`: interactive map from its [JavaScript](http://leafletjs.com/)  
+* `mapview`: interactive viewing spatial data based on `leaflet`
+    + Personally I like `mapview`'s popup function, see [tutorial](https://r-spatial.github.io/mapview/)   
+    + It spports `sp`, `raster`, `sf` and [`satellite`](https://cran.r-project.org/package=satellite)
+
+##### maptools::readShapeSpatial  
+
+> The use of `maptools::readShapeSpatial` has been **deprecated**. Use `rgdal::readOGR` and `sf::st_read` instead.
+
+### Beyond `sp` package
+* `sf` [simple feature package](../r-spatial-data-analysis-3-simple-features)  
+* `star` [spatiotemporal didy arrays for R](../r-spatial-data-analysis-4-stars)  
+
+[^1]: [tmap in a nuthell](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html)

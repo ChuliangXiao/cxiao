@@ -1,0 +1,13 @@
+---
+title: 'R Spatial Data Analysis 3: Simple Features '
+author: CXiao
+date: '2018-04-04'
+slug: r-spatial-data-analysis-3-simple-features
+categories:
+  - Data Science
+  - Spatial
+tags: 
+  - R
+---
+
+https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html
