@@ -82,6 +82,10 @@ library(tmap)
 spUS
 ```
 A Spatial class variable will not be entirely dumped out.
+```{r}
+# try tmap::qtm
+qtm(spUS)
+```
 
 ##### Difference between `data.fram` and `SpatialPointsDataFrame `
 * `data.frame` uses `$` to access its columns.  
