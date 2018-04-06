@@ -16,8 +16,10 @@ header:
 
 
 <p>As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.</p>
+<p>To introduce spatial data, let first start with comman data. Basic R data types: <code>vector</code>, <code>factor</code>, <code>matrix</code>, <code>data.frame</code>, and <code>list</code>.</p>
 <div id="data-and-plots" class="section level3">
 <h3>Data and Plots</h3>
+<p>There are many ways to munipulate and visualize data in R, including, typically, the basic and the <code>tidyverse</code> framework. Let’s warm up with plotting <code>data.frame</code>.</p>
 <div id="basic-plot" class="section level4">
 <h4>basic plot</h4>
 <pre class="r"><code>attach(mtcars)
@@ -44,13 +46,117 @@ grid.arrange(p1, p2, ncol = 2)</code></pre>
 <p><img src="/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div id="spatial-data-and-plots" class="section level4">
 <h4>Spatial Data and Plots</h4>
+<pre class="r"><code># Load a csv file as data.frame as usual
+dfUS &lt;- read.csv(&quot;/Users/cxiao/Documents/Rmd/Station_US.csv&quot;)
+# Take a look at the data.frame
+head(dfUS)</code></pre>
+<pre><code>##   Num Station      Lat       Lon Avail
+## 1   1 4074950 45.19133 -88.73779     1
+## 2   2 4177720 41.52899 -84.88253     1
+## 3   3 4077630 44.89831 -88.84534     1
+## 4   4 4109000 42.29428 -84.40427     1
+## 5   5 4178000 41.38407 -84.80254     1
+## 6   6 4180988 40.70275 -84.65022     1</code></pre>
+<pre class="r"><code># A bounch of USGS gages with lations
+dfUS$Station  &lt;- paste0(&quot;0&quot;, dfUS$Station)</code></pre>
+<p>How to transfer a data.frame to a spatial class?</p>
+<div id="first-get-the-coordinates" class="section level5">
+<h5>First, get the coordinates</h5>
+<pre class="r"><code>library(sp)
+coords  &lt;- SpatialPoints(dfUS[, c(&#39;Lon&#39;, &#39;Lat&#39;)])</code></pre>
+<p>Let’s check the above variable</p>
+<pre class="r"><code>class(coords)</code></pre>
+<pre><code>## [1] &quot;SpatialPoints&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;sp&quot;</code></pre>
+<pre class="r"><code>str(coords)</code></pre>
+<pre><code>## Formal class &#39;SpatialPoints&#39; [package &quot;sp&quot;] with 3 slots
+##   ..@ coords     : num [1:392, 1:2] -88.7 -84.9 -88.8 -84.4 -84.8 ...
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : NULL
+##   .. .. ..$ : chr [1:2] &quot;Lon&quot; &quot;Lat&quot;
+##   ..@ bbox       : num [1:2, 1:2] -92.6 40.7 -74.5 47.5
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr [1:2] &quot;Lon&quot; &quot;Lat&quot;
+##   .. .. ..$ : chr [1:2] &quot;min&quot; &quot;max&quot;
+##   ..@ proj4string:Formal class &#39;CRS&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. ..@ projargs: chr NA</code></pre>
+<pre class="r"><code>head(coords)</code></pre>
+<pre><code>## SpatialPoints:
+##            Lon      Lat
+## [1,] -88.73779 45.19133
+## [2,] -84.88253 41.52899
+## [3,] -88.84534 44.89831
+## [4,] -84.40427 42.29428
+## [5,] -84.80254 41.38407
+## [6,] -84.65022 40.70275
+## Coordinate Reference System (CRS) arguments: NA</code></pre>
+<p>We can see, it’s a SpatialPoints class, looking like data.frame, only with coordinates but with any meaningful data.</p>
 </div>
+<div id="second-assign-data-to-the-spatialpoints" class="section level5">
+<h5>Second, assign data to the SpatialPoints</h5>
+<pre class="r"><code>spUS  &lt;- SpatialPointsDataFrame(coords, dfUS)
+# Check the new variable
+class(spUS)</code></pre>
+<pre><code>## [1] &quot;SpatialPointsDataFrame&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;sp&quot;</code></pre>
+<pre class="r"><code>str(spUS)</code></pre>
+<pre><code>## Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots
+##   ..@ data       :&#39;data.frame&#39;:  392 obs. of  5 variables:
+##   .. ..$ Num    : int [1:392] 1 2 3 4 5 6 7 8 9 10 ...
+##   .. ..$ Station: chr [1:392] &quot;04074950&quot; &quot;04177720&quot; &quot;04077630&quot; &quot;04109000&quot; ...
+##   .. ..$ Lat    : num [1:392] 45.2 41.5 44.9 42.3 41.4 ...
+##   .. ..$ Lon    : num [1:392] -88.7 -84.9 -88.8 -84.4 -84.8 ...
+##   .. ..$ Avail  : int [1:392] 1 1 1 1 1 1 1 1 1 1 ...
+##   ..@ coords.nrs : num(0) 
+##   ..@ coords     : num [1:392, 1:2] -88.7 -84.9 -88.8 -84.4 -84.8 ...
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : NULL
+##   .. .. ..$ : chr [1:2] &quot;Lon&quot; &quot;Lat&quot;
+##   ..@ bbox       : num [1:2, 1:2] -92.6 40.7 -74.5 47.5
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr [1:2] &quot;Lon&quot; &quot;Lat&quot;
+##   .. .. ..$ : chr [1:2] &quot;min&quot; &quot;max&quot;
+##   ..@ proj4string:Formal class &#39;CRS&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. ..@ projargs: chr NA</code></pre>
+<pre class="r"><code>plot(spUS)</code></pre>
+<p><img src="/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
-<div id="shape-objects" class="section level3">
-<h3>Shape objects</h3>
-<blockquote>
-<p><strong>shape objects</strong> as objects from the class <code>Spatial</code> or <code>Raster</code>, respectively from the <code>sp</code> and the <code>raster</code> package. The supported subclasses are<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-</blockquote>
+<div id="after-tmap-is-loaded" class="section level5">
+<h5>After <code>tmap</code> is loaded</h5>
+<pre class="r"><code>library(tmap)
+spUS</code></pre>
+<pre><code>## class       : SpatialPointsDataFrame 
+## features    : 392 
+## extent      : -92.63297, -74.54355, 40.70275, 47.48204  (xmin, xmax, ymin, ymax)
+## coord. ref. : NA 
+## variables   : 5
+## names       : Num,          Station,      Lat,       Lon, Avail 
+## min values  :   1,         04015330, 40.70275, -74.54355,     0 
+## max values  : 392, 0441624088045601, 47.48204, -92.63297,     1</code></pre>
+<p>A Spatial class variable is not printed out.</p>
+</div>
+<div id="difference-between-data.fram-and-spatialpointsdataframe" class="section level5">
+<h5>Difference between <code>data.fram</code> and <code>SpatialPointsDataFrame</code></h5>
+<ul>
+<li><code>data.frame</code> uses <code>$</code> to access its columns.
+<ul>
+<li>e.g. <code>dfUS$Station</code></li>
+</ul></li>
+<li><code>SpatialPointsDataFrame</code> uses <code>@</code> to access its four lists: <code>data</code>, <code>coords.nrs</code>, <code>coords</code>, <code>bbox</code> and <code>proj4string</code>; while <code>$</code> to its <code>data</code> columns.
+<ul>
+<li>e.g. <code>spUS@data</code>, then <code>spUS@data$Station</code>, or simply <code>spUS$Station</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="another-quick-way" class="section level5">
+<h5>Another quick way</h5>
+<pre class="r"><code>pnt1  &lt;- dfUS
+coordinates(pnt1) = ~ Lon + Lat</code></pre>
+</div>
+<div id="shape-objects" class="section level5">
+<h5>Shape objects</h5>
 <table>
 <thead>
 <tr class="header">
@@ -102,6 +208,8 @@ grid.arrange(p1, p2, ncol = 2)</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
 <div id="reading" class="section level3">
 <h3>Reading</h3>
@@ -158,10 +266,4 @@ grid.arrange(p1, p2, ncol = 2)</code></pre>
 </li>
 <li><code>star</code> <a href="../r-spatial-data-analysis-4-stars">spatiotemporal didy arrays for R</a></li>
 </ul>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html">tmap in a nuthell</a><a href="#fnref1">↩</a></p></li>
-</ol>
 </div>

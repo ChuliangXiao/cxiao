@@ -12,9 +12,12 @@ header:
   caption: ''
   image: ''
 ---
-As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.  
+  As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.  
 
+  To introduce spatial data, let first start with comman data. Basic R data types: `vector`, `factor`, `matrix`, `data.frame`, and `list`.   
+  
 ### Data and Plots  
+  There are many ways to munipulate and visualize data in R, including, typically, the basic and the `tidyverse` framework. Let's warm up with plotting `data.frame`.   
 
 #### basic plot  
 ```{r message = F}
@@ -40,12 +43,59 @@ library(gridExtra)
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-
 #### Spatial Data and Plots
+```{r}
+# Load a csv file as data.frame as usual
+dfUS <- read.csv("/Users/cxiao/Documents/Rmd/Station_US.csv")
+# Take a look at the data.frame
+head(dfUS)
+# A bounch of USGS gages with lations
+dfUS$Station  <- paste0("0", dfUS$Station)
+```
+How to transfer a data.frame to a spatial class?  
 
-### Shape objects
+##### First, get the coordinates  
+```{r}
+library(sp)
+coords  <- SpatialPoints(dfUS[, c('Lon', 'Lat')])
+```
+Let's check the above variable  
+```{r}
+class(coords)
+str(coords)
+head(coords)
+```
+We can see, it's a SpatialPoints class, looking like data.frame, only with coordinates but with any meaningful data.  
 
-> **shape objects** as objects from the class `Spatial` or `Raster`, respectively from the `sp` and the `raster` package. The supported subclasses are[^1]
+##### Second, assign data to the SpatialPoints  
+```{r}
+spUS  <- SpatialPointsDataFrame(coords, dfUS)
+# Check the new variable
+class(spUS)
+str(spUS)
+plot(spUS)
+```
+
+##### After `tmap` is loaded
+```{r}
+library(tmap)
+spUS
+```
+A Spatial class variable is not printed out.  
+
+##### Difference between `data.fram` and `SpatialPointsDataFrame `
+* `data.frame` uses `$` to access its columns.  
+    + e.g. `dfUS$Station`
+* `SpatialPointsDataFrame ` uses `@` to access its four lists: `data`, `coords.nrs`, `coords`, `bbox` and `proj4string`; while `$` to its `data` columns.  
+    + e.g. `spUS@data`, then `spUS@data$Station`, or simply `spUS$Station`  
+    
+##### Another quick way  
+```{r}
+pnt1  <- dfUS
+coordinates(pnt1) = ~ Lon + Lat
+```
+
+##### Shape objects
 
 |   	| Without data	| With data   	|
 |---	|---	|---	|

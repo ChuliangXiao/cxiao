@@ -508,7 +508,9 @@
   <div class="article-style" itemprop="articleBody">
     
     As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
-Data and Plots basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs. mpg&quot;) hist(mpg)   ggplot2 library(ggplot2) p1 &lt;- ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + ggtitle(&quot;wt vs. mpg&quot;) + theme(plot.title = element_text(hjust = 0.5)) p2 &lt;- ggplot(mtcars, aes(mpg)) + geom_histogram(binwidth = 5, color = &#39;black&#39;, fill = &#39;white&#39;) + ggtitle(&quot;mpg Histogram&quot;) + theme(plot.
+To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
+Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
+basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
