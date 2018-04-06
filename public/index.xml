@@ -187,7 +187,7 @@ spUS&lt;/code&gt;&lt;/pre&gt;
 ## names       : Num,          Station,      Lat,       Lon, Avail 
 ## min values  :   1,         04015330, 40.70275, -74.54355,     0 
 ## max values  : 392, 0441624088045601, 47.48204, -92.63297,     1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A Spatial class variable is not printed out.&lt;/p&gt;
+&lt;p&gt;A Spatial class variable will not be entirely dumped out.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;difference-between-data.fram-and-spatialpointsdataframe&#34; class=&#34;section level5&#34;&gt;
 &lt;h5&gt;Difference between &lt;code&gt;data.fram&lt;/code&gt; and &lt;code&gt;SpatialPointsDataFrame&lt;/code&gt;&lt;/h5&gt;

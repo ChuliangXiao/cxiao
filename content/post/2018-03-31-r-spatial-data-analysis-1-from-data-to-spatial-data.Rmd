@@ -81,7 +81,7 @@ plot(spUS)
 library(tmap)
 spUS
 ```
-A Spatial class variable is not printed out.  
+A Spatial class variable will not be entirely dumped out.
 
 ##### Difference between `data.fram` and `SpatialPointsDataFrame `
 * `data.frame` uses `$` to access its columns.  
