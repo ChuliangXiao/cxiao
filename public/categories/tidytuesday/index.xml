@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TidyTuesday on Chuliang Xiao</title>
+    <link>/categories/tidytuesday/</link>
+    <description>Recent content in TidyTuesday on Chuliang Xiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
+    <lastBuildDate>Fri, 04 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/tidytuesday/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>US State and County Choropleth Map (Heatmap)</title>
+      <link>/post/us-state-and-county-choropleth-map-heatmap/</link>
+      <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
+      <description>In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
+https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
+ COUNS (48 states an DC)
+  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC
+   States  Map data from fiftyster  50 States and DC</description>
+    </item>
+    
+  </channel>
+</rss>

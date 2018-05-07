@@ -11,6 +11,89 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>US State and County Choropleth Map (Heatmap)</title>
+      <link>/post/us-state-and-county-choropleth-map-heatmap/</link>
+      <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
+      <description>&lt;p&gt;In this &lt;a href=&#34;https://twitter.com/search?q=%23TidyTuesday&amp;amp;src=tyah&#34;&gt;#TidyTuesday&lt;/a&gt; post, I try to show an example of putting together six common geographic visualization methods of &lt;a href=&#34;https://en.wikipedia.org/wiki/Heat_map&#34;&gt;&lt;strong&gt;heat map&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://en.wikipedia.org/wiki/Choropleth_map&#34;&gt;&lt;strong&gt;choropleth map&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Counties
+&lt;ul&gt;
+&lt;li&gt;Map data from &lt;code&gt;mpas&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ChuliangXiao/tidytuesday/blob/master/Week05/county_maps.Rmd&#34;&gt;Corrected&lt;/a&gt; to match with American Community Survey (ACS)&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;COUNS (48 states an DC)&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Map data from &lt;code&gt;albersusa&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;50 States and DC&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Using &lt;strong&gt;R6&lt;/strong&gt; class &lt;code&gt;choroplethr&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;50 States and DC&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;States
+&lt;ul&gt;
+&lt;li&gt;Map data from &lt;code&gt;fiftyster&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;50 States and DC&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;State bins from &lt;code&gt;statebins&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;50 States, DC and PR&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;State hexbins &lt;strong&gt;R6&lt;/strong&gt; class &lt;code&gt;geojsonion&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;50 States and DC&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;week-5---county-level-american-community-survey-5-year-estimates-2015&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Week 5 - County-level American Community Survey (5-year estimates) 2015&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/acs2015_county_data.csv&#34;&gt;RAW DATA&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml&#34;&gt;DataSource: census.gov&lt;/a&gt;&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kaggle.com/muonneutrino/us-census-demographic-data&#34;&gt;Kaggle source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;counties-of-conus-with-data-from-maps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Counties of &lt;a href=&#34;https://en.wikipedia.org/wiki/Contiguous_United_States&#34;&gt;CONUS&lt;/a&gt; with data from &lt;code&gt;maps&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_CONUS.png&#34; /&gt;
+### Counties of 50 States and DC with data from &lt;code&gt;albersusa&lt;/code&gt;&lt;br /&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_albers.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;counties-of-50-states-and-dc-using-choroplethr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Counties of 50 States and DC using &lt;code&gt;choroplethr&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_choropleth.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;states-and-dc-using-fiftyster&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;50 States and DC using &lt;code&gt;fiftyster&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_fiftystater.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bins-of-50-states-dc-and-pr-using-statebins&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bins of 50 States, DC and PR using &lt;code&gt;statebins&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_statebins.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hexbins-of-50-states-and-dc-data-from-geojsonion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hexbins of 50 States and DC data from &lt;code&gt;geojsonion&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_geojsonio.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>R Spatial Data Analysis 4: stars</title>
       <link>/post/r-spatial-data-analysis-4-stars/</link>
       <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
@@ -190,8 +273,6 @@ spUS&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A Spatial class variable will not be entirely dumped out.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# try tmap::qtm
 qtm(spUS)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Currect projection of shape spUS unknown. Long-lat (WGS84) is
-## assumed.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;difference-between-data.fram-and-spatialpointsdataframe&#34; class=&#34;section level5&#34;&gt;
@@ -662,20 +743,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
       
       <guid>/publication/2016-lake/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>WRF-Hydro</title>
-      <link>/project/wrf-hydro/</link>
-      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/project/wrf-hydro/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;The implementation of the community Weather Research and Forecasting model hydrological extension package (WRF-Hydro) (&lt;a href=&#34;https://ral.ucar.edu/projects/wrf_hydro/overview&#34; target=&#34;_blank&#34;&gt;Gochis et al. 2013&lt;/a&gt;) in the Great Lakes region with collaborators from the National Center for Atmospheric Research (NCAR) supported by a newly granted NOAA Joint Technology Transfer Initiative (JTTI) project.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Beginning in the summer of 2016, the NOAA &lt;a href=&#34;http://water.noaa.gov&#34; target=&#34;_blank&#34;&gt;National Water Center (NWC)&lt;/a&gt; in partnership with the National Centers for Environmental Prediction (NCEP), the National Center for Atmospheric Research (NCAR) and other academic partners will produce operational hydrologic predictions for the nation using a new National Water Model (NWM) that is based on WRF-Hydro. The WRF-Hydro modeling system is a physics-based, distributed hydrologic modeling system and has been used in several streamflow prediction applications in the U.S. and around the world.  The modeling system provides users with a multi-physics and multi-scale modeling framework for representing a large range of terrestrial hydrologic processes such as infiltration, runoff, lateral flow, channel flow, soil moisture, snowpack, and evapotranspiration as well as various water management components.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Because of lack of consistency of high-resolution terrain (also known as “geofabric”) data along the U.S. and Canada borders, the Great Lakes basin is not entirely included in the current version of NWM, leaving a substantial gap for applying the national model to the water-dominated region with the largest lake system on earth. Thus, a specific effort has been devoted to implementing the WRF-Hydro modeling system in the Great Lakes basin, including preparing high-resolution terrain datasets, parameterizing lakes and reservoirs, and calibrating the model.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
     </item>
     
   </channel>

@@ -1,0 +1,92 @@
+---
+title: US State and County Choropleth Map (Heatmap)
+author: ''
+date: '2018-05-04'
+slug: us-state-and-county-choropleth-map-heatmap
+categories:
+  - TidyTuesday
+  - RSpatial
+  - Data Science
+tags:
+  - R
+header:
+  caption: ''
+  image: 'post/Commute_Map_Grid_6.png'
+---
+
+
+
+<p>In this <a href="https://twitter.com/search?q=%23TidyTuesday&amp;src=tyah">#TidyTuesday</a> post, I try to show an example of putting together six common geographic visualization methods of <a href="https://en.wikipedia.org/wiki/Heat_map"><strong>heat map</strong></a> or <a href="https://en.wikipedia.org/wiki/Choropleth_map"><strong>choropleth map</strong></a>.</p>
+<pre><code>https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05</code></pre>
+<ul>
+<li>Counties
+<ul>
+<li>Map data from <code>mpas</code>
+<ul>
+<li><a href="https://github.com/ChuliangXiao/tidytuesday/blob/master/Week05/county_maps.Rmd">Corrected</a> to match with American Community Survey (ACS)<br />
+</li>
+<li>COUNS (48 states an DC)<br />
+</li>
+</ul></li>
+<li>Map data from <code>albersusa</code>
+<ul>
+<li>50 States and DC</li>
+</ul></li>
+<li>Using <strong>R6</strong> class <code>choroplethr</code>
+<ul>
+<li>50 States and DC<br />
+</li>
+</ul></li>
+</ul></li>
+<li>States
+<ul>
+<li>Map data from <code>fiftyster</code>
+<ul>
+<li>50 States and DC<br />
+</li>
+</ul></li>
+<li>State bins from <code>statebins</code>
+<ul>
+<li>50 States, DC and PR<br />
+</li>
+</ul></li>
+<li>State hexbins <strong>R6</strong> class <code>geojsonion</code>
+<ul>
+<li>50 States and DC</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<div id="week-5---county-level-american-community-survey-5-year-estimates-2015" class="section level3">
+<h3>Week 5 - County-level American Community Survey (5-year estimates) 2015</h3>
+<ul>
+<li><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/acs2015_county_data.csv">RAW DATA</a><br />
+</li>
+<li><a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">DataSource: census.gov</a><br />
+</li>
+<li><a href="https://www.kaggle.com/muonneutrino/us-census-demographic-data">Kaggle source</a></li>
+</ul>
+<hr />
+</div>
+<div id="counties-of-conus-with-data-from-maps" class="section level3">
+<h3>Counties of <a href="https://en.wikipedia.org/wiki/Contiguous_United_States">CONUS</a> with data from <code>maps</code></h3>
+<p><img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_CONUS.png" />
+### Counties of 50 States and DC with data from <code>albersusa</code><br />
+<img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_albers.png" /></p>
+</div>
+<div id="counties-of-50-states-and-dc-using-choroplethr" class="section level3">
+<h3>Counties of 50 States and DC using <code>choroplethr</code></h3>
+<p><img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_County_choropleth.png" /></p>
+</div>
+<div id="states-and-dc-using-fiftyster" class="section level3">
+<h3>50 States and DC using <code>fiftyster</code></h3>
+<p><img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_fiftystater.png" /></p>
+</div>
+<div id="bins-of-50-states-dc-and-pr-using-statebins" class="section level3">
+<h3>Bins of 50 States, DC and PR using <code>statebins</code></h3>
+<p><img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_statebins.png" /></p>
+</div>
+<div id="hexbins-of-50-states-and-dc-data-from-geojsonion" class="section level3">
+<h3>Hexbins of 50 States and DC data from <code>geojsonion</code></h3>
+<p><img src="https://raw.githubusercontent.com/ChuliangXiao/tidytuesday/master/Week05/US_State_State_geojsonio.png" /></p>
+</div>

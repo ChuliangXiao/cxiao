@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/us-state-and-county-choropleth-map-heatmap/</loc>
+      <lastmod>2018-05-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/r-spatial-data-analysis-4-stars/</loc>
       <lastmod>2018-04-06T00:00:00+00:00</lastmod>
     </url>
@@ -271,7 +280,7 @@
     <url>
     
       <loc>/categories/data-science/</loc>
-      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+      <lastmod>2018-05-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -301,7 +310,17 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+      <lastmod>2018-05-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/rspatial/</loc>
+      <lastmod>2018-05-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -322,6 +341,16 @@
     
       <loc>/tags/</loc>
       <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/tidytuesday/</loc>
+      <lastmod>2018-05-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

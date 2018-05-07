@@ -82,7 +82,7 @@ library(tmap)
 spUS
 ```
 A Spatial class variable will not be entirely dumped out.
-```{r}
+```{r warning = F, message = F}
 # try tmap::qtm
 qtm(spUS)
 ```
