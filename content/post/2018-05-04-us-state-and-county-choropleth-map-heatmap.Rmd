@@ -16,23 +16,22 @@ header:
 
 In this [#TidyTuesday](https://twitter.com/search?q=%23TidyTuesday&src=tyah) post, I try to show an example of putting together six common geographic visualization methods of [**heat map**](https://en.wikipedia.org/wiki/Heat_map) or [**choropleth map**](https://en.wikipedia.org/wiki/Choropleth_map).  
 
-```
-https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05
-```
+> Code is available on [GitHUB](https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05)   
+
 * Counties    
     + Map data from `mpas` 
         - [Corrected](https://github.com/ChuliangXiao/tidytuesday/blob/master/Week05/county_maps.Rmd) to match with American Community Survey (ACS)  
         - COUNS (48 states an DC)   
     + Map data from `albersusa`
         - 50 States and DC
-    + Using **R6** class `choroplethr`  
+    + Using `R6` class `choroplethr`  
         - 50 States and DC  
 * States  
     + Map data from `fiftyster`  
         - 50 States and DC  
     + State bins from `statebins`  
-        - 50 States, DC and PR  
-    + State hexbins **R6** class `geojsonion`   
+        - 50 States, DC and **PR**  
+    + State hexbins from `geojsonion`   
         - 50 States and DC   
         
 ***  

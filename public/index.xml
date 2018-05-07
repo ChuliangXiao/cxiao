@@ -17,7 +17,9 @@
       
       <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
       <description>&lt;p&gt;In this &lt;a href=&#34;https://twitter.com/search?q=%23TidyTuesday&amp;amp;src=tyah&#34;&gt;#TidyTuesday&lt;/a&gt; post, I try to show an example of putting together six common geographic visualization methods of &lt;a href=&#34;https://en.wikipedia.org/wiki/Heat_map&#34;&gt;&lt;strong&gt;heat map&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://en.wikipedia.org/wiki/Choropleth_map&#34;&gt;&lt;strong&gt;choropleth map&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Code is available on &lt;a href=&#34;https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05&#34;&gt;GitHUB&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Counties
 &lt;ul&gt;
@@ -32,7 +34,7 @@
 &lt;ul&gt;
 &lt;li&gt;50 States and DC&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Using &lt;strong&gt;R6&lt;/strong&gt; class &lt;code&gt;choroplethr&lt;/code&gt;
+&lt;li&gt;Using &lt;code&gt;R6&lt;/code&gt; class &lt;code&gt;choroplethr&lt;/code&gt;
 &lt;ul&gt;
 &lt;li&gt;50 States and DC&lt;br /&gt;
 &lt;/li&gt;
@@ -47,10 +49,10 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;State bins from &lt;code&gt;statebins&lt;/code&gt;
 &lt;ul&gt;
-&lt;li&gt;50 States, DC and PR&lt;br /&gt;
+&lt;li&gt;50 States, DC and &lt;strong&gt;PR&lt;/strong&gt;&lt;br /&gt;
 &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;State hexbins &lt;strong&gt;R6&lt;/strong&gt; class &lt;code&gt;geojsonion&lt;/code&gt;
+&lt;li&gt;State hexbins from &lt;code&gt;geojsonion&lt;/code&gt;
 &lt;ul&gt;
 &lt;li&gt;50 States and DC&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
