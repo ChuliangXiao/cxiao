@@ -143,6 +143,60 @@
 ## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2
 ## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3
 ## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;shape-objects&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Shape objects&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Without data&lt;/th&gt;
+&lt;th&gt;With data&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Polygons&lt;/td&gt;
+&lt;td&gt;SpatialPolygons&lt;/td&gt;
+&lt;td&gt;SpatialPolygonsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Points&lt;/td&gt;
+&lt;td&gt;SpatialPoints&lt;/td&gt;
+&lt;td&gt;SpatialPointsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Lines&lt;/td&gt;
+&lt;td&gt;SpatialLines&lt;/td&gt;
+&lt;td&gt;SpatialLinesDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;SpatialGrid&lt;/td&gt;
+&lt;td&gt;SpatialGridDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;SpatialPixels&lt;/td&gt;
+&lt;td&gt;SpatialPixelsDataFrame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterLayer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterBrick&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raster&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;RasterStack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -277,8 +331,8 @@ spUS&lt;/code&gt;&lt;/pre&gt;
 qtm(spUS)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2018-03-31-r-spatial-data-analysis-1-from-data-to-spatial-data_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;difference-between-data.fram-and-spatialpointsdataframe&#34; class=&#34;section level5&#34;&gt;
-&lt;h5&gt;Difference between &lt;code&gt;data.fram&lt;/code&gt; and &lt;code&gt;SpatialPointsDataFrame&lt;/code&gt;&lt;/h5&gt;
+&lt;div id=&#34;difference-between-data.frame-and-spatialpointsdataframe&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Difference between &lt;code&gt;data.frame&lt;/code&gt; and &lt;code&gt;SpatialPointsDataFrame&lt;/code&gt;&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;data.frame&lt;/code&gt; uses &lt;code&gt;$&lt;/code&gt; to access its columns.
 &lt;ul&gt;

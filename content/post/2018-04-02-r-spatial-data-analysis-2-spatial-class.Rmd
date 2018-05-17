@@ -4,7 +4,7 @@ author: CXiao
 date: '2018-04-02'
 slug: r-spatial-data-analysis-2-spatial-class
 categories:
-  - Spatial
+  - RSpatial
   - Data Science
 tags:
   - R
@@ -16,4 +16,17 @@ library(sp)
 ```{r}
 getClass('Spatial')
 ```
+
+##### Shape objects
+
+|   	| Without data	| With data   	|
+|---	|---	|---	|
+|Polygons | SpatialPolygons	| SpatialPolygonsDataFrame|
+|Points 	| SpatialPoints  	| SpatialPointsDataFrame	|
+|Lines   	| SpatialLines  	| SpatialLinesDataFrame  	|
+|Raster  	| SpatialGrid  		| SpatialGridDataFrame  	|
+|Raster		| SpatialPixels  	| SpatialPixelsDataFrame 	|
+|Raster		| 					| RasterLayer				|
+|Raster		| 					| RasterBrick				|
+|Raster		| 					| RasterStack				|
 

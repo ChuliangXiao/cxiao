@@ -7,28 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
-    <lastBuildDate>Fri, 06 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/spatial/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>R Spatial Data Analysis 4: stars</title>
-      <link>/post/r-spatial-data-analysis-4-stars/</link>
-      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/r-spatial-data-analysis-4-stars/</guid>
-      <description>https://www.r-spatial.org/r/2018/03/22/stars2.html</description>
-    </item>
-    
-    <item>
-      <title>R Spatial Data Analysis 3: Simple Features </title>
-      <link>/post/r-spatial-data-analysis-3-simple-features/</link>
-      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/r-spatial-data-analysis-3-simple-features/</guid>
-      <description>https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html</description>
-    </item>
     
     <item>
       <title>R Spatial Data Analysis 2: Spatial Class</title>

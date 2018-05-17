@@ -26,6 +26,33 @@
     </item>
     
     <item>
+      <title>R Spatial Data Analysis 4: stars</title>
+      <link>/post/r-spatial-data-analysis-4-stars/</link>
+      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-4-stars/</guid>
+      <description>https://www.r-spatial.org/r/2018/03/22/stars2.html</description>
+    </item>
+    
+    <item>
+      <title>R Spatial Data Analysis 3: Simple Features </title>
+      <link>/post/r-spatial-data-analysis-3-simple-features/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-3-simple-features/</guid>
+      <description>https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html</description>
+    </item>
+    
+    <item>
+      <title>R Spatial Data Analysis 2: Spatial Class</title>
+      <link>/post/r-spatial-data-analysis-2-spatial-class/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
+      <description>library(sp) getClass(&amp;#39;Spatial&amp;#39;) ## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;] ## ## Slots: ## ## Name: bbox proj4string ## Class: matrix CRS ## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly ## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly ## Class &amp;quot;SpatialGrid&amp;quot;, directly ## Class &amp;quot;SpatialLines&amp;quot;, directly ## Class &amp;quot;SpatialPolygons&amp;quot;, directly ## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2 ## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3 ## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2 Shape objects    Without data With data    Polygons SpatialPolygons SpatialPolygonsDataFrame  Points SpatialPoints SpatialPointsDataFrame  Lines SpatialLines SpatialLinesDataFrame  Raster SpatialGrid SpatialGridDataFrame  Raster SpatialPixels SpatialPixelsDataFrame  Raster  RasterLayer  Raster  RasterBrick  Raster  RasterStack     </description>
+    </item>
+    
+    <item>
       <title>R Spatial Data Analysis 1: from Data to Spatial Data</title>
       <link>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</link>
       <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>

@@ -87,7 +87,7 @@ A Spatial class variable will not be entirely dumped out.
 qtm(spUS)
 ```
 
-##### Difference between `data.fram` and `SpatialPointsDataFrame `
+##### Difference between `data.frame` and `SpatialPointsDataFrame `
 * `data.frame` uses `$` to access its columns.  
     + e.g. `dfUS$Station`
 * `SpatialPointsDataFrame ` uses `@` to access its four lists: `data`, `coords.nrs`, `coords`, `bbox` and `proj4string`; while `$` to its `data` columns.  
