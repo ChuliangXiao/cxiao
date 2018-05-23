@@ -17,7 +17,7 @@ library(sp)
 getClass('Spatial')
 ```
 
-##### Shape objects
+##### Shape objects 
 
 |   	| Without data	| With data   	|
 |---	|---	|---	|
@@ -29,4 +29,5 @@ getClass('Spatial')
 |Raster		| 					| RasterLayer				|
 |Raster		| 					| RasterBrick				|
 |Raster		| 					| RasterStack				|
+
 
