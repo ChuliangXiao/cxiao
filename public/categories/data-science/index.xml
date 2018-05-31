@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
-    <lastBuildDate>Fri, 04 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Database with R: PostgreSQL</title>
+      <link>/post/database-with-r-postgresql/</link>
+      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/database-with-r-postgresql/</guid>
+      <description>Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL  Connect Method 1 with RPostgres con1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &amp;quot;testdb1&amp;quot;, password = rstudioapi::askForPassword(&amp;quot;Database password&amp;quot;)) dbListTables(con1) #dbWriteTable(con1, &amp;quot;mtcars&amp;quot;, mtcars) #dbWriteTable(con1, &amp;quot;flights&amp;quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
+ In the command line (or block-run), there will be popout dialog to input password,
+ In the knit mode, render the RMarkdown file as follows:
+rmarkdown::render(&amp;quot;MyDocument.Rmd&amp;quot;, params = &amp;quot;ask&amp;quot;)
+See Parameter User Interfaces In the blogdown, server_site will halt at the above block.</description>
+    </item>
     
     <item>
       <title>US State and County Choropleth Map (Heatmap)</title>

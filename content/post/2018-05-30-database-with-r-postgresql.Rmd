@@ -1,0 +1,111 @@
+---
+title: 'Database with R: PostgreSQL'
+author: CXiao
+date: '2018-05-30'
+slug: database-with-r-postgresql
+categories:
+  - Data Science
+  - Database
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+### Load library
+```{r message = F, warning = F}
+library(tidyverse)
+library(RPostgres)
+library(DBI)
+```
+
+### Connect to **PostgreSQL**  
+### Connect Method 1 with `RPostgres`
+```r
+con1 <- DBI::dbConnect(RPostgres::Postgres(), 
+                      dbname = "testdb1",
+                      password = rstudioapi::askForPassword("Database password"))
+
+dbListTables(con1)
+#dbWriteTable(con1, "mtcars", mtcars)
+#dbWriteTable(con1, "flights", nycflights13::flights)
+```
+`rstudioapi::askForPassword` requires the password input
+
+* In the command line (or block-run), there will be popout dialog to input password,  
+* In the knit mode, `render` the RMarkdown file as follows:  
+      `rmarkdown::render("MyDocument.Rmd", params = "ask")`  
+      See [Parameter User Interfaces](https://rmarkdown.rstudio.com/developer_parameterized_reports.html#parameter_user_interfaces)
+* In the `blogdown`, `server_site` will halt at the above block.  
+
+### Connect Method 2 with `RPostgreSQL`
+```r
+library(RPostgreSQL)
+drv <- dbDriver("PostgreSQL")
+con2 <- dbConnect(drv, 
+                 host = "localhost",
+                 dbname = "testdb1",
+                 user = "cxiao",
+                 password = rstudioapi::askForPassword("Database password"))
+dbListTables(con2)
+```
+
+### Connect Method 3 with `RPostgres` and `config.yml`
+```{r}
+Sys.setenv(R_CONFIG_ACTIVE = "AWS")
+dw <- config::get(file = "config.yml", "dw")
+
+conAWS1 <- dbConnect(RPostgres::Postgres(),
+                     dbname   = dw$database,
+                     user      = dw$uid,
+                     password = dw$pwd,
+                     host     = dw$server,
+                     port     = 5432)
+dbListTables(conAWS1)
+```
+
+### Connect Method 4 with `odbc` and `config.yml` 
+```{r}
+conAWS2 <- dbConnect(odbc::odbc(),
+                     driver   = dw$driver,
+                     database = dw$database,
+                     uid      = dw$uid,
+                     pwd      = dw$pwd,
+                     server   = dw$server,
+                     port     = 5432)
+
+dbListTables(conAWS1)
+```
+
+#### SQL ETL
+```{sql connection=conAWS1}
+SELECT * FROM mtcars LIMIT 10
+```
+
+#### SQL in R
+```{r}
+dbGetQuery(conAWS1, "SELECT * FROM mtcars LIMIT 10")
+```
+
+#### ddplyr 1
+```{r}
+mtcars_db <- tbl(conAWS1, "mtcars")
+
+top2 <- mtcars_db %>% 
+  group_by(cyl) %>%
+# slice not working for database 
+  filter(between(row_number(), 1, 2)) 
+```
+
+#### ddplyr 2
+```{r}
+flights_db <- tbl(conAWS1, "flights")
+
+flights_db
+
+flights_db %>% 
+  tally()
+```
+
+

@@ -82,7 +82,7 @@
   <meta property="og:description" content="Postdoctoral Research Fellow">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-04T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-05-30T00:00:00&#43;00:00">
   
 
   
@@ -252,6 +252,19 @@
   
   
   <div>
+    <h2><a href="/post/database-with-r-postgresql/">Database with R: PostgreSQL</a></h2>
+    <div class="article-style">
+      
+      Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL  Connect Method 1 with RPostgres con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;, password = rstudioapi::askForPassword(&quot;Database password&quot;)) dbListTables(con1) #dbWriteTable(con1, &quot;mtcars&quot;, mtcars) #dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
+ In the command line (or block-run), there will be popout dialog to input password,
+ In the knit mode, render the RMarkdown file as follows:
+rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)
+See Parameter User Interfaces In the blogdown, server_site will halt at the above block.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/us-state-and-county-choropleth-map-heatmap/">US State and County Choropleth Map (Heatmap)</a></h2>
     <div class="article-style">
       
@@ -337,17 +350,17 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
     </div>
   </div>
   
-  <div>
-    <h2><a href="/post/hello-world/">Hello World</a></h2>
-    <div class="article-style">
-      
-      I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp; Data Science from a geoscience perspective.
-      
-    </div>
-  </div>
-  
 
   
+<nav>
+  <ul class="pager">
+    
+    
+    <li><a href="/tags/r/page/2/">&gt;</a></li>
+    
+  </ul>
+</nav>
+
 
 
 </div>

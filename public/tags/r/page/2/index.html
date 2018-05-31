@@ -18,7 +18,7 @@
   <meta name="description" content="Postdoctoral Research Fellow">
 
   
-  <link rel="alternate" hreflang="en-us" href="/categories/data-science/">
+  <link rel="alternate" hreflang="en-us" href="/tags/r/">
 
   
 
@@ -61,15 +61,15 @@
   
 
   
-  <link rel="alternate" href="/categories/data-science/index.xml" type="application/rss+xml" title="Chuliang Xiao">
-  <link rel="feed" href="/categories/data-science/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  <link rel="feed" href="/tags/r/index.xml" type="application/rss+xml" title="Chuliang Xiao">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/categories/data-science/">
+  <link rel="canonical" href="/tags/r/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -77,17 +77,17 @@
   <meta property="twitter:creator" content="@theRoyalXiao">
   
   <meta property="og:site_name" content="Chuliang Xiao">
-  <meta property="og:url" content="/categories/data-science/">
-  <meta property="og:title" content="Data Science | Chuliang Xiao">
+  <meta property="og:url" content="/tags/r/">
+  <meta property="og:title" content="R | Chuliang Xiao">
   <meta property="og:description" content="Postdoctoral Research Fellow">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-30T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-03-15T00:00:00&#43;00:00">
   
 
   
 
-  <title>Data Science | Chuliang Xiao</title>
+  <title>R | Chuliang Xiao</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -245,113 +245,32 @@
 
 <div class="universal-wrapper">
 
-  <h1>Data Science</h1>
+  <h1>R</h1>
 
   
 
   
   
   <div>
-    <h2><a href="/post/database-with-r-postgresql/">Database with R: PostgreSQL</a></h2>
+    <h2><a href="/post/hello-world/">Hello World</a></h2>
     <div class="article-style">
       
-      Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL  Connect Method 1 with RPostgres con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;, password = rstudioapi::askForPassword(&quot;Database password&quot;)) dbListTables(con1) #dbWriteTable(con1, &quot;mtcars&quot;, mtcars) #dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
- In the command line (or block-run), there will be popout dialog to input password,
- In the knit mode, render the RMarkdown file as follows:
-rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)
-See Parameter User Interfaces In the blogdown, server_site will halt at the above block.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/us-state-and-county-choropleth-map-heatmap/">US State and County Choropleth Map (Heatmap)</a></h2>
-    <div class="article-style">
-      
-      In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
- Code is available on GitHUB
-  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
- COUNS (48 states an DC)
-  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/r-spatial-data-analysis-4-stars/">R Spatial Data Analysis 4: stars</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/r-spatial-data-analysis-3-simple-features/">R Spatial Data Analysis 3: Simple Features </a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/r-spatial-data-analysis-2-spatial-class/">R Spatial Data Analysis 2: Spatial Class</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/r-spatial-data-analysis-1-from-data-to-spatial-data/">R Spatial Data Analysis 1: from Data to Spatial Data</a></h2>
-    <div class="article-style">
-      
-      As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
-To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></h2>
-    <div class="article-style">
-      
-      vector (or factor)  (x &lt;- swiss$Education[1:20]) ## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9 # sort the vector sort(x) ## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28 # partial sorting sort(x, partial = c(10, 15)) ## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15 Partial sorting in R is different with that in Wikipedia.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-transform-within-and-mutate/">Comparison: transform, within and mutate</a></h2>
-    <div class="article-style">
-      
-      Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-subset-and-filter/">Comparison: subset and filter</a></h2>
-    <div class="article-style">
-      
-      A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
-  The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
-  They are, indeed, producing the same result, and they are very similar in concept.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/from-ncl-to-r/">From NCL to R</a></h2>
-    <div class="article-style">
-      
-      From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.
+      I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp; Data Science from a geoscience perspective.
       
     </div>
   </div>
   
 
   
+<nav>
+  <ul class="pager">
+    
+    <li><a href="/tags/r/">&lt;</a></li>
+    
+    
+  </ul>
+</nav>
+
 
 
 </div>

@@ -1,0 +1,307 @@
+---
+title: 'Database with R: PostgreSQL'
+author: CXiao
+date: '2018-05-30'
+slug: database-with-r-postgresql
+categories:
+  - Data Science
+  - Database
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<div id="load-library" class="section level3">
+<h3>Load library</h3>
+<pre class="r"><code>library(tidyverse)
+library(RPostgres)
+library(DBI)</code></pre>
+</div>
+<div id="connect-to-postgresql" class="section level3">
+<h3>Connect to <strong>PostgreSQL</strong></h3>
+</div>
+<div id="connect-method-1-with-rpostgres" class="section level3">
+<h3>Connect Method 1 with <code>RPostgres</code></h3>
+<pre class="r"><code>con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), 
+                      dbname = &quot;testdb1&quot;,
+                      password = rstudioapi::askForPassword(&quot;Database password&quot;))
+
+dbListTables(con1)
+#dbWriteTable(con1, &quot;mtcars&quot;, mtcars)
+#dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights)</code></pre>
+<p><code>rstudioapi::askForPassword</code> requires the password input</p>
+<ul>
+<li>In the command line (or block-run), there will be popout dialog to input password,<br />
+</li>
+<li>In the knit mode, <code>render</code> the RMarkdown file as follows:<br />
+<code>rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)</code><br />
+See <a href="https://rmarkdown.rstudio.com/developer_parameterized_reports.html#parameter_user_interfaces">Parameter User Interfaces</a></li>
+<li>In the <code>blogdown</code>, <code>server_site</code> will halt at the above block.</li>
+</ul>
+</div>
+<div id="connect-method-2-with-rpostgresql" class="section level3">
+<h3>Connect Method 2 with <code>RPostgreSQL</code></h3>
+<pre class="r"><code>library(RPostgreSQL)
+drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
+con2 &lt;- dbConnect(drv, 
+                 host = &quot;localhost&quot;,
+                 dbname = &quot;testdb1&quot;,
+                 user = &quot;cxiao&quot;,
+                 password = rstudioapi::askForPassword(&quot;Database password&quot;))
+dbListTables(con2)</code></pre>
+</div>
+<div id="connect-method-3-with-rpostgres-and-config.yml" class="section level3">
+<h3>Connect Method 3 with <code>RPostgres</code> and <code>config.yml</code></h3>
+<pre class="r"><code>Sys.setenv(R_CONFIG_ACTIVE = &quot;AWS&quot;)
+dw &lt;- config::get(file = &quot;config.yml&quot;, &quot;dw&quot;)
+
+conAWS1 &lt;- dbConnect(RPostgres::Postgres(),
+                     dbname   = dw$database,
+                     user      = dw$uid,
+                     password = dw$pwd,
+                     host     = dw$server,
+                     port     = 5432)
+dbListTables(conAWS1)</code></pre>
+<pre><code>## [1] &quot;mtcars&quot;  &quot;flights&quot;</code></pre>
+</div>
+<div id="connect-method-4-with-odbc-and-config.yml" class="section level3">
+<h3>Connect Method 4 with <code>odbc</code> and <code>config.yml</code></h3>
+<pre class="r"><code>conAWS2 &lt;- dbConnect(odbc::odbc(),
+                     driver   = dw$driver,
+                     database = dw$database,
+                     uid      = dw$uid,
+                     pwd      = dw$pwd,
+                     server   = dw$server,
+                     port     = 5432)
+
+dbListTables(conAWS1)</code></pre>
+<pre><code>## [1] &quot;mtcars&quot;  &quot;flights&quot;</code></pre>
+<div id="sql-etl" class="section level4">
+<h4>SQL ETL</h4>
+<pre class="sql"><code>SELECT * FROM mtcars LIMIT 10</code></pre>
+<div class="knitsql-table">
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th align="left">row_names</th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+<th align="right">am</th>
+<th align="right">gear</th>
+<th align="right">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108.0</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258.0</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225.0</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Duster 360</td>
+<td align="right">14.3</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">245</td>
+<td align="right">3.21</td>
+<td align="right">3.570</td>
+<td align="right">15.84</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 240D</td>
+<td align="right">24.4</td>
+<td align="right">4</td>
+<td align="right">146.7</td>
+<td align="right">62</td>
+<td align="right">3.69</td>
+<td align="right">3.190</td>
+<td align="right">20.00</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Merc 230</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">140.8</td>
+<td align="right">95</td>
+<td align="right">3.92</td>
+<td align="right">3.150</td>
+<td align="right">22.90</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 280</td>
+<td align="right">19.2</td>
+<td align="right">6</td>
+<td align="right">167.6</td>
+<td align="right">123</td>
+<td align="right">3.92</td>
+<td align="right">3.440</td>
+<td align="right">18.30</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sql-in-r" class="section level4">
+<h4>SQL in R</h4>
+<pre class="r"><code>dbGetQuery(conAWS1, &quot;SELECT * FROM mtcars LIMIT 10&quot;)</code></pre>
+<pre><code>##            row_names  mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1          Mazda RX4 21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## 2      Mazda RX4 Wag 21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## 3         Datsun 710 22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## 4     Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## 5  Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## 6            Valiant 18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## 7         Duster 360 14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## 8          Merc 240D 24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## 9           Merc 230 22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## 10          Merc 280 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4</code></pre>
+</div>
+<div id="ddplyr-1" class="section level4">
+<h4>ddplyr 1</h4>
+<pre class="r"><code>mtcars_db &lt;- tbl(conAWS1, &quot;mtcars&quot;)
+
+top2 &lt;- mtcars_db %&gt;% 
+  group_by(cyl) %&gt;%
+# slice not working for database 
+  filter(between(row_number(), 1, 2)) </code></pre>
+</div>
+<div id="ddplyr-2" class="section level4">
+<h4>ddplyr 2</h4>
+<pre class="r"><code>flights_db &lt;- tbl(conAWS1, &quot;flights&quot;)
+
+flights_db</code></pre>
+<pre><code>## # Source:   table&lt;flights&gt; [?? x 19]
+## # Database: postgres
+## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code>flights_db %&gt;% 
+  tally()</code></pre>
+<pre><code>## # Source:   lazy query [?? x 1]
+## # Database: postgres
+## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+##   n              
+##   &lt;S3: integer64&gt;
+## 1 336776</code></pre>
+</div>
+</div>

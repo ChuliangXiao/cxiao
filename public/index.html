@@ -837,6 +837,88 @@ Implementing state-of-the-art climatic and hydrological models to improve the un
 
   <span class="article-date">
     
+    <time datetime="2018-05-30 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      May 30, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Chuliang Xiao">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/data-science">Data Science</a
+    >, 
+    
+    <a href="/categories/database">Database</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/database-with-r-postgresql/" itemprop="url">Database with R: PostgreSQL</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL  Connect Method 1 with RPostgres con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;, password = rstudioapi::askForPassword(&quot;Database password&quot;)) dbListTables(con1) #dbWriteTable(con1, &quot;mtcars&quot;, mtcars) #dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
+ In the command line (or block-run), there will be popout dialog to input password,
+ In the knit mode, render the RMarkdown file as follows:
+rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)
+See Parameter User Interfaces In the blogdown, server_site will halt at the above block.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/database-with-r-postgresql/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+
+      
+      
+        
+        
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
     <time datetime="2018-05-04 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
       May 4, 2018
     </time>
@@ -1207,87 +1289,6 @@ Implementing state-of-the-art climatic and hydrological models to improve the un
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/r-spatial-data-analysis-2-spatial-class/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-
-      
-      
-        
-        
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-03-31 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Mar 31, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Chuliang Xiao">
-  </span>
-
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/data-science">Data Science</a
-    >, 
-    
-    <a href="/categories/rspatial">RSpatial</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/r-spatial-data-analysis-1-from-data-to-spatial-data/" itemprop="url">R Spatial Data Analysis 1: from Data to Spatial Data</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
-To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/r-spatial-data-analysis-1-from-data-to-spatial-data/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
