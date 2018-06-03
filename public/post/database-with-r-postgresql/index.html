@@ -395,7 +395,7 @@ conAWS1 &lt;- dbConnect(RPostgres::Postgres(),
                      host     = dw$server,
                      port     = 5432)
 dbListTables(conAWS1)</code></pre>
-<pre><code>## [1] &quot;mtcars&quot;  &quot;flights&quot;</code></pre>
+<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
 </div>
 <div id="connect-method-4-with-odbc-and-config.yml" class="section level3">
 <h3>Connect Method 4 with <code>odbc</code> and <code>config.yml</code></h3>
@@ -408,13 +408,20 @@ dbListTables(conAWS1)</code></pre>
                      port     = 5432)
 
 dbListTables(conAWS1)</code></pre>
-<pre><code>## [1] &quot;mtcars&quot;  &quot;flights&quot;</code></pre>
+<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
+</div>
+<div id="connect-method-5-with-odbc-and-dsn-configuraton" class="section level3">
+<h3>Connect Method 5 with <code>odbc</code> and DSN configuraton</h3>
+<pre class="r"><code>conAWS3 &lt;- dbConnect(odbc::odbc(), &quot;AWSPostgreSQL&quot;)
+
+dbListTables(conAWS3)</code></pre>
+<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
 <div id="sql-etl" class="section level4">
 <h4>SQL ETL</h4>
 <pre class="sql"><code>SELECT * FROM mtcars LIMIT 10</code></pre>
 <div class="knitsql-table">
 <table>
-<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Displaying records 1 - 10</caption>
+<caption><span id="tab:unnamed-chunk-5">Table 1: </span>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
 <th align="left">row_names</th>

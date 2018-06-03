@@ -67,7 +67,7 @@ conAWS1 &amp;lt;- dbConnect(RPostgres::Postgres(),
                      host     = dw$server,
                      port     = 5432)
 dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;mtcars&amp;quot;  &amp;quot;flights&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;connect-method-4-with-odbc-and-config.yml&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Connect Method 4 with &lt;code&gt;odbc&lt;/code&gt; and &lt;code&gt;config.yml&lt;/code&gt;&lt;/h3&gt;
@@ -80,13 +80,20 @@ dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
                      port     = 5432)
 
 dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;mtcars&amp;quot;  &amp;quot;flights&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;connect-method-5-with-odbc-and-dsn-configuraton&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Connect Method 5 with &lt;code&gt;odbc&lt;/code&gt; and DSN configuraton&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;conAWS3 &amp;lt;- dbConnect(odbc::odbc(), &amp;quot;AWSPostgreSQL&amp;quot;)
+
+dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;sql-etl&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;SQL ETL&lt;/h4&gt;
 &lt;pre class=&#34;sql&#34;&gt;&lt;code&gt;SELECT * FROM mtcars LIMIT 10&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;knitsql-table&#34;&gt;
 &lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 1: &lt;/span&gt;Displaying records 1 - 10&lt;/caption&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 1: &lt;/span&gt;Displaying records 1 - 10&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
 &lt;th align=&#34;left&#34;&gt;row_names&lt;/th&gt;

@@ -78,6 +78,12 @@ conAWS2 <- dbConnect(odbc::odbc(),
 dbListTables(conAWS1)
 ```
 
+### Connect Method 5 with `odbc` and DSN configuraton  
+```{r}
+conAWS3 <- dbConnect(odbc::odbc(), "AWSPostgreSQL")
+
+dbListTables(conAWS3)
+```
 #### SQL ETL
 ```{sql connection=conAWS1}
 SELECT * FROM mtcars LIMIT 10
