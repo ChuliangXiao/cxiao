@@ -13,7 +13,7 @@
   
   
   
-  <meta name="description" content="Postdoctoral Research Fellow">
+  <meta name="description" content="Research Fellow">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/">
@@ -70,7 +70,7 @@
   <meta property="og:site_name" content="Chuliang Xiao">
   <meta property="og:url" content="/post/">
   <meta property="og:title" content="Posts | Chuliang Xiao">
-  <meta property="og:description" content="Postdoctoral Research Fellow">
+  <meta property="og:description" content="Research Fellow">
   <meta property="og:locale" content="en-us">
   
   <meta property="og:updated_time" content="2017-01-01T00:00:00-05:00">
@@ -241,6 +241,66 @@
   
 
   
+  
+    
+    
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-05 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 5, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Chuliang Xiao">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/machine-learning">Machine Learning</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/sparse-matrix-and-dummy-variables/" itemprop="url">Sparse Matrix and Dummy Variables</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/sparse-matrix-and-dummy-variables/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -902,71 +962,6 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/comparison-subset-and-filter/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-03-16 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Mar 16, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Chuliang Xiao">
-  </span>
-
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/data-science">Data Science</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <a href="/post/from-ncl-to-r/">
-    <img src="/img/post/NCL2R.jpg" class="article-banner" itemprop="image">
-  </a>
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/from-ncl-to-r/" itemprop="url">From NCL to R</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/from-ncl-to-r/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

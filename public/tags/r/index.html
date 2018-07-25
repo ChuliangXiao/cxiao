@@ -15,7 +15,7 @@
   
   
   
-  <meta name="description" content="Postdoctoral Research Fellow">
+  <meta name="description" content="Research Fellow">
 
   
   <link rel="alternate" hreflang="en-us" href="/tags/r/">
@@ -79,10 +79,10 @@
   <meta property="og:site_name" content="Chuliang Xiao">
   <meta property="og:url" content="/tags/r/">
   <meta property="og:title" content="R | Chuliang Xiao">
-  <meta property="og:description" content="Postdoctoral Research Fellow">
+  <meta property="og:description" content="Research Fellow">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-30T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-06-05T00:00:00&#43;00:00">
   
 
   
@@ -252,6 +252,15 @@
   
   
   <div>
+    <h2><a href="/post/sparse-matrix-and-dummy-variables/">Sparse Matrix and Dummy Variables</a></h2>
+    <div class="article-style">
+      
+      Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/database-with-r-postgresql/">Database with R: PostgreSQL</a></h2>
     <div class="article-style">
       
@@ -336,16 +345,6 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
       A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
   The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
   They are, indeed, producing the same result, and they are very similar in concept.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/from-ncl-to-r/">From NCL to R</a></h2>
-    <div class="article-style">
-      
-      From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.
       
     </div>
   </div>

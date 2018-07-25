@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/sparse-matrix-and-dummy-variables/</loc>
+      <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/database-with-r-postgresql/</loc>
       <lastmod>2018-05-30T00:00:00+00:00</lastmod>
     </url>
@@ -308,6 +317,16 @@
     
     <url>
     
+      <loc>/categories/machine-learning/</loc>
+      <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/ncl/</loc>
       <lastmod>2018-03-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -329,7 +348,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-05-30T00:00:00+00:00</lastmod>
+      <lastmod>2018-06-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

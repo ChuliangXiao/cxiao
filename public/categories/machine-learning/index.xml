@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Chuliang Xiao</title>
+    <link>/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on Chuliang Xiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018 Chuliang Xiao</copyright>
+    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sparse Matrix and Dummy Variables</title>
+      <link>/post/sparse-matrix-and-dummy-variables/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/sparse-matrix-and-dummy-variables/</guid>
+      <description>Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &amp;lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&amp;quot;X&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Z&amp;quot;), 12, replace = TRUE)) str(dd) ## &amp;#39;data.</description>
+    </item>
+    
+  </channel>
+</rss>
