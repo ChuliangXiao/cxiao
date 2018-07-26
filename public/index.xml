@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>A Dynamical Downscaling Projection of Future Climate Change in the Laurentian Great Lakes Region Using a Coupled Air-Lake Model</title>
+      <link>/publication/2018-downscaling/</link>
+      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2018-downscaling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WRF-based assessment of the Great Lakes&#39; impact on cold season synoptic cyclones</title>
+      <link>/publication/2018-cyclone/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/2018-cyclone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Sparse Matrix and Dummy Variables</title>
       <link>/post/sparse-matrix-and-dummy-variables/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
@@ -1303,25 +1321,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
       
       <guid>/talk/2018-meetup-big-data/</guid>
       <description>&lt;p&gt;At 6 PM, Dr. Xiao will present on Big Data and Climate Modeling. Dr. Xiao works at the National Oceanic and Atmospheric Administration (NOAA) Great Lakes Environmental Research Laboratory (GLERL) in Ann Arbor. He specializes in hydro-climatology and climate change in the Great Lakes region using regional numerical climate models. As a climate modeler, Dr. Xiao deals with &amp;ldquo;Big Meteorological Data&amp;rdquo; from in-situ observation stations, buoys, radars, satellites, and mostly numerical models. He uses a sophisticated regional climate model (written in Fortran) to conduct century-scale simulations and projections (terabyte scale) of the hydroclimatology in Great Lakes region in terms of precipitation, temperature, ice coverage, river discharge, lake level, etc, with post-processing done by using analysis and visualization programming tools (e.g. NCL, R and Python). Dr. Xiao&amp;rsquo;s presentation should be an interesting source of ideas for data scientists and data analysts in other fields because climate modelers have developed and employ special methods of working with big data.&amp;rdquo;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> Evaluating and improving modeled turbulent heat fluxes across the North American Great Lakes</title>
-      <link>/publication/2018-eddy/</link>
-      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/2018-eddy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Implementing the WRF-Hydro Modeling System in the Great Lakes Region</title>
-      <link>/talk/2018-ams-austin/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/2018-ams-austin/</guid>
-      <description>&lt;p&gt;As a physics-based, spatially-distributed hydrologic modeling system, the community Weather Research and Forecasting model (WRF) hydrological extension package (WRF-Hydro) has been used in several streamflow prediction applications in the U.S. and around the world, including the National Water Model (NWM) at the newly established NOAA National Water Center. However, because of lack of consistency of the geofabric data along the U.S. and Canada borders, the Great Lakes basin is not entirely included in NWM, leaving a substantial gap for applying the national model to the water-dominated region. Thus, a specific effort has been devoted to implementing the WRF-Hydro modeling system in the Great Lakes basin, including preparing high-resolution terrain datasets, parameterizing lakes and reservoirs, and calibrating the model. Two experiments have been carried out to support implementation of the NWM in the Great Lakes basin: an offline WRF-Hydro simulation forced by NLDAS2 and a coupled WRF/WRF-Hydro simulation. The model results are validated against observations in terms of precipitation, runoff, soil moisture, channel flow, and land surface heat fluxes. Our preliminary study presented here shows that the WRF-Hydro model is capable of reproducing the land–hydro-air feedbacks in the Great Lakes region.&lt;/p&gt;
 </description>
     </item>
     
