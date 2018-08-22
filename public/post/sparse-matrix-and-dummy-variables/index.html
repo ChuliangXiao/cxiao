@@ -17,7 +17,8 @@
       
     
   
-  <meta name="description" content="Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.">
+  <meta name="description" content="Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+ There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/sparse-matrix-and-dummy-variables/">
@@ -81,7 +82,8 @@
   <meta property="og:site_name" content="Chuliang Xiao">
   <meta property="og:url" content="/post/sparse-matrix-and-dummy-variables/">
   <meta property="og:title" content="Sparse Matrix and Dummy Variables | Chuliang Xiao">
-  <meta property="og:description" content="Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.">
+  <meta property="og:description" content="Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+ There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-05T00:00:00&#43;00:00">
@@ -336,12 +338,11 @@
       <div id="why-sparse-matrix" class="section level3">
 <h3>Why sparse matrix?</h3>
 <ul>
-<li><code>XGBoost</code> only works with matrices that contain <strong>all numeric</strong> variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (<a href="http://uc-r.github.io/gbm_regression">UC Business Analytics R Programming Guide</a>)</li>
-<li><code>caret::preProcess</code>, bagged regression trees for missing values recovery (<a href="https://rpubs.com/geka/BagImput_air">Yevhen Vasylenko</a>), which requires <strong>all numeric</strong> variables.</li>
+<li><code>XGBoost</code> only works with matrices that contain <strong>all numeric</strong> variables; consequently, we need to one-hot encode our data. (<a href="http://uc-r.github.io/gbm_regression">UC Business Analytics R Programming Guide</a>)</li>
+<li><code>caret::preProcess</code> uses bagging regression trees for missing values recovery (<a href="https://rpubs.com/geka/BagImput_air">Yevhen Vasylenko</a>), which requires <strong>all numeric</strong> variables.<br />
+</li>
+<li>There are different ways to do this in R.</li>
 </ul>
-</div>
-<div id="data" class="section level3">
-<h3>Data</h3>
 <pre class="r"><code>library(tidyverse)
 dd &lt;- data.frame(a = gl(3,4), 
                  b = gl(4,1,12), 
@@ -352,26 +353,26 @@ str(dd)</code></pre>
 ##  $ a: Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 1 1 1 2 2 2 2 3 3 ...
 ##  $ b: Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 2 3 4 1 2 3 4 1 2 ...
 ##  $ c: int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ d: Factor w/ 2 levels &quot;X&quot;,&quot;Z&quot;: 1 1 2 2 1 2 1 1 1 1 ...</code></pre>
+##  $ d: Factor w/ 3 levels &quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;: 1 1 3 2 1 1 3 1 3 1 ...</code></pre>
 <p>The above data frame contains 4 columns (variables): 3 factor and 1 numeric. Multiple packages in R have similar functions on generating sparse matrix or dummy variables.</p>
 <div id="basemodel.matrix" class="section level4">
 <h4><code>base::model.matrix</code></h4>
 <pre class="r"><code>(mm0 &lt;- model.matrix(~ . , data = dd))</code></pre>
-<pre><code>##    (Intercept) a2 a3 b2 b3 b4  c dZ
-## 1            1  0  0  0  0  0  1  0
-## 2            1  0  0  1  0  0  2  0
-## 3            1  0  0  0  1  0  3  1
-## 4            1  0  0  0  0  1  4  1
-## 5            1  1  0  0  0  0  5  0
-## 6            1  1  0  1  0  0  6  1
-## 7            1  1  0  0  1  0  7  0
-## 8            1  1  0  0  0  1  8  0
-## 9            1  0  1  0  0  0  9  0
-## 10           1  0  1  1  0  0 10  0
-## 11           1  0  1  0  1  0 11  0
-## 12           1  0  1  0  0  1 12  0
+<pre><code>##    (Intercept) a2 a3 b2 b3 b4  c dY dZ
+## 1            1  0  0  0  0  0  1  0  0
+## 2            1  0  0  1  0  0  2  0  0
+## 3            1  0  0  0  1  0  3  0  1
+## 4            1  0  0  0  0  1  4  1  0
+## 5            1  1  0  0  0  0  5  0  0
+## 6            1  1  0  1  0  0  6  0  0
+## 7            1  1  0  0  1  0  7  0  1
+## 8            1  1  0  0  0  1  8  0  0
+## 9            1  0  1  0  0  0  9  0  1
+## 10           1  0  1  1  0  0 10  0  0
+## 11           1  0  1  0  1  0 11  0  0
+## 12           1  0  1  0  0  1 12  0  1
 ## attr(,&quot;assign&quot;)
-## [1] 0 1 1 2 2 2 3 4
+## [1] 0 1 1 2 2 2 3 4 4
 ## attr(,&quot;contrasts&quot;)
 ## attr(,&quot;contrasts&quot;)$a
 ## [1] &quot;contr.treatment&quot;
@@ -382,21 +383,21 @@ str(dd)</code></pre>
 ## attr(,&quot;contrasts&quot;)$d
 ## [1] &quot;contr.treatment&quot;</code></pre>
 <pre class="r"><code>(mm1 &lt;- model.matrix(~ . -1, data = dd)) # no intercept</code></pre>
-<pre><code>##    a1 a2 a3 b2 b3 b4  c dZ
-## 1   1  0  0  0  0  0  1  0
-## 2   1  0  0  1  0  0  2  0
-## 3   1  0  0  0  1  0  3  1
-## 4   1  0  0  0  0  1  4  1
-## 5   0  1  0  0  0  0  5  0
-## 6   0  1  0  1  0  0  6  1
-## 7   0  1  0  0  1  0  7  0
-## 8   0  1  0  0  0  1  8  0
-## 9   0  0  1  0  0  0  9  0
-## 10  0  0  1  1  0  0 10  0
-## 11  0  0  1  0  1  0 11  0
-## 12  0  0  1  0  0  1 12  0
+<pre><code>##    a1 a2 a3 b2 b3 b4  c dY dZ
+## 1   1  0  0  0  0  0  1  0  0
+## 2   1  0  0  1  0  0  2  0  0
+## 3   1  0  0  0  1  0  3  0  1
+## 4   1  0  0  0  0  1  4  1  0
+## 5   0  1  0  0  0  0  5  0  0
+## 6   0  1  0  1  0  0  6  0  0
+## 7   0  1  0  0  1  0  7  0  1
+## 8   0  1  0  0  0  1  8  0  0
+## 9   0  0  1  0  0  0  9  0  1
+## 10  0  0  1  1  0  0 10  0  0
+## 11  0  0  1  0  1  0 11  0  0
+## 12  0  0  1  0  0  1 12  0  1
 ## attr(,&quot;assign&quot;)
-## [1] 1 1 1 2 2 2 3 4
+## [1] 1 1 1 2 2 2 3 4 4
 ## attr(,&quot;contrasts&quot;)
 ## attr(,&quot;contrasts&quot;)$a
 ## [1] &quot;contr.treatment&quot;
@@ -407,7 +408,7 @@ str(dd)</code></pre>
 ## attr(,&quot;contrasts&quot;)$d
 ## [1] &quot;contr.treatment&quot;</code></pre>
 <pre class="r"><code>#if only applied to one column
-head(mm2 &lt;- model.matrix(~ a , data = dd)) # no intercept</code></pre>
+head(mm2 &lt;- model.matrix(~ a , data = dd)) </code></pre>
 <pre><code>##   (Intercept) a2 a3
 ## 1           1  0  0
 ## 2           1  0  0
@@ -429,13 +430,13 @@ head(mm2 &lt;- model.matrix(~ a , data = dd)) # no intercept</code></pre>
 <pre class="r"><code>sm1 &lt;- Matrix::sparse.model.matrix(~ . -1, data = dd)
 str(sm1)  #class &#39;dgCMatrix&#39;</code></pre>
 <pre><code>## Formal class &#39;dgCMatrix&#39; [package &quot;Matrix&quot;] with 6 slots
-##   ..@ i       : int [1:36] 0 1 2 3 4 5 6 7 8 9 ...
-##   ..@ p       : int [1:9] 0 4 8 12 15 18 21 33 36
-##   ..@ Dim     : int [1:2] 12 8
+##   ..@ i       : int [1:38] 0 1 2 3 4 5 6 7 8 9 ...
+##   ..@ p       : int [1:10] 0 4 8 12 15 18 21 33 34 38
+##   ..@ Dim     : int [1:2] 12 9
 ##   ..@ Dimnames:List of 2
 ##   .. ..$ : chr [1:12] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
-##   .. ..$ : chr [1:8] &quot;a1&quot; &quot;a2&quot; &quot;a3&quot; &quot;b2&quot; ...
-##   ..@ x       : num [1:36] 1 1 1 1 1 1 1 1 1 1 ...
+##   .. ..$ : chr [1:9] &quot;a1&quot; &quot;a2&quot; &quot;a3&quot; &quot;b2&quot; ...
+##   ..@ x       : num [1:38] 1 1 1 1 1 1 1 1 1 1 ...
 ##   ..@ factors : list()</code></pre>
 <pre class="r"><code>(sm2 &lt;- Matrix::sparse.model.matrix(~ a -1, data = dd))</code></pre>
 <pre><code>## 12 x 3 sparse Matrix of class &quot;dgCMatrix&quot;
@@ -456,18 +457,18 @@ str(sm1)  #class &#39;dgCMatrix&#39;</code></pre>
 <div id="matrixmodelsmodel.matrix" class="section level4">
 <h4><code>MatrixModels::model.Matrix</code></h4>
 <blockquote>
-<p><code>model.Matrix</code> which is a simple wrapper around the traditional <code>model.matrix</code> and returns a <em>ddenseModelMatrix</em> object.</p>
+<p><code>model.Matrix</code> is a simple wrapper around the traditional <code>model.matrix</code> and returns a <em>ddenseModelMatrix</em> object.</p>
 </blockquote>
 <pre class="r"><code>rm1 &lt;- MatrixModels::model.Matrix(~ . -1, data = dd)
 str(rm1)  #class &#39;ddenseModelMatrix&#39;</code></pre>
 <pre><code>## Formal class &#39;ddenseModelMatrix&#39; [package &quot;MatrixModels&quot;] with 6 slots
-##   ..@ x        : num [1:96] 1 1 1 1 0 0 0 0 0 0 ...
-##   ..@ Dim      : int [1:2] 12 8
+##   ..@ x        : num [1:108] 1 1 1 1 0 0 0 0 0 0 ...
+##   ..@ Dim      : int [1:2] 12 9
 ##   ..@ Dimnames :List of 2
 ##   .. ..$ : chr [1:12] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
-##   .. ..$ : chr [1:8] &quot;a1&quot; &quot;a2&quot; &quot;a3&quot; &quot;b2&quot; ...
+##   .. ..$ : chr [1:9] &quot;a1&quot; &quot;a2&quot; &quot;a3&quot; &quot;b2&quot; ...
 ##   ..@ factors  : list()
-##   ..@ assign   : int [1:8] 1 1 1 2 2 2 3 4
+##   ..@ assign   : int [1:9] 1 1 1 2 2 2 3 4 4
 ##   ..@ contrasts:List of 3
 ##   .. ..$ a: chr &quot;contr.treatment&quot;
 ##   .. ..$ b: chr &quot;contr.treatment&quot;
@@ -503,7 +504,7 @@ str(dummy.vars)  #dummyVars list</code></pre>
 ##  $ lvls      :List of 3
 ##   ..$ a: chr [1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot;
 ##   ..$ b: chr [1:4] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot;
-##   ..$ d: chr [1:2] &quot;X&quot; &quot;Z&quot;
+##   ..$ d: chr [1:3] &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
 ##  $ sep       : chr &quot;.&quot;
 ##  $ terms     :Classes &#39;terms&#39;, &#39;formula&#39;  language ~a + b + c + d
 ##   .. ..- attr(*, &quot;variables&quot;)= language list(a, b, c, d)
@@ -524,19 +525,19 @@ str(dummy.vars)  #dummyVars list</code></pre>
 ##  - attr(*, &quot;class&quot;)= chr &quot;dummyVars&quot;</code></pre>
 <pre class="r"><code>dd.dummy   &lt;- predict(dummy.vars, dd)
 dd.dummy  # numeric matrix</code></pre>
-<pre><code>##    a.1 a.2 a.3 b.1 b.2 b.3 b.4  c d.X d.Z
-## 1    1   0   0   1   0   0   0  1   1   0
-## 2    1   0   0   0   1   0   0  2   1   0
-## 3    1   0   0   0   0   1   0  3   0   1
-## 4    1   0   0   0   0   0   1  4   0   1
-## 5    0   1   0   1   0   0   0  5   1   0
-## 6    0   1   0   0   1   0   0  6   0   1
-## 7    0   1   0   0   0   1   0  7   1   0
-## 8    0   1   0   0   0   0   1  8   1   0
-## 9    0   0   1   1   0   0   0  9   1   0
-## 10   0   0   1   0   1   0   0 10   1   0
-## 11   0   0   1   0   0   1   0 11   1   0
-## 12   0   0   1   0   0   0   1 12   1   0</code></pre>
+<pre><code>##    a.1 a.2 a.3 b.1 b.2 b.3 b.4  c d.X d.Y d.Z
+## 1    1   0   0   1   0   0   0  1   1   0   0
+## 2    1   0   0   0   1   0   0  2   1   0   0
+## 3    1   0   0   0   0   1   0  3   0   0   1
+## 4    1   0   0   0   0   0   1  4   0   1   0
+## 5    0   1   0   1   0   0   0  5   1   0   0
+## 6    0   1   0   0   1   0   0  6   1   0   0
+## 7    0   1   0   0   0   1   0  7   0   0   1
+## 8    0   1   0   0   0   0   1  8   1   0   0
+## 9    0   0   1   1   0   0   0  9   0   0   1
+## 10   0   0   1   0   1   0   0 10   1   0   0
+## 11   0   0   1   0   0   1   0 11   1   0   0
+## 12   0   0   1   0   0   0   1 12   0   0   1</code></pre>
 </div>
 <div id="basemodel.matrix-1" class="section level3">
 <h3><code>base::model.matrix</code></h3>
@@ -546,19 +547,19 @@ dd.dummy  # numeric matrix</code></pre>
                   model.matrix(~ d - 1, data = dd)
                   )
 mm.dummy</code></pre>
-<pre><code>##    a1 a2 a3 b1 b2 b3 b4  c dX dZ
-## 1   1  0  0  1  0  0  0  1  1  0
-## 2   1  0  0  0  1  0  0  2  1  0
-## 3   1  0  0  0  0  1  0  3  0  1
-## 4   1  0  0  0  0  0  1  4  0  1
-## 5   0  1  0  1  0  0  0  5  1  0
-## 6   0  1  0  0  1  0  0  6  0  1
-## 7   0  1  0  0  0  1  0  7  1  0
-## 8   0  1  0  0  0  0  1  8  1  0
-## 9   0  0  1  1  0  0  0  9  1  0
-## 10  0  0  1  0  1  0  0 10  1  0
-## 11  0  0  1  0  0  1  0 11  1  0
-## 12  0  0  1  0  0  0  1 12  1  0</code></pre>
+<pre><code>##    a1 a2 a3 b1 b2 b3 b4  c dX dY dZ
+## 1   1  0  0  1  0  0  0  1  1  0  0
+## 2   1  0  0  0  1  0  0  2  1  0  0
+## 3   1  0  0  0  0  1  0  3  0  0  1
+## 4   1  0  0  0  0  0  1  4  0  1  0
+## 5   0  1  0  1  0  0  0  5  1  0  0
+## 6   0  1  0  0  1  0  0  6  1  0  0
+## 7   0  1  0  0  0  1  0  7  0  0  1
+## 8   0  1  0  0  0  0  1  8  1  0  0
+## 9   0  0  1  1  0  0  0  9  0  0  1
+## 10  0  0  1  0  1  0  0 10  1  0  0
+## 11  0  0  1  0  0  1  0 11  1  0  0
+## 12  0  0  1  0  0  0  1 12  0  0  1</code></pre>
 </div>
 
     </div>

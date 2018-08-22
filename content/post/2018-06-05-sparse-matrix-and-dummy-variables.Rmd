@@ -12,10 +12,10 @@ header:
   image: ''
 ---
 ### Why sparse matrix?  
-* `XGBoost` only works with matrices that contain **all numeric** variables; consequently, we need to one hot encode our data. There are different ways to do this in R. ([UC Business Analytics R Programming Guide](http://uc-r.github.io/gbm_regression)) 
-* `caret::preProcess`, bagged regression trees for missing values recovery ([Yevhen Vasylenko](https://rpubs.com/geka/BagImput_air)), which requires **all numeric** variables.     
+* `XGBoost` only works with matrices that contain **all numeric** variables; consequently, we need to one-hot encode our data. ([UC Business Analytics R Programming Guide](http://uc-r.github.io/gbm_regression)) 
+* `caret::preProcess` uses bagging regression trees for missing values recovery ([Yevhen Vasylenko](https://rpubs.com/geka/BagImput_air)), which requires **all numeric** variables.     
+* There are different ways to do this in R. 
 
-### Data
 ```{r data, message = F, warning = F}
 library(tidyverse)
 dd <- data.frame(a = gl(3,4), 
@@ -32,7 +32,7 @@ The above data frame contains 4 columns (variables): 3 factor and 1 numeric. Mul
 (mm0 <- model.matrix(~ . , data = dd))
 (mm1 <- model.matrix(~ . -1, data = dd)) # no intercept
 #if only applied to one column
-head(mm2 <- model.matrix(~ a , data = dd)) # no intercept
+head(mm2 <- model.matrix(~ a , data = dd)) 
 head(mm3 <- model.matrix(~ a -1, data = dd)) # no intercept
 ```
 
@@ -47,7 +47,7 @@ str(sm1)  #class 'dgCMatrix'
 
 
 #### `MatrixModels::model.Matrix`
-> `model.Matrix` which is a simple wrapper around the traditional `model.matrix` and returns a _ddenseModelMatrix_ object.  
+> `model.Matrix` is a simple wrapper around the traditional `model.matrix` and returns a _ddenseModelMatrix_ object.  
 
 ```{r model.Matrix}
 rm1 <- MatrixModels::model.Matrix(~ . -1, data = dd)

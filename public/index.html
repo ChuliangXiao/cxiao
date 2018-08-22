@@ -356,10 +356,10 @@ url('/img/NASA_GL_Effect_Medium.jpg');
 <p>I am a research fellow at the University of Michigan&rsquo;s <a href="http://ciglr.seas.umich.edu" target="_blank">Cooperative Institute for Great Lakes Research (CIGLR)</a> working at the National Oceanic and Atmospheric Administration (NOAA) <a href="http://glerl.noaa.gov" target="_blank">Great Lakes Environmental Research Laboratory (GLERL)</a> in Ann Arbor, Michigan. My fields of specialization include research on hydroclimatology and climate change in the Great Lakes region using numerical models (<a href="https://www.mmm.ucar.edu/weather-research-and-forecasting-model" target="_blank">WRF</a> and <a href="https://ral.ucar.edu/projects/wrf_hydro/overview" target="_blank">WRF-Hydro</a>).</p>
 
 <ul>
-<li><strong>Data Analysis</strong>
-Developing novel approaches to analyze a variety of datasets in climate science using tools like <em>R</em> language, <em>Python</em>, <em>Linux/BASH</em>, NCAR Command Language (<em>NCL</em>) and Fortran.<br /></li>
+<li><strong>Data Analytics</strong>
+Developing novel approaches to analyze a variety of datasets in climate science using tools like <em>R</em> language, <em>Python</em>, <em>Linux/BASH</em>, and <em>SQL</em>.<br /></li>
 <li><strong>R Developer</strong>
-Focusing on data wrangling/visualization (<code>tidyverse</code>), predictive modeling (<code>rpart</code>, <code>randomForest</code>, <code>caret</code>, <code>xgboost</code>), big data (<code>data.table</code>, <code>sparklyr</code>, <code>ncdf4</code>), geospatial analysis (<code>sf</code>, <code>tmap</code>, <code>ggmap</code>), and interactive web applications (<code>mapview</code>, <code>shiny</code>, <code>plotly</code>)<br /></li>
+Focusing on data wrangling/visualization (<code>tidyverse</code>), predictive modeling (<code>tidymodels</code>, <code>caret</code>, <code>randomForest</code>, <code>xgboost</code>), big data (<code>data.table</code>, <code>sparklyr</code>, <code>ncdf4</code>), geospatial analysis (<code>sf</code>, <code>tmap</code>, <code>ggmap</code>), and interactive web applications (<code>mapview</code>, <code>shiny</code>, <code>plotly</code>)<br /></li>
 <li><strong>Numerical Modeling</strong>
 Implementing state-of-the-art climatic and hydrological models to improve the understanding of air-lake interaction, regional climate responses to global warming, flooding and lake level.<br /></li>
 </ul>
@@ -372,11 +372,11 @@ Implementing state-of-the-art climatic and hydrological models to improve the un
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Data Science</li>
+          <li>Data Analytics</li>
           
-          <li>Predictive Modeling</li>
+          <li>Machine Learning</li>
           
-          <li>Hydroclimatology</li>
+          <li>Database Development</li>
           
         </ul>
       </div>
@@ -868,7 +868,8 @@ Implementing state-of-the-art climatic and hydrological models to improve the un
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one hot encode our data. There are different ways to do this in R. (UC Business Analytics R Programming Guide) caret::preProcess, bagged regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.   Data library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
+    Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+ There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
