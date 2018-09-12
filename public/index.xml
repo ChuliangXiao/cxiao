@@ -655,6 +655,76 @@ flights_db&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Time Series Analysis I: date and time </title>
+      <link>/post/time-series-analysis-i-date-and-time/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series-analysis-i-date-and-time/</guid>
+      <description>&lt;div id=&#34;date-class-from-basedate-and-lubridate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;Date&lt;/code&gt; class from &lt;code&gt;base::Date&lt;/code&gt; and &lt;code&gt;lubridate&lt;/code&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d1 &amp;lt;- Sys.Date()
+d1; class(d1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2018-09-12&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Date&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dates &amp;lt;- c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;)
+dd    &amp;lt;- as.Date(dates, &amp;quot;%m/%d/%y&amp;quot;)
+dd; class(dd)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-01-14&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Date&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d2 &amp;lt;- lubridate::as_date(&amp;quot;2018-07-05&amp;quot;)
+d2; class(d2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2018-07-05&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Date&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;posix-class-from-baseas.posix&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;POSIX*&lt;/code&gt; class from &lt;code&gt;base::as.POSIX*&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;POSIXt&lt;/code&gt; types, &lt;code&gt;POSIXct&lt;/code&gt; and &lt;code&gt;POSIXlt&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ct&lt;/code&gt;, calendar time, stores the number of seconds since the origin&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lt&lt;/code&gt;, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).&lt;br /&gt;
+&lt;code&gt;unclass(as.POSIXct(Sys.time()))&lt;/code&gt; vs &lt;code&gt;unclass(as.POSIXlt(Sys.time()))&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dt1 &amp;lt;- as.POSIXct(Sys.time())
+dt1; class(dt1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2018-09-12 16:31:23 EDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;POSIXct&amp;quot; &amp;quot;POSIXt&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dt2 &amp;lt;- lubridate::as_datetime(&amp;quot;2018-07-05 15:30:21&amp;quot;)
+dt2; class(dt2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2018-07-05 15:30:21 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;POSIXct&amp;quot; &amp;quot;POSIXt&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;timedate-class-from-timedate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;timeDate&lt;/code&gt; class from &lt;code&gt;timeDate&lt;/code&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dts &amp;lt;- c(&amp;quot;1989-09-28&amp;quot;, &amp;quot;2001-01-15&amp;quot;, &amp;quot;2004-08-30&amp;quot;, &amp;quot;1990-02-09&amp;quot;)
+tms &amp;lt;- c(  &amp;quot;23:12:55&amp;quot;,   &amp;quot;10:34:02&amp;quot;,   &amp;quot;08:30:00&amp;quot;,   &amp;quot;11:18:23&amp;quot;)
+tD1  &amp;lt;- timeDate::timeDate(dts, format = &amp;quot;%Y-%m-%d&amp;quot;, FinCenter = &amp;quot;GMT&amp;quot; )
+class(tD1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;timeDate&amp;quot;
+## attr(,&amp;quot;package&amp;quot;)
+## [1] &amp;quot;timeDate&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dates-times-and-chron-class-from-chron&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;dates&lt;/code&gt;, &lt;code&gt;times&lt;/code&gt; and &lt;code&gt;chron&lt;/code&gt; class from &lt;code&gt;chron&lt;/code&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dts &amp;lt;- chron::dates(c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;))
+dts; class(dts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 02/27/92 02/27/92 01/14/92&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;dates&amp;quot; &amp;quot;times&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dts &amp;lt;- chron::dates(c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;))
+tms &amp;lt;- chron::times(c(&amp;quot;23:03:20&amp;quot;, &amp;quot;22:29:56&amp;quot;, &amp;quot;01:03:30&amp;quot;))
+tms; class(tms)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 23:03:20 22:29:56 01:03:30&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;times&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# [1] 23:03:20 22:29:56 01:03:30 18:21:03 16:56:26
+x &amp;lt;- chron::chron(dates = dts, times = tms)
+x; class(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] (02/27/92 23:03:20) (02/27/92 22:29:56) (01/14/92 01:03:30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;chron&amp;quot; &amp;quot;dates&amp;quot; &amp;quot;times&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>R Spatial Data Analysis 4: stars</title>
       <link>/post/r-spatial-data-analysis-4-stars/</link>
       <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
@@ -1310,16 +1380,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
       <guid>/post/hello-world/</guid>
       <description>&lt;p&gt;I used to blog a little bit on &lt;a href=&#34;http://gzhy.blogspot.com/&#34;&gt;Blogger&lt;/a&gt; when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on &lt;strong&gt;R &amp;amp; Data Science&lt;/strong&gt; from a geoscience perspective.&lt;/p&gt;
 &lt;p&gt;Huge thanks for &lt;a href=&#34;https://yihui.name/en/about/&#34;&gt;Yihui Xie&lt;/a&gt; and his &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;blogdown&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>West Michigan Big Data Meetup</title>
-      <link>/talk/2018-meetup-big-data/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/2018-meetup-big-data/</guid>
-      <description>&lt;p&gt;At 6 PM, Dr. Xiao will present on Big Data and Climate Modeling. Dr. Xiao works at the National Oceanic and Atmospheric Administration (NOAA) Great Lakes Environmental Research Laboratory (GLERL) in Ann Arbor. He specializes in hydro-climatology and climate change in the Great Lakes region using regional numerical climate models. As a climate modeler, Dr. Xiao deals with &amp;ldquo;Big Meteorological Data&amp;rdquo; from in-situ observation stations, buoys, radars, satellites, and mostly numerical models. He uses a sophisticated regional climate model (written in Fortran) to conduct century-scale simulations and projections (terabyte scale) of the hydroclimatology in Great Lakes region in terms of precipitation, temperature, ice coverage, river discharge, lake level, etc, with post-processing done by using analysis and visualization programming tools (e.g. NCL, R and Python). Dr. Xiao&amp;rsquo;s presentation should be an interesting source of ideas for data scientists and data analysts in other fields because climate modelers have developed and employ special methods of working with big data.&amp;rdquo;&lt;/p&gt;
 </description>
     </item>
     

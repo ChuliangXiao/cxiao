@@ -17,11 +17,12 @@
       
     
   
-  <meta name="description" content="Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.">
+  <meta name="description" content="Date class from base::Date and lubridated1 &lt;- Sys.Date()d1; class(d1)## [1] &quot;2018-09-12&quot;## [1] &quot;Date&quot;dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)dd; class(dd)## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;## [1] &quot;Date&quot;d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)d2; class(d2)## [1] &quot;2018-07-05&quot;## [1] &quot;Date&quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
+ct, calendar time, stores the number of seconds since the origin
+lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/comparison-transform-within-and-mutate/">
+  <link rel="alternate" hreflang="en-us" href="/post/time-series-analysis-i-date-and-time/">
 
   
 
@@ -72,7 +73,7 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/comparison-transform-within-and-mutate/">
+  <link rel="canonical" href="/post/time-series-analysis-i-date-and-time/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -80,20 +81,21 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
   <meta property="twitter:creator" content="@theRoyalXiao">
   
   <meta property="og:site_name" content="Chuliang Xiao">
-  <meta property="og:url" content="/post/comparison-transform-within-and-mutate/">
-  <meta property="og:title" content="Comparison: transform, within and mutate | Chuliang Xiao">
-  <meta property="og:description" content="Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.">
+  <meta property="og:url" content="/post/time-series-analysis-i-date-and-time/">
+  <meta property="og:title" content="Time Series Analysis I: date and time  | Chuliang Xiao">
+  <meta property="og:description" content="Date class from base::Date and lubridated1 &lt;- Sys.Date()d1; class(d1)## [1] &quot;2018-09-12&quot;## [1] &quot;Date&quot;dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)dd; class(dd)## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;## [1] &quot;Date&quot;d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)d2; class(d2)## [1] &quot;2018-07-05&quot;## [1] &quot;Date&quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
+ct, calendar time, stores the number of seconds since the origin
+lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-03-25T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-04-20T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-03-25T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2018-04-20T00:00:00&#43;00:00">
   
 
-  <title>Comparison: transform, within and mutate | Chuliang Xiao</title>
+  
+
+  <title>Time Series Analysis I: date and time  | Chuliang Xiao</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +254,7 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
 
 
   <div class="article-container">
-    <h1 itemprop="name">Comparison: transform, within and mutate</h1>
+    <h1 itemprop="name">Time Series Analysis I: date and time </h1>
 
     
 
@@ -260,8 +262,8 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
 
   <span class="article-date">
     
-    <time datetime="2018-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Mar 25, 2018
+    <time datetime="2018-04-20 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Apr 20, 2018
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -280,10 +282,10 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/comparison">Comparison</a
+    <a href="/categories/data-science">Data Science</a
     >, 
     
-    <a href="/categories/data-science">Data Science</a
+    <a href="/categories/time-series">Time Series</a
     >
     
   </span>
@@ -296,35 +298,35 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Comparison%3a%20transform%2c%20within%20and%20mutate&amp;url=%2fpost%2fcomparison-transform-within-and-mutate%2f"
+         href="https://twitter.com/intent/tweet?text=Time%20Series%20Analysis%20I%3a%20date%20and%20time%20&amp;url=%2fpost%2ftime-series-analysis-i-date-and-time%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fcomparison-transform-within-and-mutate%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ftime-series-analysis-i-date-and-time%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fcomparison-transform-within-and-mutate%2f&amp;title=Comparison%3a%20transform%2c%20within%20and%20mutate"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftime-series-analysis-i-date-and-time%2f&amp;title=Time%20Series%20Analysis%20I%3a%20date%20and%20time%20"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fcomparison-transform-within-and-mutate%2f&amp;title=Comparison%3a%20transform%2c%20within%20and%20mutate"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ftime-series-analysis-i-date-and-time%2f&amp;title=Time%20Series%20Analysis%20I%3a%20date%20and%20time%20"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Comparison%3a%20transform%2c%20within%20and%20mutate&amp;body=%2fpost%2fcomparison-transform-within-and-mutate%2f">
+         href="mailto:?subject=Time%20Series%20Analysis%20I%3a%20date%20and%20time%20&amp;body=%2fpost%2ftime-series-analysis-i-date-and-time%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -338,88 +340,66 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>Here is another comparison between two basic functions <code>transform</code> and <code>within</code>, and a tidyverse function <code>dplyr::mutate</code>. They all can be used for data munipulation, adding a new column to a data.frame.</p>
-<pre class="r"><code>head(mtcars)  </code></pre>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div id="one-variable" class="section level3">
-<h3>One variable</h3>
-<p>Calculate horse power per cylinder (<code>hp/cyl</code>) and add it to <code>mtcars</code></p>
-<pre class="r"><code>tmp1  &lt;- transform(mtcars, hpc = round(hp / cyl))
-head(tmp1)</code></pre>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb hpc
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4  18
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4  18
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1  23
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1  18
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2  22
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1  18</code></pre>
-<pre class="r"><code>tmp2 &lt;- within(mtcars, {hpc &lt;- round(hp / cyl)})
-# tmp1 and tmp2 are identicial
-head(tmp2)</code></pre>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb hpc
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4  18
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4  18
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1  23
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1  18
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2  22
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1  18</code></pre>
-<pre class="r"><code>library(dplyr)
-tmp3 &lt;- mutate(mtcars, hpc = round(hp / cyl))
-# tmp3 is ALMOST the same as tmp1 and tmp2, except that row names are missed
-head(tmp3)</code></pre>
-<pre><code>##    mpg cyl disp  hp drat    wt  qsec vs am gear carb hpc
-## 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4  18
-## 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4  18
-## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1  23
-## 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1  18
-## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2  22
-## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1  18</code></pre>
+      <div id="date-class-from-basedate-and-lubridate" class="section level2">
+<h2><code>Date</code> class from <code>base::Date</code> and <code>lubridate</code></h2>
+<pre class="r"><code>d1 &lt;- Sys.Date()
+d1; class(d1)</code></pre>
+<pre><code>## [1] &quot;2018-09-12&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)
+dd    &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)
+dd; class(dd)</code></pre>
+<pre><code>## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)
+d2; class(d2)</code></pre>
+<pre><code>## [1] &quot;2018-07-05&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
-<div id="two-variables" class="section level3">
-<h3>two variables</h3>
-<p>A variable created by <code>transform</code> process cannot be used<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.<br />
-The example below fails.</p>
-<p><code>tmp1  &lt;- transform(mtcars, hpc = round(hp / cyl), hpc1 = hpc + 1)</code></p>
-<p>While <code>within</code> and <code>dplyr::mutate</code> are OK<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
-<pre class="r"><code>tmp2 &lt;- within(mtcars, {hpc  &lt;- round(hp / cyl)
-                        hpc1 &lt;- hpc + 1 })
-head(tmp2)</code></pre>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb hpc1
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4   19
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4   19
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1   24
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1   19
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2   23
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1   19
-##                   hpc
-## Mazda RX4          18
-## Mazda RX4 Wag      18
-## Datsun 710         23
-## Hornet 4 Drive     18
-## Hornet Sportabout  22
-## Valiant            18</code></pre>
-<pre class="r"><code>tmp3 &lt;- mutate(mtcars, hpc = round(hp / cyl), hpc1 = hpc + 1)
-head(tmp3)</code></pre>
-<pre><code>##    mpg cyl disp  hp drat    wt  qsec vs am gear carb hpc hpc1
-## 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4  18   19
-## 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4  18   19
-## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1  23   24
-## 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1  18   19
-## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2  22   23
-## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1  18   19</code></pre>
+<div id="posix-class-from-baseas.posix" class="section level2">
+<h2><code>POSIX*</code> class from <code>base::as.POSIX*</code></h2>
+<p><code>POSIXt</code> types, <code>POSIXct</code> and <code>POSIXlt</code>:</p>
+<ul>
+<li><code>ct</code>, calendar time, stores the number of seconds since the origin<br />
+</li>
+<li><code>lt</code>, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).<br />
+<code>unclass(as.POSIXct(Sys.time()))</code> vs <code>unclass(as.POSIXlt(Sys.time()))</code></li>
+</ul>
+<pre class="r"><code>dt1 &lt;- as.POSIXct(Sys.time())
+dt1; class(dt1)</code></pre>
+<pre><code>## [1] &quot;2018-09-12 16:31:23 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>dt2 &lt;- lubridate::as_datetime(&quot;2018-07-05 15:30:21&quot;)
+dt2; class(dt2)</code></pre>
+<pre><code>## [1] &quot;2018-07-05 15:30:21 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
 </div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>What is the difference between <code>transform</code> and <code>within</code> <a href="https://stackoverflow.com/a/22417775">Stack Overflow</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://rstudio-pubs-static.s3.amazonaws.com/1053_c089bd9190624b37b1180b91d2776e10.html">Data manipulation using transform(), within(), or plyr::mutate()</a><a href="#fnref2">↩</a></p></li>
-</ol>
+<div id="timedate-class-from-timedate" class="section level2">
+<h2><code>timeDate</code> class from <code>timeDate</code></h2>
+<pre class="r"><code>dts &lt;- c(&quot;1989-09-28&quot;, &quot;2001-01-15&quot;, &quot;2004-08-30&quot;, &quot;1990-02-09&quot;)
+tms &lt;- c(  &quot;23:12:55&quot;,   &quot;10:34:02&quot;,   &quot;08:30:00&quot;,   &quot;11:18:23&quot;)
+tD1  &lt;- timeDate::timeDate(dts, format = &quot;%Y-%m-%d&quot;, FinCenter = &quot;GMT&quot; )
+class(tD1)</code></pre>
+<pre><code>## [1] &quot;timeDate&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;timeDate&quot;</code></pre>
+</div>
+<div id="dates-times-and-chron-class-from-chron" class="section level2">
+<h2><code>dates</code>, <code>times</code> and <code>chron</code> class from <code>chron</code></h2>
+<pre class="r"><code>dts &lt;- chron::dates(c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;))
+dts; class(dts)</code></pre>
+<pre><code>## [1] 02/27/92 02/27/92 01/14/92</code></pre>
+<pre><code>## [1] &quot;dates&quot; &quot;times&quot;</code></pre>
+<pre class="r"><code>dts &lt;- chron::dates(c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;))
+tms &lt;- chron::times(c(&quot;23:03:20&quot;, &quot;22:29:56&quot;, &quot;01:03:30&quot;))
+tms; class(tms)</code></pre>
+<pre><code>## [1] 23:03:20 22:29:56 01:03:30</code></pre>
+<pre><code>## [1] &quot;times&quot;</code></pre>
+<pre class="r"><code># [1] 23:03:20 22:29:56 01:03:30 18:21:03 16:56:26
+x &lt;- chron::chron(dates = dts, times = tms)
+x; class(x)</code></pre>
+<pre><code>## [1] (02/27/92 23:03:20) (02/27/92 22:29:56) (01/14/92 01:03:30)</code></pre>
+<pre><code>## [1] &quot;chron&quot; &quot;dates&quot; &quot;times&quot;</code></pre>
 </div>
 
     </div>
@@ -443,11 +423,15 @@ head(tmp3)</code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/comparison-subset-and-filter/">Comparison: subset and filter</a></li>
+        <li><a href="/post/r-spatial-data-analysis-4-stars/">R Spatial Data Analysis 4: stars</a></li>
         
-        <li><a href="/post/from-ncl-to-r/">From NCL to R</a></li>
+        <li><a href="/post/r-spatial-data-analysis-3-simple-features/">R Spatial Data Analysis 3: Simple Features </a></li>
         
-        <li><a href="/post/hello-world/">Hello World</a></li>
+        <li><a href="/post/r-spatial-data-analysis-2-spatial-class/">R Spatial Data Analysis 2: Spatial Class</a></li>
+        
+        <li><a href="/post/r-spatial-data-analysis-1-from-data-to-spatial-data/">R Spatial Data Analysis 1: from Data to Spatial Data</a></li>
+        
+        <li><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></li>
         
       </ul>
     </div>

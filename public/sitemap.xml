@@ -50,6 +50,15 @@
     
     <url>
     
+      <loc>/post/time-series-analysis-i-date-and-time/</loc>
+      <lastmod>2018-04-20T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/r-spatial-data-analysis-4-stars/</loc>
       <lastmod>2018-04-06T00:00:00+00:00</lastmod>
     </url>
@@ -397,6 +406,16 @@
     
       <loc>/categories/tidytuesday/</loc>
       <lastmod>2018-05-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/time-series/</loc>
+      <lastmod>2018-04-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

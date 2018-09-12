@@ -1,0 +1,66 @@
+---
+title: 'Time Series Analysis I: date and time '
+author: ''
+date: '2018-04-20'
+slug: time-series-analysis-i-date-and-time
+categories:
+  - Data Science
+  - Time Series
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+## `Date` class from `base::Date` and `lubridate`  
+```{r}
+d1 <- Sys.Date()
+d1; class(d1)
+
+dates <- c("02/27/92", "02/27/92", "01/14/92")
+dd    <- as.Date(dates, "%m/%d/%y")
+dd; class(dd)
+
+d2 <- lubridate::as_date("2018-07-05")
+d2; class(d2)
+```
+
+## `POSIX*` class from `base::as.POSIX*`  
+
+`POSIXt` types, `POSIXct` and `POSIXlt`:  
+
+* `ct`, calendar time, stores the number of seconds since the origin   
+* `lt`, local time, keeps the date as a list of time attributes (such as
+”hour” and ”mon”).   
+   `unclass(as.POSIXct(Sys.time()))` vs `unclass(as.POSIXlt(Sys.time()))`
+
+```{r}
+dt1 <- as.POSIXct(Sys.time())
+dt1; class(dt1)
+
+dt2 <- lubridate::as_datetime("2018-07-05 15:30:21")
+dt2; class(dt2)
+```
+
+
+## `timeDate` class from `timeDate`
+```{r}
+dts <- c("1989-09-28", "2001-01-15", "2004-08-30", "1990-02-09")
+tms <- c(  "23:12:55",   "10:34:02",   "08:30:00",   "11:18:23")
+tD1  <- timeDate::timeDate(dts, format = "%Y-%m-%d", FinCenter = "GMT" )
+class(tD1)
+```
+
+## `dates`, `times` and `chron` class from `chron`
+```{r}
+dts <- chron::dates(c("02/27/92", "02/27/92", "01/14/92"))
+dts; class(dts)
+
+dts <- chron::dates(c("02/27/92", "02/27/92", "01/14/92"))
+tms <- chron::times(c("23:03:20", "22:29:56", "01:03:30"))
+tms; class(tms)
+# [1] 23:03:20 22:29:56 01:03:30 18:21:03 16:56:26
+x <- chron::chron(dates = dts, times = tms)
+x; class(x)
+```

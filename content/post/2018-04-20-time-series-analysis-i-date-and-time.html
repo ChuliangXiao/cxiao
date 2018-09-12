@@ -1,0 +1,78 @@
+---
+title: 'Time Series Analysis I: date and time '
+author: ''
+date: '2018-04-20'
+slug: time-series-analysis-i-date-and-time
+categories:
+  - Data Science
+  - Time Series
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<div id="date-class-from-basedate-and-lubridate" class="section level2">
+<h2><code>Date</code> class from <code>base::Date</code> and <code>lubridate</code></h2>
+<pre class="r"><code>d1 &lt;- Sys.Date()
+d1; class(d1)</code></pre>
+<pre><code>## [1] &quot;2018-09-12&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)
+dd    &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)
+dd; class(dd)</code></pre>
+<pre><code>## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)
+d2; class(d2)</code></pre>
+<pre><code>## [1] &quot;2018-07-05&quot;</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+</div>
+<div id="posix-class-from-baseas.posix" class="section level2">
+<h2><code>POSIX*</code> class from <code>base::as.POSIX*</code></h2>
+<p><code>POSIXt</code> types, <code>POSIXct</code> and <code>POSIXlt</code>:</p>
+<ul>
+<li><code>ct</code>, calendar time, stores the number of seconds since the origin<br />
+</li>
+<li><code>lt</code>, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).<br />
+<code>unclass(as.POSIXct(Sys.time()))</code> vs <code>unclass(as.POSIXlt(Sys.time()))</code></li>
+</ul>
+<pre class="r"><code>dt1 &lt;- as.POSIXct(Sys.time())
+dt1; class(dt1)</code></pre>
+<pre><code>## [1] &quot;2018-09-12 16:31:23 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>dt2 &lt;- lubridate::as_datetime(&quot;2018-07-05 15:30:21&quot;)
+dt2; class(dt2)</code></pre>
+<pre><code>## [1] &quot;2018-07-05 15:30:21 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+</div>
+<div id="timedate-class-from-timedate" class="section level2">
+<h2><code>timeDate</code> class from <code>timeDate</code></h2>
+<pre class="r"><code>dts &lt;- c(&quot;1989-09-28&quot;, &quot;2001-01-15&quot;, &quot;2004-08-30&quot;, &quot;1990-02-09&quot;)
+tms &lt;- c(  &quot;23:12:55&quot;,   &quot;10:34:02&quot;,   &quot;08:30:00&quot;,   &quot;11:18:23&quot;)
+tD1  &lt;- timeDate::timeDate(dts, format = &quot;%Y-%m-%d&quot;, FinCenter = &quot;GMT&quot; )
+class(tD1)</code></pre>
+<pre><code>## [1] &quot;timeDate&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;timeDate&quot;</code></pre>
+</div>
+<div id="dates-times-and-chron-class-from-chron" class="section level2">
+<h2><code>dates</code>, <code>times</code> and <code>chron</code> class from <code>chron</code></h2>
+<pre class="r"><code>dts &lt;- chron::dates(c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;))
+dts; class(dts)</code></pre>
+<pre><code>## [1] 02/27/92 02/27/92 01/14/92</code></pre>
+<pre><code>## [1] &quot;dates&quot; &quot;times&quot;</code></pre>
+<pre class="r"><code>dts &lt;- chron::dates(c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;))
+tms &lt;- chron::times(c(&quot;23:03:20&quot;, &quot;22:29:56&quot;, &quot;01:03:30&quot;))
+tms; class(tms)</code></pre>
+<pre><code>## [1] 23:03:20 22:29:56 01:03:30</code></pre>
+<pre><code>## [1] &quot;times&quot;</code></pre>
+<pre class="r"><code># [1] 23:03:20 22:29:56 01:03:30 18:21:03 16:56:26
+x &lt;- chron::chron(dates = dts, times = tms)
+x; class(x)</code></pre>
+<pre><code>## [1] (02/27/92 23:03:20) (02/27/92 22:29:56) (01/14/92 01:03:30)</code></pre>
+<pre><code>## [1] &quot;chron&quot; &quot;dates&quot; &quot;times&quot;</code></pre>
+</div>
