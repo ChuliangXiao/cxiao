@@ -36,6 +36,17 @@ See Parameter User InterfacesIn the blogdown, server_site will halt at the abov
     </item>
     
     <item>
+      <title>Time Series Analysis II: zoo</title>
+      <link>/post/time-series-analysis-ii-zoo/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series-analysis-ii-zoo/</guid>
+      <description>zoo: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)
+An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
+Base Time-Series Objects stats::tsCredit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus</description>
+    </item>
+    
+    <item>
       <title>US State and County Choropleth Map (Heatmap)</title>
       <link>/post/us-state-and-county-choropleth-map-heatmap/</link>
       <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>

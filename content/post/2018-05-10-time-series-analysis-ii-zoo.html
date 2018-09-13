@@ -1,0 +1,161 @@
+---
+title: 'Time Series Analysis II: zoo'
+author: ''
+date: '2018-05-10'
+slug: time-series-analysis-ii-zoo
+categories:
+  - Data Science
+  - Time Series
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p><a href="https://cran.r-project.org/web/packages/zoo/"><strong>zoo</strong></a>: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)</p>
+<blockquote>
+<p>An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics</p>
+</blockquote>
+<div id="base-time-series-objects-statsts" class="section level3">
+<h3>Base Time-Series Objects <code>stats::ts</code></h3>
+<p>Credit: <em>Time Series Analysis in R Part 1: The Time Series Object</em> by <a href="https://datascienceplus.com/time-series-analysis-in-r-part-1-the-time-series-object/">DataSciencePlus</a></p>
+<blockquote>
+<p>From the base <code>ts</code> objects to a whole host of other packages like <code>xts</code>, <code>zoo</code>, <code>TTR</code>, <code>forecast</code>, <code>quantmod</code> and <code>tidyquant</code>, R has a large infrastructure supporting time series analysis.</p>
+</blockquote>
+<div id="monthlyquaterly-ts" class="section level4">
+<h4>Monthly/Quaterly TS</h4>
+<pre class="r"><code>ts1 &lt;- ts(1:10, frequency = 12, start = c(1959, 2)) # Feburary of 1959
+ts1; class(ts1)</code></pre>
+<pre><code>##      Feb Mar Apr May Jun Jul Aug Sep Oct Nov
+## 1959   1   2   3   4   5   6   7   8   9  10</code></pre>
+<pre><code>## [1] &quot;ts&quot;</code></pre>
+<pre class="r"><code>ts2 &lt;- ts(1:10, frequency = 4, start = c(1959, 2)) # 2nd Quarter of 1959
+ts2</code></pre>
+<pre><code>##      Qtr1 Qtr2 Qtr3 Qtr4
+## 1959         1    2    3
+## 1960    4    5    6    7
+## 1961    8    9   10</code></pre>
+</div>
+<div id="period-ts" class="section level4">
+<h4>Period TS</h4>
+<pre class="r"><code>ts3 &lt;- ts(1:10, frequency = 7, start = c(2012, 2))
+print(ts3, calendar = TRUE)</code></pre>
+<pre><code>##      p1 p2 p3 p4 p5 p6 p7
+## 2012     1  2  3  4  5  6
+## 2013  7  8  9 10</code></pre>
+</div>
+<div id="plot-ts" class="section level4">
+<h4>Plot TS</h4>
+<pre class="r"><code>gnp &lt;- ts(cumsum(1 + round(rnorm(100), 2)),
+          start = c(1954, 7), frequency = 12)
+plot(gnp) # using &#39;plot.ts&#39; for time-series plot</code></pre>
+</div>
+</div>
+<div id="zoo-class" class="section level3">
+<h3><code>zoo</code> class</h3>
+<div id="read-vector-with-a-time-index" class="section level4">
+<h4>Read vector with a time index</h4>
+<pre class="r"><code>library(zoo)
+f1 &lt;- system.file(&#39;doc/demo1.txt&#39;, package = &#39;zoo&#39;)
+system(paste0(&quot;head &quot;, f1))
+inrusd &lt;- read.zoo(f1, sep = &quot;|&quot;, format=&quot;%d %b %Y&quot;)
+class(inrusd)</code></pre>
+<pre><code>## [1] &quot;zoo&quot;</code></pre>
+<pre class="r"><code>str(inrusd)</code></pre>
+<pre><code>## &#39;zoo&#39; series from 2005-02-10 to 2005-03-10
+##   Data: num [1:20] 43.8 43.8 43.7 43.8 43.8 ...
+##   Index:  Date[1:20], format: &quot;2005-02-10&quot; &quot;2005-02-11&quot; &quot;2005-02-14&quot; &quot;2005-02-15&quot; &quot;2005-02-16&quot; ...</code></pre>
+<pre class="r"><code>head(inrusd)</code></pre>
+<pre><code>## 2005-02-10 2005-02-11 2005-02-14 2005-02-15 2005-02-16 2005-02-17 
+##      43.78      43.79      43.72      43.76      43.82      43.74</code></pre>
+</div>
+<div id="read-matrix-with-a-time-index" class="section level4">
+<h4>Read matrix with a time index</h4>
+<pre class="r"><code>f2 &lt;- system.file(&#39;doc/demo2.txt&#39;, package = &#39;zoo&#39;)
+tmp &lt;- read.table(f2, sep = &quot;,&quot;)
+z &lt;- zoo(tmp[, 3:4], as.Date(as.character(tmp[, 2]), format=&quot;%d %b %Y&quot;))
+colnames(z) &lt;- c(&quot;Nifty&quot;, &quot;Junior&quot;)
+
+head(z)</code></pre>
+<pre><code>##              Nifty  Junior
+## 2005-02-10 2063.35 4379.20
+## 2005-02-11 2082.05 4382.90
+## 2005-02-14 2098.25 4391.15
+## 2005-02-15 2089.95 4367.25
+## 2005-02-17 2061.90 4320.15
+## 2005-02-18 2055.55 4318.15</code></pre>
+</div>
+<div id="convert-back-to-matrix" class="section level4">
+<h4>Convert back to matrix</h4>
+<pre class="r"><code>plain1 &lt;- coredata(z)
+head(plain1)</code></pre>
+<pre><code>##        Nifty  Junior
+## [1,] 2063.35 4379.20
+## [2,] 2082.05 4382.90
+## [3,] 2098.25 4391.15
+## [4,] 2089.95 4367.25
+## [5,] 2061.90 4320.15
+## [6,] 2055.55 4318.15</code></pre>
+<pre class="r"><code># with rownames
+plain2 &lt;- as.matrix(z)
+head(plain2)</code></pre>
+<pre><code>##              Nifty  Junior
+## 2005-02-10 2063.35 4379.20
+## 2005-02-11 2082.05 4382.90
+## 2005-02-14 2098.25 4391.15
+## 2005-02-15 2089.95 4367.25
+## 2005-02-17 2061.90 4320.15
+## 2005-02-18 2055.55 4318.15</code></pre>
+</div>
+<div id="selecting-subsetting" class="section level4">
+<h4>Selecting (subsetting)</h4>
+<pre class="r"><code>window(z, start = as.Date(&quot;2005-02-15&quot;), end = as.Date(&quot;2005-02-28&quot;))</code></pre>
+<pre><code>##              Nifty  Junior
+## 2005-02-15 2089.95 4367.25
+## 2005-02-17 2061.90 4320.15
+## 2005-02-18 2055.55 4318.15
+## 2005-02-21 2043.20 4262.25
+## 2005-02-22 2058.40 4326.10
+## 2005-02-23 2057.10 4346.00
+## 2005-02-24 2055.30 4337.00
+## 2005-02-25 2060.90 4305.75
+## 2005-02-28 2103.25 4388.20</code></pre>
+<pre class="r"><code>z[as.Date(&quot;2005-03-10&quot;)]</code></pre>
+<pre><code>##             Nifty  Junior
+## 2005-03-10 2167.4 4648.05</code></pre>
+</div>
+<div id="missing-value" class="section level4">
+<h4>Missing Value</h4>
+<pre class="r"><code># only rows with data from both x and y are included in the output
+m1 &lt;- merge(inrusd, z, all = FALSE)
+plot(m1)</code></pre>
+<pre class="r"><code># then extra rows will be added to the output with missing values
+m2 &lt;- merge(inrusd, z)
+plot(m2)</code></pre>
+<p><img src="/post/2018-05-10-time-series-analysis-ii-zoo_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>m_approx &lt;- na.approx(m2)# Replaced by linear interpolation via approx 
+m_locf   &lt;- na.locf(m2)  # Last Observation Carried Forward</code></pre>
+</div>
+<div id="plot" class="section level4">
+<h4>Plot</h4>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.1</code></pre>
+<pre class="r"><code>x.Date  &lt;- as.Date(paste(2003, 02, c(1, 3, 7, 9, 14), sep = &quot;-&quot;))
+x       &lt;- zoo(rnorm(5), x.Date)
+xlow    &lt;- x - runif(5)
+xhigh   &lt;- x + runif(5)
+#z       &lt;- cbind(x, xlow, xhigh)
+
+## univariate plotting
+## calling ggplot2.zoo
+## autoplot(x)
+
+## broom zoo to data.frame
+ggplot(aes(x = index, y = value), data = broom::tidy(x)) +
+  geom_line() + xlab(&quot;Index&quot;) + ylab(&quot;x&quot;)</code></pre>
+<p><img src="/post/2018-05-10-time-series-analysis-ii-zoo_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
+</div>
+</div>
