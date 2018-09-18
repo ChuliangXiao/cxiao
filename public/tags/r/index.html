@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.48" />
+  <meta name="generator" content="Hugo 0.38" />
   <meta name="author" content="Chuliang Xiao">
 
   
@@ -255,19 +255,8 @@
     <h2><a href="/post/sparse-matrix-and-dummy-variables/">Sparse Matrix and Dummy Variables</a></h2>
     <div class="article-style">
       
-      <p>Why sparse matrix?</p>
-
-<p>XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide)
-caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.</p>
-
-<p>There are different ways to do this in R.</p>
-
-<p>library(tidyverse)
-dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE))
-str(dd)</p>
-
-<h2 id="39-data">&#39;data.</h2>
-
+      Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+ There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
       
     </div>
   </div>
@@ -276,28 +265,11 @@ str(dd)</p>
     <h2><a href="/post/database-with-r-postgresql/">Database with R: PostgreSQL</a></h2>
     <div class="article-style">
       
-      <p>Load library
-library(tidyverse)
-library(RPostgres)
-library(DBI)</p>
-
-<p>Connect to PostgreSQL</p>
-
-<p>Connect Method 1 with RPostgres
-con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;,
-password = rstudioapi::askForPassword(&quot;Database password&quot;))
-dbListTables(con1)
-#dbWriteTable(con1, &quot;mtcars&quot;, mtcars)
-#dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights)
-rstudioapi::askForPassword requires the password input</p>
-
-<p>In the command line (or block-run), there will be popout dialog to input password,</p>
-
-<p>In the knit mode, render the RMarkdown file as follows:
+      Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL Connect Method 1 with RPostgres con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;, password = rstudioapi::askForPassword(&quot;Database password&quot;)) dbListTables(con1) #dbWriteTable(con1, &quot;mtcars&quot;, mtcars) #dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
+ In the command line (or block-run), there will be popout dialog to input password,
+ In the knit mode, render the RMarkdown file as follows:
 rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)
-See Parameter User Interfaces
-In the blogdown, server_site will halt at the above block.</p>
-
+See Parameter User Interfaces In the blogdown, server_site will halt at the above block.
       
     </div>
   </div>
@@ -306,13 +278,9 @@ In the blogdown, server_site will halt at the above block.</p>
     <h2><a href="/post/time-series-analysis-ii-zoo/">Time Series Analysis II: zoo</a></h2>
     <div class="article-style">
       
-      <p>zoo: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)</p>
-
-<p>An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics</p>
-
-<p>Base Time-Series Objects stats::ts
-Credit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus</p>
-
+      zoo: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)
+ An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
+ Base Time-Series Objects stats::ts Credit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus
       
     </div>
   </div>
@@ -321,26 +289,11 @@ Credit: Time Series Analysis in R Part 1: The Time Series Object by DataScienceP
     <h2><a href="/post/us-state-and-county-choropleth-map-heatmap/">US State and County Choropleth Map (Heatmap)</a></h2>
     <div class="article-style">
       
-      <p>In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.</p>
-
-<p>Code is available on GitHUB</p>
-
-<p>Counties</p>
-
-<p>Map data from mpas</p>
-
-<p>Corrected to match with American Community Survey (ACS)</p>
-
-<p>COUNS (48 states an DC)</p>
-
-<p>Map data from albersusa</p>
-
-<p>50 States and DC</p>
-
-<p>Using R6 class choroplethr</p>
-
-<p>50 States and DC</p>
-
+      In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
+ Code is available on GitHUB
+  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
+ COUNS (48 states an DC)
+  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC
       
     </div>
   </div>
@@ -349,36 +302,9 @@ Credit: Time Series Analysis in R Part 1: The Time Series Object by DataScienceP
     <h2><a href="/post/time-series-analysis-i-date-and-time/">Time Series Analysis I: date and time </a></h2>
     <div class="article-style">
       
-      <p>Date class from base::Date and lubridate
-d1 &lt;- Sys.Date()
-d1; class(d1)</p>
-
-<h2 id="1-quot-2018-09-12-quot">[1] &quot;2018-09-12&quot;</h2>
-
-<h2 id="1-quot-date-quot">[1] &quot;Date&quot;</h2>
-
-<p>dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)
-dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)
-dd; class(dd)</p>
-
-<h2 id="1-quot-1992-02-27-quot-quot-1992-02-27-quot-quot-1992-01-14-quot">[1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;</h2>
-
-<h2 id="1-quot-date-quot-1">[1] &quot;Date&quot;</h2>
-
-<p>d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)
-d2; class(d2)</p>
-
-<h2 id="1-quot-2018-07-05-quot">[1] &quot;2018-07-05&quot;</h2>
-
-<h2 id="1-quot-date-quot-2">[1] &quot;Date&quot;</h2>
-
-<p>POSIX* class from base::as.POSIX*
-POSIXt types, POSIXct and POSIXlt:</p>
-
-<p>ct, calendar time, stores the number of seconds since the origin</p>
-
-<p>lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).</p>
-
+      Date class from base::Date and lubridate d1 &lt;- Sys.Date() d1; class(d1) ## [1] &quot;2018-09-12&quot; ## [1] &quot;Date&quot; dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;) dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;) dd; class(dd) ## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot; ## [1] &quot;Date&quot; d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;) d2; class(d2) ## [1] &quot;2018-07-05&quot; ## [1] &quot;Date&quot;  POSIX* class from base::as.POSIX* POSIXt types, POSIXct and POSIXlt:
+ ct, calendar time, stores the number of seconds since the origin
+ lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).
       
     </div>
   </div>
@@ -410,12 +336,8 @@ POSIXt types, POSIXct and POSIXlt:</p>
       
       As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
 To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots
-There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot
-attach(mtcars)
-par(mfrow = c(1,2))
-plot(mpg, wt, main = &quot;wt vs.
+Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
+basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs.
       
     </div>
   </div>
@@ -424,26 +346,7 @@ plot(mpg, wt, main = &quot;wt vs.
     <h2><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></h2>
     <div class="article-style">
       
-      <p>vector (or factor)</p>
-
-<p>(x &lt;- swiss$Education[1:20])</p>
-
-<h2 id="1-12-9-5-7-15-7-7-8-7-13-6-12-7-12-5-2-8-28-20-9">[1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9</h2>
-
-<h1 id="sort-the-vector">sort the vector</h1>
-
-<p>sort(x)</p>
-
-<h2 id="1-2-5-5-6-7-7-7-7-7-8-8-9-9-12-12-12-13-15-20-28">[1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28</h2>
-
-<h1 id="partial-sorting">partial sorting</h1>
-
-<p>sort(x, partial = c(10, 15))</p>
-
-<h2 id="1-2-5-5-7-7-7-7-6-7-8-8-9-9-12-12-12-13-28-20-15">[1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15</h2>
-
-<p>Partial sorting in R is different with that in Wikipedia.</p>
-
+      vector (or factor)  (x &lt;- swiss$Education[1:20]) ## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9 # sort the vector sort(x) ## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28 # partial sorting sort(x, partial = c(10, 15)) ## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15 Partial sorting in R is different with that in Wikipedia.
       
     </div>
   </div>

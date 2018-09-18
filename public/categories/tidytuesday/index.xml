@@ -19,10 +19,10 @@
       
       <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
       <description>In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
-Code is available on GitHUB
-CountiesMap data from mpasCorrected to match with American Community Survey (ACS)
-COUNS (48 states an DC)
-Map data from albersusa50 States and DCUsing R6 class choroplethr50 States and DC</description>
+ Code is available on GitHUB
+  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
+ COUNS (48 states an DC)
+  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC</description>
     </item>
     
   </channel>

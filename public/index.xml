@@ -29,6 +29,30 @@
     </item>
     
     <item>
+      <title>Add password to root MySQL on Mac (brew)</title>
+      <link>/post/add-password-to-root-mysql-on-mac-brew/</link>
+      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/add-password-to-root-mysql-on-mac-brew/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;ERROR! The server quit without updating PID file&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;A: Try &lt;code&gt;brew services start mysql&lt;/code&gt;&lt;br /&gt;
+Credit to &lt;a href=&#34;https://stackoverflow.com/a/50210425/9421451&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;Table &amp;#39;mysql.role_edges&amp;#39; doesn&amp;#39;t exist&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;A: Try &lt;code&gt;mysql_upgrade -u root&lt;/code&gt;&lt;br /&gt;
+Credit to &lt;a href=&#34;https://stackoverflow.com/a/51214393/9421451&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;A: Try &lt;code&gt;mysql_secure_installation&lt;/code&gt; and follow instruction to setup new password.&lt;br /&gt;
+Credit to &lt;a href=&#34;https://stackoverflow.com/a/46194427/9421451&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Sparse Matrix and Dummy Variables</title>
       <link>/post/sparse-matrix-and-dummy-variables/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
@@ -275,9 +299,8 @@ mm.dummy&lt;/code&gt;&lt;/pre&gt;
 library(RPostgres)
 library(DBI)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;connect-to-postgresql&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Connect to &lt;strong&gt;PostgreSQL&lt;/strong&gt;&lt;/h3&gt;
-&lt;/div&gt;
+&lt;div id=&#34;connect-to-postgresql&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Connect to &lt;strong&gt;PostgreSQL&lt;/strong&gt;&lt;/h2&gt;
 &lt;div id=&#34;connect-method-1-with-rpostgres&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Connect Method 1 with &lt;code&gt;RPostgres&lt;/code&gt;&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;con1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), 
@@ -320,7 +343,6 @@ conAWS1 &amp;lt;- dbConnect(RPostgres::Postgres(),
                      host     = dw$server,
                      port     = 5432)
 dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;connect-method-4-with-odbc-and-config.yml&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Connect Method 4 with &lt;code&gt;odbc&lt;/code&gt; and &lt;code&gt;config.yml&lt;/code&gt;&lt;/h3&gt;
@@ -333,23 +355,27 @@ dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
                      port     = 5432)
 
 dbListTables(conAWS1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;connect-method-5-with-odbc-and-dsn-configuraton&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Connect Method 5 with &lt;code&gt;odbc&lt;/code&gt; and DSN configuraton&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;conAWS3 &amp;lt;- dbConnect(odbc::odbc(), &amp;quot;AWSPostgreSQL&amp;quot;)
-
 dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;sql-etl&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;SQL ETL&lt;/h4&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;query-methods&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Query Methods&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(DBI)
+con3 &amp;lt;- dbConnect(odbc::odbc(), &amp;quot;PostgreSQL&amp;quot;)
+dbListTables(con3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;flights&amp;quot;   &amp;quot;mall_sale&amp;quot; &amp;quot;mtcars&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;sql-etl&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SQL ETL&lt;/h3&gt;
 &lt;pre class=&#34;sql&#34;&gt;&lt;code&gt;SELECT * FROM mtcars LIMIT 10&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;knitsql-table&#34;&gt;
 &lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 1: &lt;/span&gt;Displaying records 1 - 10&lt;/caption&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-3&#34;&gt;Table 1: &lt;/span&gt;Displaying records 1 - 10&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;row_names&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;mpg&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;cyl&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;disp&lt;/th&gt;
@@ -365,7 +391,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Mazda RX4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;160.0&lt;/td&gt;
@@ -379,7 +404,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Mazda RX4 Wag&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;160.0&lt;/td&gt;
@@ -393,7 +417,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Datsun 710&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;22.8&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;108.0&lt;/td&gt;
@@ -407,7 +430,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Hornet 4 Drive&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;258.0&lt;/td&gt;
@@ -421,7 +443,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Hornet Sportabout&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;18.7&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;360.0&lt;/td&gt;
@@ -435,7 +456,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Valiant&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;18.1&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;225.0&lt;/td&gt;
@@ -449,7 +469,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Duster 360&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;14.3&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;360.0&lt;/td&gt;
@@ -463,7 +482,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Merc 240D&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;146.7&lt;/td&gt;
@@ -477,7 +495,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Merc 230&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;22.8&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;140.8&lt;/td&gt;
@@ -491,7 +508,6 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Merc 280&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;167.6&lt;/td&gt;
@@ -508,38 +524,39 @@ dbListTables(conAWS3)&lt;/code&gt;&lt;/pre&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;sql-in-r&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;SQL in R&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbGetQuery(conAWS1, &amp;quot;SELECT * FROM mtcars LIMIT 10&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##            row_names  mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1          Mazda RX4 21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
-## 2      Mazda RX4 Wag 21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
-## 3         Datsun 710 22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-## 4     Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## 5  Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
-## 6            Valiant 18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
-## 7         Duster 360 14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
-## 8          Merc 240D 24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-## 9           Merc 230 22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-## 10          Merc 280 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;sql-in-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SQL in R&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbGetQuery(con3, &amp;quot;SELECT * FROM mtcars LIMIT 10&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## 2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## 3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## 4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## 5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## 6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## 7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## 8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## 9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## 10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;ddplyr-1&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;ddplyr 1&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_db &amp;lt;- tbl(conAWS1, &amp;quot;mtcars&amp;quot;)
+&lt;div id=&#34;dplyr-query-baced-by-dbplyr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;dplyr&lt;/code&gt; query baced by &lt;code&gt;dbplyr&lt;/code&gt;&lt;/h3&gt;
+&lt;div id=&#34;example-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;example 1&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_db &amp;lt;- tbl(con3, &amp;quot;mtcars&amp;quot;)
 
 top2 &amp;lt;- mtcars_db %&amp;gt;% 
   group_by(cyl) %&amp;gt;%
 # slice not working for database 
   filter(between(row_number(), 1, 2)) &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;ddplyr-2&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;ddplyr 2&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flights_db &amp;lt;- tbl(conAWS1, &amp;quot;flights&amp;quot;)
+&lt;div id=&#34;example-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;example 2&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flights_db &amp;lt;- tbl(con3, &amp;quot;flights&amp;quot;)
 
 flights_db&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # Source:   table&amp;lt;flights&amp;gt; [?? x 19]
-## # Database: postgres
-## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+## # Database: postgres [cxiao@localhost:/testdb1]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time
 ##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;
 ##  1  2013     1     1      517            515         2      830
@@ -559,11 +576,11 @@ flights_db&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flights_db %&amp;gt;% 
   tally()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # Source:   lazy query [?? x 1]
-## # Database: postgres
-## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+## # Database: postgres [cxiao@localhost:/testdb1]
 ##   n              
 ##   &amp;lt;S3: integer64&amp;gt;
 ## 1 336776&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -1487,41 +1504,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
 &lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The use of subsetting in conjunction with assignment. &lt;a href=&#34;https://stackoverflow.com/a/39882777&#34;&gt;Stack Overflow&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>From NCL to R</title>
-      <link>/post/from-ncl-to-r/</link>
-      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/from-ncl-to-r/</guid>
-      <description>&lt;p&gt;From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Unformated Binary&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Self-decribed Binary&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;NCL uses a single function &lt;code&gt;addfile&lt;/code&gt; to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.&lt;br /&gt;
-&lt;/li&gt;
-&lt;li&gt;NCL and R variables not only support &lt;em&gt;attributes&lt;/em&gt;, &lt;em&gt;dimension names&lt;/em&gt;.
-&lt;ul&gt;
-&lt;li&gt;NCL defaultly supports &lt;em&gt;coordinates&lt;/em&gt; to its variables, while R does this in the &lt;code&gt;Spatial*&lt;/code&gt; classes and is more powerful in GIS.&lt;br /&gt;
-&lt;/li&gt;
-&lt;li&gt;For Lambert Conformal Conic (LCC), NCL variables can have 2-dimensional coordinate attributes (lat2d and lon2d), which then can be automatically plotted to a basemap in any projection, which to me is huge advantage.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;N-Dimensional Array&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;The concept of &lt;code&gt;Array&lt;/code&gt; is pretty week in R, such as &lt;em&gt;Vector&lt;/em&gt; and &lt;em&gt;Matrix&lt;/em&gt;, while multi-dimensional arrays, such like a temperature variable T(ensemble, time, lev, lat, lon), are so popular in NCL.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Tabular&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;No need to verbose, &lt;code&gt;data.frame&lt;/code&gt; is what makes R what it is.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

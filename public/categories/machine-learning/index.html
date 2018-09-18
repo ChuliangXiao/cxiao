@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.48" />
+  <meta name="generator" content="Hugo 0.38" />
   <meta name="author" content="Chuliang Xiao">
 
   
@@ -255,19 +255,8 @@
     <h2><a href="/post/sparse-matrix-and-dummy-variables/">Sparse Matrix and Dummy Variables</a></h2>
     <div class="article-style">
       
-      <p>Why sparse matrix?</p>
-
-<p>XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide)
-caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.</p>
-
-<p>There are different ways to do this in R.</p>
-
-<p>library(tidyverse)
-dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE))
-str(dd)</p>
-
-<h2 id="39-data">&#39;data.</h2>
-
+      Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+ There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
       
     </div>
   </div>
