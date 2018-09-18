@@ -20,7 +20,7 @@ library(RPostgres)
 library(DBI)
 ```
 
-### Connect to **PostgreSQL**  
+## Connect to **PostgreSQL**  
 ### Connect Method 1 with `RPostgres`
 ```r
 con1 <- DBI::dbConnect(RPostgres::Postgres(), 
@@ -52,7 +52,7 @@ dbListTables(con2)
 ```
 
 ### Connect Method 3 with `RPostgres` and `config.yml`
-```{r}
+```r
 Sys.setenv(R_CONFIG_ACTIVE = "AWS")
 dw <- config::get(file = "config.yml", "dw")
 
@@ -66,7 +66,7 @@ dbListTables(conAWS1)
 ```
 
 ### Connect Method 4 with `odbc` and `config.yml` 
-```{r}
+```r
 conAWS2 <- dbConnect(odbc::odbc(),
                      driver   = dw$driver,
                      database = dw$database,
@@ -79,24 +79,31 @@ dbListTables(conAWS1)
 ```
 
 ### Connect Method 5 with `odbc` and DSN configuraton  
-```{r}
+```r
 conAWS3 <- dbConnect(odbc::odbc(), "AWSPostgreSQL")
-
 dbListTables(conAWS3)
 ```
-#### SQL ETL
-```{sql connection=conAWS1}
+
+## Query Methods
+```{r}
+library(DBI)
+con3 <- dbConnect(odbc::odbc(), "PostgreSQL")
+dbListTables(con3)
+```
+### SQL ETL
+```{sql connection=con3}
 SELECT * FROM mtcars LIMIT 10
 ```
 
-#### SQL in R
+### SQL in R
 ```{r}
-dbGetQuery(conAWS1, "SELECT * FROM mtcars LIMIT 10")
+dbGetQuery(con3, "SELECT * FROM mtcars LIMIT 10")
 ```
 
-#### ddplyr 1
+### `dplyr` query baced by `dbplyr`
+#### example 1
 ```{r}
-mtcars_db <- tbl(conAWS1, "mtcars")
+mtcars_db <- tbl(con3, "mtcars")
 
 top2 <- mtcars_db %>% 
   group_by(cyl) %>%
@@ -104,9 +111,9 @@ top2 <- mtcars_db %>%
   filter(between(row_number(), 1, 2)) 
 ```
 
-#### ddplyr 2
+#### example 2
 ```{r}
-flights_db <- tbl(conAWS1, "flights")
+flights_db <- tbl(con3, "flights")
 
 flights_db
 

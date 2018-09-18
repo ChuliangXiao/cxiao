@@ -21,9 +21,8 @@ header:
 library(RPostgres)
 library(DBI)</code></pre>
 </div>
-<div id="connect-to-postgresql" class="section level3">
-<h3>Connect to <strong>PostgreSQL</strong></h3>
-</div>
+<div id="connect-to-postgresql" class="section level2">
+<h2>Connect to <strong>PostgreSQL</strong></h2>
 <div id="connect-method-1-with-rpostgres" class="section level3">
 <h3>Connect Method 1 with <code>RPostgres</code></h3>
 <pre class="r"><code>con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), 
@@ -66,7 +65,6 @@ conAWS1 &lt;- dbConnect(RPostgres::Postgres(),
                      host     = dw$server,
                      port     = 5432)
 dbListTables(conAWS1)</code></pre>
-<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
 </div>
 <div id="connect-method-4-with-odbc-and-config.yml" class="section level3">
 <h3>Connect Method 4 with <code>odbc</code> and <code>config.yml</code></h3>
@@ -79,23 +77,27 @@ dbListTables(conAWS1)</code></pre>
                      port     = 5432)
 
 dbListTables(conAWS1)</code></pre>
-<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
 </div>
 <div id="connect-method-5-with-odbc-and-dsn-configuraton" class="section level3">
 <h3>Connect Method 5 with <code>odbc</code> and DSN configuraton</h3>
 <pre class="r"><code>conAWS3 &lt;- dbConnect(odbc::odbc(), &quot;AWSPostgreSQL&quot;)
-
 dbListTables(conAWS3)</code></pre>
-<pre><code>## [1] &quot;flights&quot; &quot;mtcars&quot;</code></pre>
-<div id="sql-etl" class="section level4">
-<h4>SQL ETL</h4>
+</div>
+</div>
+<div id="query-methods" class="section level2">
+<h2>Query Methods</h2>
+<pre class="r"><code>library(DBI)
+con3 &lt;- dbConnect(odbc::odbc(), &quot;PostgreSQL&quot;)
+dbListTables(con3)</code></pre>
+<pre><code>## [1] &quot;flights&quot;   &quot;mall_sale&quot; &quot;mtcars&quot;</code></pre>
+<div id="sql-etl" class="section level3">
+<h3>SQL ETL</h3>
 <pre class="sql"><code>SELECT * FROM mtcars LIMIT 10</code></pre>
 <div class="knitsql-table">
 <table>
-<caption><span id="tab:unnamed-chunk-5">Table 1: </span>Displaying records 1 - 10</caption>
+<caption><span id="tab:unnamed-chunk-3">Table 1: </span>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
-<th align="left">row_names</th>
 <th align="right">mpg</th>
 <th align="right">cyl</th>
 <th align="right">disp</th>
@@ -111,7 +113,6 @@ dbListTables(conAWS3)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Mazda RX4</td>
 <td align="right">21.0</td>
 <td align="right">6</td>
 <td align="right">160.0</td>
@@ -125,7 +126,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">4</td>
 </tr>
 <tr class="even">
-<td align="left">Mazda RX4 Wag</td>
 <td align="right">21.0</td>
 <td align="right">6</td>
 <td align="right">160.0</td>
@@ -139,7 +139,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">4</td>
 </tr>
 <tr class="odd">
-<td align="left">Datsun 710</td>
 <td align="right">22.8</td>
 <td align="right">4</td>
 <td align="right">108.0</td>
@@ -153,7 +152,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">1</td>
 </tr>
 <tr class="even">
-<td align="left">Hornet 4 Drive</td>
 <td align="right">21.4</td>
 <td align="right">6</td>
 <td align="right">258.0</td>
@@ -167,7 +165,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">1</td>
 </tr>
 <tr class="odd">
-<td align="left">Hornet Sportabout</td>
 <td align="right">18.7</td>
 <td align="right">8</td>
 <td align="right">360.0</td>
@@ -181,7 +178,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">2</td>
 </tr>
 <tr class="even">
-<td align="left">Valiant</td>
 <td align="right">18.1</td>
 <td align="right">6</td>
 <td align="right">225.0</td>
@@ -195,7 +191,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">1</td>
 </tr>
 <tr class="odd">
-<td align="left">Duster 360</td>
 <td align="right">14.3</td>
 <td align="right">8</td>
 <td align="right">360.0</td>
@@ -209,7 +204,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">4</td>
 </tr>
 <tr class="even">
-<td align="left">Merc 240D</td>
 <td align="right">24.4</td>
 <td align="right">4</td>
 <td align="right">146.7</td>
@@ -223,7 +217,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">2</td>
 </tr>
 <tr class="odd">
-<td align="left">Merc 230</td>
 <td align="right">22.8</td>
 <td align="right">4</td>
 <td align="right">140.8</td>
@@ -237,7 +230,6 @@ dbListTables(conAWS3)</code></pre>
 <td align="right">2</td>
 </tr>
 <tr class="even">
-<td align="left">Merc 280</td>
 <td align="right">19.2</td>
 <td align="right">6</td>
 <td align="right">167.6</td>
@@ -254,38 +246,39 @@ dbListTables(conAWS3)</code></pre>
 </table>
 </div>
 </div>
-<div id="sql-in-r" class="section level4">
-<h4>SQL in R</h4>
-<pre class="r"><code>dbGetQuery(conAWS1, &quot;SELECT * FROM mtcars LIMIT 10&quot;)</code></pre>
-<pre><code>##            row_names  mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1          Mazda RX4 21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
-## 2      Mazda RX4 Wag 21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
-## 3         Datsun 710 22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-## 4     Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## 5  Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
-## 6            Valiant 18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
-## 7         Duster 360 14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
-## 8          Merc 240D 24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-## 9           Merc 230 22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-## 10          Merc 280 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4</code></pre>
+<div id="sql-in-r" class="section level3">
+<h3>SQL in R</h3>
+<pre class="r"><code>dbGetQuery(con3, &quot;SELECT * FROM mtcars LIMIT 10&quot;)</code></pre>
+<pre><code>##     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## 2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## 3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## 4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## 5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## 6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## 7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## 8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## 9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## 10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4</code></pre>
 </div>
-<div id="ddplyr-1" class="section level4">
-<h4>ddplyr 1</h4>
-<pre class="r"><code>mtcars_db &lt;- tbl(conAWS1, &quot;mtcars&quot;)
+<div id="dplyr-query-baced-by-dbplyr" class="section level3">
+<h3><code>dplyr</code> query baced by <code>dbplyr</code></h3>
+<div id="example-1" class="section level4">
+<h4>example 1</h4>
+<pre class="r"><code>mtcars_db &lt;- tbl(con3, &quot;mtcars&quot;)
 
 top2 &lt;- mtcars_db %&gt;% 
   group_by(cyl) %&gt;%
 # slice not working for database 
   filter(between(row_number(), 1, 2)) </code></pre>
 </div>
-<div id="ddplyr-2" class="section level4">
-<h4>ddplyr 2</h4>
-<pre class="r"><code>flights_db &lt;- tbl(conAWS1, &quot;flights&quot;)
+<div id="example-2" class="section level4">
+<h4>example 2</h4>
+<pre class="r"><code>flights_db &lt;- tbl(con3, &quot;flights&quot;)
 
 flights_db</code></pre>
 <pre><code>## # Source:   table&lt;flights&gt; [?? x 19]
-## # Database: postgres
-## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+## # Database: postgres [cxiao@localhost:/testdb1]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
 ##  1  2013     1     1      517            515         2      830
@@ -305,10 +298,10 @@ flights_db</code></pre>
 <pre class="r"><code>flights_db %&gt;% 
   tally()</code></pre>
 <pre><code>## # Source:   lazy query [?? x 1]
-## # Database: postgres
-## #   [cxiao@psqldb.c6uirebehzhr.us-east-2.rds.amazonaws.com:5432/postgres]
+## # Database: postgres [cxiao@localhost:/testdb1]
 ##   n              
 ##   &lt;S3: integer64&gt;
 ## 1 336776</code></pre>
+</div>
 </div>
 </div>
