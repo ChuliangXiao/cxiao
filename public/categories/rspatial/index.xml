@@ -19,10 +19,10 @@
       
       <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
       <description>In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
- Code is available on GitHUB
-  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
- COUNS (48 states an DC)
-  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC</description>
+Code is available on GitHUB
+CountiesMap data from mpasCorrected to match with American Community Survey (ACS)
+COUNS (48 states an DC)
+Map data from albersusa50 States and DCUsing R6 class choroplethr50 States and DC</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
-      <description>library(sp) getClass(&amp;#39;Spatial&amp;#39;) ## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;] ## ## Slots: ## ## Name: bbox proj4string ## Class: matrix CRS ## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly ## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly ## Class &amp;quot;SpatialGrid&amp;quot;, directly ## Class &amp;quot;SpatialLines&amp;quot;, directly ## Class &amp;quot;SpatialPolygons&amp;quot;, directly ## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2 ## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3 ## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2 Shape objects    Without data With data    Polygons SpatialPolygons SpatialPolygonsDataFrame  Points SpatialPoints SpatialPointsDataFrame  Lines SpatialLines SpatialLinesDataFrame  Raster SpatialGrid SpatialGridDataFrame  Raster SpatialPixels SpatialPixelsDataFrame  Raster  RasterLayer  Raster  RasterBrick  Raster  RasterStack     </description>
+      <description>library(sp)getClass(&amp;#39;Spatial&amp;#39;)## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]## ## Slots:## ## Name: bbox proj4string## Class: matrix CRS## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly## Class &amp;quot;SpatialGrid&amp;quot;, directly## Class &amp;quot;SpatialLines&amp;quot;, directly## Class &amp;quot;SpatialPolygons&amp;quot;, directly## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2Shape objectsWithout dataWith dataPolygonsSpatialPolygonsSpatialPolygonsDataFramePointsSpatialPointsSpatialPointsDataFrameLinesSpatialLinesSpatialLinesDataFrameRasterSpatialGridSpatialGridDataFrameRasterSpatialPixelsSpatialPixelsDataFrameRasterRasterLayerRasterRasterBrickRasterRasterStack</description>
     </item>
     
     <item>
@@ -60,8 +60,8 @@
       <guid>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</guid>
       <description>As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
 To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &amp;quot;wt vs.</description>
+Data and PlotsThere are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
+basic plotattach(mtcars)par(mfrow = c(1,2))plot(mpg, wt, main = &amp;quot;wt vs.</description>
     </item>
     
   </channel>

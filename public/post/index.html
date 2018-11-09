@@ -366,8 +366,8 @@ Credit to <a href="https://stackoverflow.com/a/46194427/9421451">StackOverflow</
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
- There are different ways to do this in R.  library(tidyverse) dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE)) str(dd) ## &#39;data.
+    Why sparse matrix?XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide)caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+There are different ways to do this in R.library(tidyverse)dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;), 12, replace = TRUE))str(dd)## &#39;data.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -430,11 +430,11 @@ Credit to <a href="https://stackoverflow.com/a/46194427/9421451">StackOverflow</
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL Connect Method 1 with RPostgres con1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;, password = rstudioapi::askForPassword(&quot;Database password&quot;)) dbListTables(con1) #dbWriteTable(con1, &quot;mtcars&quot;, mtcars) #dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
- In the command line (or block-run), there will be popout dialog to input password,
- In the knit mode, render the RMarkdown file as follows:
+    Load librarylibrary(tidyverse)library(RPostgres)library(DBI)Connect to PostgreSQLConnect Method 1 with RPostgrescon1 &lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &quot;testdb1&quot;,password = rstudioapi::askForPassword(&quot;Database password&quot;))dbListTables(con1)#dbWriteTable(con1, &quot;mtcars&quot;, mtcars)#dbWriteTable(con1, &quot;flights&quot;, nycflights13::flights)rstudioapi::askForPassword requires the password input
+In the command line (or block-run), there will be popout dialog to input password,
+In the knit mode, render the RMarkdown file as follows:
 rmarkdown::render(&quot;MyDocument.Rmd&quot;, params = &quot;ask&quot;)
-See Parameter User Interfaces In the blogdown, server_site will halt at the above block.
+See Parameter User InterfacesIn the blogdown, server_site will halt at the above block.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -498,8 +498,8 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
   <div class="article-style" itemprop="articleBody">
     
     zoo: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)
- An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
- Base Time-Series Objects stats::ts Credit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus
+An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
+Base Time-Series Objects stats::tsCredit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -570,10 +570,10 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
   <div class="article-style" itemprop="articleBody">
     
     In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
- Code is available on GitHUB
-  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
- COUNS (48 states an DC)
-  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC
+Code is available on GitHUB
+CountiesMap data from mpasCorrected to match with American Community Survey (ACS)
+COUNS (48 states an DC)
+Map data from albersusa50 States and DCUsing R6 class choroplethr50 States and DC
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -636,9 +636,9 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Date class from base::Date and lubridate d1 &lt;- Sys.Date() d1; class(d1) ## [1] &quot;2018-09-12&quot; ## [1] &quot;Date&quot; dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;) dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;) dd; class(dd) ## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot; ## [1] &quot;Date&quot; d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;) d2; class(d2) ## [1] &quot;2018-07-05&quot; ## [1] &quot;Date&quot;  POSIX* class from base::as.POSIX* POSIXt types, POSIXct and POSIXlt:
- ct, calendar time, stores the number of seconds since the origin
- lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).
+    Date class from base::Date and lubridated1 &lt;- Sys.Date()d1; class(d1)## [1] &quot;2018-09-12&quot;## [1] &quot;Date&quot;dates &lt;- c(&quot;02/27/92&quot;, &quot;02/27/92&quot;, &quot;01/14/92&quot;)dd &lt;- as.Date(dates, &quot;%m/%d/%y&quot;)dd; class(dd)## [1] &quot;1992-02-27&quot; &quot;1992-02-27&quot; &quot;1992-01-14&quot;## [1] &quot;Date&quot;d2 &lt;- lubridate::as_date(&quot;2018-07-05&quot;)d2; class(d2)## [1] &quot;2018-07-05&quot;## [1] &quot;Date&quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
+ct, calendar time, stores the number of seconds since the origin
+lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -970,8 +970,8 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
     
     As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
 To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &quot;wt vs.
+Data and PlotsThere are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
+basic plotattach(mtcars)par(mfrow = c(1,2))plot(mpg, wt, main = &quot;wt vs.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">

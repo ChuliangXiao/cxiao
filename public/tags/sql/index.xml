@@ -18,10 +18,10 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/add-password-to-root-mysql-on-mac-brew/</guid>
-      <description>ERROR! The server quit without updating PID file  A: Try brew services start mysql
-Credit to StackOverflow.  Table &amp;#39;mysql.role_edges&amp;#39; doesn&amp;#39;t exist  A: Try mysql_upgrade -u root
-Credit to StackOverflow.  Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)  A: Try mysql_secure_installation and follow instruction to setup new password.
-Credit to StackOverflow.  </description>
+      <description>ERROR! The server quit without updating PID fileA: Try brew services start mysql
+Credit to StackOverflow.Table &amp;#39;mysql.role_edges&amp;#39; doesn&amp;#39;t existA: Try mysql_upgrade -u root
+Credit to StackOverflow.Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)A: Try mysql_secure_installation and follow instruction to setup new password.
+Credit to StackOverflow.</description>
     </item>
     
   </channel>

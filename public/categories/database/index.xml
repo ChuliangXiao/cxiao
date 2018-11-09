@@ -18,10 +18,10 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/add-password-to-root-mysql-on-mac-brew/</guid>
-      <description>ERROR! The server quit without updating PID file  A: Try brew services start mysql
-Credit to StackOverflow.  Table &amp;#39;mysql.role_edges&amp;#39; doesn&amp;#39;t exist  A: Try mysql_upgrade -u root
-Credit to StackOverflow.  Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)  A: Try mysql_secure_installation and follow instruction to setup new password.
-Credit to StackOverflow.  </description>
+      <description>ERROR! The server quit without updating PID fileA: Try brew services start mysql
+Credit to StackOverflow.Table &amp;#39;mysql.role_edges&amp;#39; doesn&amp;#39;t existA: Try mysql_upgrade -u root
+Credit to StackOverflow.Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)A: Try mysql_secure_installation and follow instruction to setup new password.
+Credit to StackOverflow.</description>
     </item>
     
     <item>
@@ -30,11 +30,11 @@ Credit to StackOverflow.  </description>
       <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/database-with-r-postgresql/</guid>
-      <description>Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL Connect Method 1 with RPostgres con1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &amp;quot;testdb1&amp;quot;, password = rstudioapi::askForPassword(&amp;quot;Database password&amp;quot;)) dbListTables(con1) #dbWriteTable(con1, &amp;quot;mtcars&amp;quot;, mtcars) #dbWriteTable(con1, &amp;quot;flights&amp;quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
- In the command line (or block-run), there will be popout dialog to input password,
- In the knit mode, render the RMarkdown file as follows:
+      <description>Load librarylibrary(tidyverse)library(RPostgres)library(DBI)Connect to PostgreSQLConnect Method 1 with RPostgrescon1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &amp;quot;testdb1&amp;quot;,password = rstudioapi::askForPassword(&amp;quot;Database password&amp;quot;))dbListTables(con1)#dbWriteTable(con1, &amp;quot;mtcars&amp;quot;, mtcars)#dbWriteTable(con1, &amp;quot;flights&amp;quot;, nycflights13::flights)rstudioapi::askForPassword requires the password input
+In the command line (or block-run), there will be popout dialog to input password,
+In the knit mode, render the RMarkdown file as follows:
 rmarkdown::render(&amp;quot;MyDocument.Rmd&amp;quot;, params = &amp;quot;ask&amp;quot;)
-See Parameter User Interfaces In the blogdown, server_site will halt at the above block.</description>
+See Parameter User InterfacesIn the blogdown, server_site will halt at the above block.</description>
     </item>
     
   </channel>

@@ -18,8 +18,8 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/sparse-matrix-and-dummy-variables/</guid>
-      <description>Why sparse matrix?  XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide) caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
- There are different ways to do this in R.  library(tidyverse) dd &amp;lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&amp;quot;X&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Z&amp;quot;), 12, replace = TRUE)) str(dd) ## &amp;#39;data.</description>
+      <description>Why sparse matrix?XGBoost only works with matrices that contain all numeric variables; consequently, we need to one-hot encode our data. (UC Business Analytics R Programming Guide)caret::preProcess uses bagging regression trees for missing values recovery (Yevhen Vasylenko), which requires all numeric variables.
+There are different ways to do this in R.library(tidyverse)dd &amp;lt;- data.frame(a = gl(3,4), b = gl(4,1,12), c = 1:12, d = sample(c(&amp;quot;X&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Z&amp;quot;), 12, replace = TRUE))str(dd)## &amp;#39;data.</description>
     </item>
     
     <item>
@@ -28,11 +28,11 @@
       <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/database-with-r-postgresql/</guid>
-      <description>Load library library(tidyverse) library(RPostgres) library(DBI)  Connect to PostgreSQL Connect Method 1 with RPostgres con1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &amp;quot;testdb1&amp;quot;, password = rstudioapi::askForPassword(&amp;quot;Database password&amp;quot;)) dbListTables(con1) #dbWriteTable(con1, &amp;quot;mtcars&amp;quot;, mtcars) #dbWriteTable(con1, &amp;quot;flights&amp;quot;, nycflights13::flights) rstudioapi::askForPassword requires the password input
- In the command line (or block-run), there will be popout dialog to input password,
- In the knit mode, render the RMarkdown file as follows:
+      <description>Load librarylibrary(tidyverse)library(RPostgres)library(DBI)Connect to PostgreSQLConnect Method 1 with RPostgrescon1 &amp;lt;- DBI::dbConnect(RPostgres::Postgres(), dbname = &amp;quot;testdb1&amp;quot;,password = rstudioapi::askForPassword(&amp;quot;Database password&amp;quot;))dbListTables(con1)#dbWriteTable(con1, &amp;quot;mtcars&amp;quot;, mtcars)#dbWriteTable(con1, &amp;quot;flights&amp;quot;, nycflights13::flights)rstudioapi::askForPassword requires the password input
+In the command line (or block-run), there will be popout dialog to input password,
+In the knit mode, render the RMarkdown file as follows:
 rmarkdown::render(&amp;quot;MyDocument.Rmd&amp;quot;, params = &amp;quot;ask&amp;quot;)
-See Parameter User Interfaces In the blogdown, server_site will halt at the above block.</description>
+See Parameter User InterfacesIn the blogdown, server_site will halt at the above block.</description>
     </item>
     
     <item>
@@ -42,8 +42,8 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
       
       <guid>/post/time-series-analysis-ii-zoo/</guid>
       <description>zoo: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)
- An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
- Base Time-Series Objects stats::ts Credit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus</description>
+An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics
+Base Time-Series Objects stats::tsCredit: Time Series Analysis in R Part 1: The Time Series Object by DataSciencePlus</description>
     </item>
     
     <item>
@@ -53,10 +53,10 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
       
       <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
       <description>In this #TidyTuesday post, I try to show an example of putting together six common geographic visualization methods of heat map or choropleth map.
- Code is available on GitHUB
-  Counties  Map data from mpas  Corrected to match with American Community Survey (ACS)
- COUNS (48 states an DC)
-  Map data from albersusa  50 States and DC  Using R6 class choroplethr  50 States and DC</description>
+Code is available on GitHUB
+CountiesMap data from mpasCorrected to match with American Community Survey (ACS)
+COUNS (48 states an DC)
+Map data from albersusa50 States and DCUsing R6 class choroplethr50 States and DC</description>
     </item>
     
     <item>
@@ -65,9 +65,9 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/time-series-analysis-i-date-and-time/</guid>
-      <description>Date class from base::Date and lubridate d1 &amp;lt;- Sys.Date() d1; class(d1) ## [1] &amp;quot;2018-09-12&amp;quot; ## [1] &amp;quot;Date&amp;quot; dates &amp;lt;- c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;) dd &amp;lt;- as.Date(dates, &amp;quot;%m/%d/%y&amp;quot;) dd; class(dd) ## [1] &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-01-14&amp;quot; ## [1] &amp;quot;Date&amp;quot; d2 &amp;lt;- lubridate::as_date(&amp;quot;2018-07-05&amp;quot;) d2; class(d2) ## [1] &amp;quot;2018-07-05&amp;quot; ## [1] &amp;quot;Date&amp;quot;  POSIX* class from base::as.POSIX* POSIXt types, POSIXct and POSIXlt:
- ct, calendar time, stores the number of seconds since the origin
- lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).</description>
+      <description>Date class from base::Date and lubridated1 &amp;lt;- Sys.Date()d1; class(d1)## [1] &amp;quot;2018-09-12&amp;quot;## [1] &amp;quot;Date&amp;quot;dates &amp;lt;- c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;)dd &amp;lt;- as.Date(dates, &amp;quot;%m/%d/%y&amp;quot;)dd; class(dd)## [1] &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-01-14&amp;quot;## [1] &amp;quot;Date&amp;quot;d2 &amp;lt;- lubridate::as_date(&amp;quot;2018-07-05&amp;quot;)d2; class(d2)## [1] &amp;quot;2018-07-05&amp;quot;## [1] &amp;quot;Date&amp;quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
+ct, calendar time, stores the number of seconds since the origin
+lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).</description>
     </item>
     
     <item>
@@ -94,7 +94,7 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
-      <description>library(sp) getClass(&amp;#39;Spatial&amp;#39;) ## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;] ## ## Slots: ## ## Name: bbox proj4string ## Class: matrix CRS ## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly ## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly ## Class &amp;quot;SpatialGrid&amp;quot;, directly ## Class &amp;quot;SpatialLines&amp;quot;, directly ## Class &amp;quot;SpatialPolygons&amp;quot;, directly ## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2 ## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2 ## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2 ## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3 ## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2 Shape objects    Without data With data    Polygons SpatialPolygons SpatialPolygonsDataFrame  Points SpatialPoints SpatialPointsDataFrame  Lines SpatialLines SpatialLinesDataFrame  Raster SpatialGrid SpatialGridDataFrame  Raster SpatialPixels SpatialPixelsDataFrame  Raster  RasterLayer  Raster  RasterBrick  Raster  RasterStack     </description>
+      <description>library(sp)getClass(&amp;#39;Spatial&amp;#39;)## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]## ## Slots:## ## Name: bbox proj4string## Class: matrix CRS## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly## Class &amp;quot;SpatialGrid&amp;quot;, directly## Class &amp;quot;SpatialLines&amp;quot;, directly## Class &amp;quot;SpatialPolygons&amp;quot;, directly## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2Shape objectsWithout dataWith dataPolygonsSpatialPolygonsSpatialPolygonsDataFramePointsSpatialPointsSpatialPointsDataFrameLinesSpatialLinesSpatialLinesDataFrameRasterSpatialGridSpatialGridDataFrameRasterSpatialPixelsSpatialPixelsDataFrameRasterRasterLayerRasterRasterBrickRasterRasterStack</description>
     </item>
     
     <item>
@@ -105,8 +105,8 @@ See Parameter User Interfaces In the blogdown, server_site will halt at the abov
       <guid>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</guid>
       <description>As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.
 To introduce spatial data, let first start with comman data. Basic R data types: vector, factor, matrix, data.frame, and list.
-Data and Plots There are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
-basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &amp;quot;wt vs.</description>
+Data and PlotsThere are many ways to munipulate and visualize data in R, including, typically, the basic and the tidyverse framework. Let’s warm up with plotting data.frame.
+basic plotattach(mtcars)par(mfrow = c(1,2))plot(mpg, wt, main = &amp;quot;wt vs.</description>
     </item>
     
     <item>
@@ -115,7 +115,7 @@ basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &amp;quot;wt 
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-sort-order-and-arrange/</guid>
-      <description>vector (or factor)  (x &amp;lt;- swiss$Education[1:20]) ## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9 # sort the vector sort(x) ## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28 # partial sorting sort(x, partial = c(10, 15)) ## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15 Partial sorting in R is different with that in Wikipedia.</description>
+      <description>vector (or factor)(x &amp;lt;- swiss$Education[1:20])## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9# sort the vectorsort(x)## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28# partial sortingsort(x, partial = c(10, 15))## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15Partial sorting in R is different with that in Wikipedia.</description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@ basic plot attach(mtcars) par(mfrow = c(1,2)) plot(mpg, wt, main = &amp;quot;wt 
       
       <guid>/post/comparison-transform-within-and-mutate/</guid>
       <description>Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.</description>
+head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.</description>
     </item>
     
     <item>
@@ -135,8 +135,8 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
       
       <guid>/post/comparison-subset-and-filter/</guid>
       <description>A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
-  The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
-  They are, indeed, producing the same result, and they are very similar in concept.</description>
+The three subsetting operators.The six types of subsetting.Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
+They are, indeed, producing the same result, and they are very similar in concept.</description>
     </item>
     
     <item>
@@ -146,7 +146,7 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
       
       <guid>/post/from-ncl-to-r/</guid>
       <description>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.
- Unformated Binary  I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.  Self-decribed Binary  NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
+Unformated BinaryI have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.Self-decribed BinaryNCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</description>
     </item>
     
     <item>

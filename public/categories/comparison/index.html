@@ -255,7 +255,26 @@
     <h2><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></h2>
     <div class="article-style">
       
-      vector (or factor)  (x &lt;- swiss$Education[1:20]) ## [1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9 # sort the vector sort(x) ## [1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28 # partial sorting sort(x, partial = c(10, 15)) ## [1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15 Partial sorting in R is different with that in Wikipedia.
+      <p>vector (or factor)</p>
+
+<p>(x &lt;- swiss$Education[1:20])</p>
+
+<h2 id="1-12-9-5-7-15-7-7-8-7-13-6-12-7-12-5-2-8-28-20-9">[1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9</h2>
+
+<h1 id="sort-the-vector">sort the vector</h1>
+
+<p>sort(x)</p>
+
+<h2 id="1-2-5-5-6-7-7-7-7-7-8-8-9-9-12-12-12-13-15-20-28">[1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28</h2>
+
+<h1 id="partial-sorting">partial sorting</h1>
+
+<p>sort(x, partial = c(10, 15))</p>
+
+<h2 id="1-2-5-5-7-7-7-7-6-7-8-8-9-9-12-12-12-13-28-20-15">[1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15</h2>
+
+<p>Partial sorting in R is different with that in Wikipedia.</p>
+
       
     </div>
   </div>
@@ -265,7 +284,16 @@
     <div class="article-style">
       
       Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.
+head(mtcars)</p>
+
+<h2 id="mpg-cyl-disp-hp-drat-wt-qsec-vs-am-gear-carb">mpg cyl disp hp drat wt qsec vs am gear carb</h2>
+
+<h2 id="mazda-rx4-21-0-6-160-110-3-90-2-620-16-46-0-1-4-4">Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4</h2>
+
+<h2 id="mazda-rx4-wag-21-0-6-160-110-3-90-2-875-17-02-0-1-4-4">Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4</h2>
+
+<h2 id="datsun-710-22">Datsun 710 22.</h2>
+
       
     </div>
   </div>
@@ -274,9 +302,16 @@ head(mtcars)  ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 
     <h2><a href="/post/comparison-subset-and-filter/">Comparison: subset and filter</a></h2>
     <div class="article-style">
       
-      A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.
-  The three subsetting operators. The six types of subsetting. Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).   Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().
-  They are, indeed, producing the same result, and they are very similar in concept.
+      <p>A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.</p>
+
+<p>The three subsetting operators.
+The six types of subsetting.
+Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).</p>
+
+<p>Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().</p>
+
+<p>They are, indeed, producing the same result, and they are very similar in concept.</p>
+
       
     </div>
   </div>
