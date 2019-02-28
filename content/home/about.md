@@ -32,4 +32,4 @@ weight = 5
 # Biography
 
   I am a Senior Data Analytics Engineer at [Priority Health](https://www.priorityhealth.com/), part of [Spectrum Health System](https://www.spectrumhealth.org/about-us) in [Grand Rapids](https://www.experiencegr.com/). Before this, I was a hydrological modeler at the University of Michigan's [Cooperative Institute for Great Lakes Research (CIGLR)](http://ciglr.seas.umich.edu) working at the National Oceanic and Atmospheric Administration (NOAA) [Great Lakes Environmental Research Laboratory (GLERL)](http://glerl.noaa.gov) in Ann Arbor, Michigan.
-  
+
