@@ -30,8 +30,7 @@
       
       <guid>/post/time-series-analysis-i-date-and-time/</guid>
       <description>Date class from base::Date and lubridated1 &amp;lt;- Sys.Date()d1; class(d1)## [1] &amp;quot;2018-09-12&amp;quot;## [1] &amp;quot;Date&amp;quot;dates &amp;lt;- c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;)dd &amp;lt;- as.Date(dates, &amp;quot;%m/%d/%y&amp;quot;)dd; class(dd)## [1] &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-01-14&amp;quot;## [1] &amp;quot;Date&amp;quot;d2 &amp;lt;- lubridate::as_date(&amp;quot;2018-07-05&amp;quot;)d2; class(d2)## [1] &amp;quot;2018-07-05&amp;quot;## [1] &amp;quot;Date&amp;quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
-ct, calendar time, stores the number of seconds since the origin
-lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).</description>
+ct, calendar time, stores the number of seconds since the origin</description>
     </item>
     
   </channel>

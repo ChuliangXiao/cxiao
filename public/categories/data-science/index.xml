@@ -56,8 +56,7 @@ See Parameter User InterfacesIn the blogdown, server_site will halt at the abov
       
       <guid>/post/time-series-analysis-i-date-and-time/</guid>
       <description>Date class from base::Date and lubridated1 &amp;lt;- Sys.Date()d1; class(d1)## [1] &amp;quot;2018-09-12&amp;quot;## [1] &amp;quot;Date&amp;quot;dates &amp;lt;- c(&amp;quot;02/27/92&amp;quot;, &amp;quot;02/27/92&amp;quot;, &amp;quot;01/14/92&amp;quot;)dd &amp;lt;- as.Date(dates, &amp;quot;%m/%d/%y&amp;quot;)dd; class(dd)## [1] &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-02-27&amp;quot; &amp;quot;1992-01-14&amp;quot;## [1] &amp;quot;Date&amp;quot;d2 &amp;lt;- lubridate::as_date(&amp;quot;2018-07-05&amp;quot;)d2; class(d2)## [1] &amp;quot;2018-07-05&amp;quot;## [1] &amp;quot;Date&amp;quot;POSIX* class from base::as.POSIX*POSIXt types, POSIXct and POSIXlt:
-ct, calendar time, stores the number of seconds since the origin
-lt, local time, keeps the date as a list of time attributes (such as ”hour” and ”mon”).</description>
+ct, calendar time, stores the number of seconds since the origin</description>
     </item>
     
     <item>
@@ -84,7 +83,7 @@ See Parameter User InterfacesIn the blogdown, server_site will halt at the abov
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
-      <description>library(sp)getClass(&amp;#39;Spatial&amp;#39;)## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]## ## Slots:## ## Name: bbox proj4string## Class: matrix CRS## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly## Class &amp;quot;SpatialGrid&amp;quot;, directly## Class &amp;quot;SpatialLines&amp;quot;, directly## Class &amp;quot;SpatialPolygons&amp;quot;, directly## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2Shape objectsWithout dataWith dataPolygonsSpatialPolygonsSpatialPolygonsDataFramePointsSpatialPointsSpatialPointsDataFrameLinesSpatialLinesSpatialLinesDataFrameRasterSpatialGridSpatialGridDataFrameRasterSpatialPixelsSpatialPixelsDataFrameRasterRasterLayerRasterRasterBrickRasterRasterStack</description>
+      <description>library(sp)getClass(&amp;#39;Spatial&amp;#39;)## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]## ## Slots:## ## Name: bbox proj4string## Class: matrix CRS## ## Known Subclasses: ## Class &amp;quot;SpatialPoints&amp;quot;, directly## Class &amp;quot;SpatialMultiPoints&amp;quot;, directly## Class &amp;quot;SpatialGrid&amp;quot;, directly## Class &amp;quot;SpatialLines&amp;quot;, directly## Class &amp;quot;SpatialPolygons&amp;quot;, directly## Class &amp;quot;SpatialPointsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialPixels&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 2## Class &amp;quot;SpatialMultiPointsDataFrame&amp;quot;, by class &amp;quot;SpatialMultiPoints&amp;quot;, distance 2## Class &amp;quot;SpatialGridDataFrame&amp;quot;, by class &amp;quot;SpatialGrid&amp;quot;, distance 2## Class &amp;quot;SpatialLinesDataFrame&amp;quot;, by class &amp;quot;SpatialLines&amp;quot;, distance 2## Class &amp;quot;SpatialPixelsDataFrame&amp;quot;, by class &amp;quot;SpatialPoints&amp;quot;, distance 3## Class &amp;quot;SpatialPolygonsDataFrame&amp;quot;, by class &amp;quot;SpatialPolygons&amp;quot;, distance 2Shape objectsWithout dataWith dataPolygonsSpatialPolygonsSpatialPolygonsDataFramePointsSpatialPointsSpatialPointsDataFrameLinesSpatialLinesSpatialLinesDataFrameRasterSpatialGridSpatialGridDataFrameRasterSpatialPixelsSpatialPixelsDataFrameRasterRasterLayerRasterRasterBrickRasterRasterStack</description>
     </item>
     
     <item>
@@ -115,7 +114,7 @@ basic plotattach(mtcars)par(mfrow = c(1,2))plot(mpg, wt, main = &amp;quot;wt 
       
       <guid>/post/comparison-transform-within-and-mutate/</guid>
       <description>Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.</description>
+head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.</description>
     </item>
     
     <item>

@@ -34,7 +34,10 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/add-password-to-root-mysql-on-mac-brew/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;ERROR! The server quit without updating PID file&lt;/code&gt;&lt;/pre&gt;
+      <description>
+
+
+&lt;pre&gt;&lt;code&gt;ERROR! The server quit without updating PID file&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;A: Try &lt;code&gt;brew services start mysql&lt;/code&gt;&lt;br /&gt;
 Credit to &lt;a href=&#34;https://stackoverflow.com/a/50210425/9421451&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/li&gt;
@@ -58,7 +61,10 @@ Credit to &lt;a href=&#34;https://stackoverflow.com/a/46194427/9421451&#34;&gt;S
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/sparse-matrix-and-dummy-variables/</guid>
-      <description>&lt;div id=&#34;why-sparse-matrix&#34; class=&#34;section level3&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;why-sparse-matrix&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Why sparse matrix?&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;XGBoost&lt;/code&gt; only works with matrices that contain &lt;strong&gt;all numeric&lt;/strong&gt; variables; consequently, we need to one-hot encode our data. (&lt;a href=&#34;http://uc-r.github.io/gbm_regression&#34;&gt;UC Business Analytics R Programming Guide&lt;/a&gt;)&lt;/li&gt;
@@ -293,7 +299,10 @@ mm.dummy&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/database-with-r-postgresql/</guid>
-      <description>&lt;div id=&#34;load-library&#34; class=&#34;section level3&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;load-library&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Load library&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(RPostgres)
@@ -592,7 +601,10 @@ flights_db&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/time-series-analysis-ii-zoo/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/zoo/&#34;&gt;&lt;strong&gt;zoo&lt;/strong&gt;&lt;/a&gt;: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/zoo/&#34;&gt;&lt;strong&gt;zoo&lt;/strong&gt;&lt;/a&gt;: S3 Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;An S3 class with methods for totally ordered indexed observations. It is particularly aimed at irregular time series of numeric vectors/matrices and factors. zoo’s key design goals are independence of a particular index/date/time class and consistency with ts and base R by providing methods to extend standard generics&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -745,7 +757,10 @@ ggplot(aes(x = index, y = value), data = broom::tidy(x)) +
       <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/us-state-and-county-choropleth-map-heatmap/</guid>
-      <description>&lt;p&gt;In this &lt;a href=&#34;https://twitter.com/search?q=%23TidyTuesday&amp;amp;src=tyah&#34;&gt;#TidyTuesday&lt;/a&gt; post, I try to show an example of putting together six common geographic visualization methods of &lt;a href=&#34;https://en.wikipedia.org/wiki/Heat_map&#34;&gt;&lt;strong&gt;heat map&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://en.wikipedia.org/wiki/Choropleth_map&#34;&gt;&lt;strong&gt;choropleth map&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;In this &lt;a href=&#34;https://twitter.com/search?q=%23TidyTuesday&amp;amp;src=tyah&#34;&gt;#TidyTuesday&lt;/a&gt; post, I try to show an example of putting together six common geographic visualization methods of &lt;a href=&#34;https://en.wikipedia.org/wiki/Heat_map&#34;&gt;&lt;strong&gt;heat map&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://en.wikipedia.org/wiki/Choropleth_map&#34;&gt;&lt;strong&gt;choropleth map&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Code is available on &lt;a href=&#34;https://github.com/ChuliangXiao/tidytuesday/tree/master/Week05&#34;&gt;GitHUB&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -830,7 +845,10 @@ ggplot(aes(x = index, y = value), data = broom::tidy(x)) +
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/time-series-analysis-i-date-and-time/</guid>
-      <description>&lt;div id=&#34;date-class-from-basedate-and-lubridate&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;date-class-from-basedate-and-lubridate&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;Date&lt;/code&gt; class from &lt;code&gt;base::Date&lt;/code&gt; and &lt;code&gt;lubridate&lt;/code&gt;&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d1 &amp;lt;- Sys.Date()
 d1; class(d1)&lt;/code&gt;&lt;/pre&gt;
@@ -900,7 +918,10 @@ x; class(x)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-4-stars/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2018/03/22/stars2.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2018/03/22/stars2.html&lt;/a&gt;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2018/03/22/stars2.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2018/03/22/stars2.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -910,7 +931,10 @@ x; class(x)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-3-simple-features/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&lt;/a&gt;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&#34; class=&#34;uri&#34;&gt;https://www.r-spatial.org/r/2016/02/15/simple-features-for-r.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -920,7 +944,10 @@ x; class(x)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-2-spatial-class/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sp)&lt;/code&gt;&lt;/pre&gt;
+      <description>
+
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sp)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;getClass(&amp;#39;Spatial&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Class &amp;quot;Spatial&amp;quot; [package &amp;quot;sp&amp;quot;]
 ## 
@@ -1005,7 +1032,10 @@ x; class(x)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-spatial-data-analysis-1-from-data-to-spatial-data/</guid>
-      <description>&lt;p&gt;As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;As much as R is popular in data analysis, R becomes more and more favored in geospatial analysis and visualization.&lt;/p&gt;
 &lt;p&gt;To introduce spatial data, let first start with comman data. Basic R data types: &lt;code&gt;vector&lt;/code&gt;, &lt;code&gt;factor&lt;/code&gt;, &lt;code&gt;matrix&lt;/code&gt;, &lt;code&gt;data.frame&lt;/code&gt;, and &lt;code&gt;list&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;data-and-plots&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Data and Plots&lt;/h3&gt;
@@ -1269,7 +1299,10 @@ coordinates(pnt1) = ~ Lon + Lat&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-sort-order-and-arrange/</guid>
-      <description>&lt;ul&gt;
+      <description>
+
+
+&lt;ul&gt;
 &lt;li&gt;&lt;h2 id=&#34;vector-or-factor&#34;&gt;&lt;strong&gt;vector&lt;/strong&gt; (or factor)&lt;/h2&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(x &amp;lt;- swiss$Education[1:20])&lt;/code&gt;&lt;/pre&gt;
@@ -1387,7 +1420,10 @@ head(Rank6)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-transform-within-and-mutate/</guid>
-      <description>&lt;p&gt;Here is another comparison between two basic functions &lt;code&gt;transform&lt;/code&gt; and &lt;code&gt;within&lt;/code&gt;, and a tidyverse function &lt;code&gt;dplyr::mutate&lt;/code&gt;. They all can be used for data munipulation, adding a new column to a data.frame.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Here is another comparison between two basic functions &lt;code&gt;transform&lt;/code&gt; and &lt;code&gt;within&lt;/code&gt;, and a tidyverse function &lt;code&gt;dplyr::mutate&lt;/code&gt;. They all can be used for data munipulation, adding a new column to a data.frame.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(mtcars)  &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -1479,7 +1515,10 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/comparison-subset-and-filter/</guid>
-      <description>&lt;p&gt;A detailed &lt;a href=&#34;http://adv-r.had.co.nz/Subsetting.html&#34;&gt;introduction&lt;/a&gt; on &lt;code&gt;subsetting&lt;/code&gt; is seen in Hadley Wickham’s &lt;strong&gt;Advanced R&lt;/strong&gt;.&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;A detailed &lt;a href=&#34;http://adv-r.had.co.nz/Subsetting.html&#34;&gt;introduction&lt;/a&gt; on &lt;code&gt;subsetting&lt;/code&gt; is seen in Hadley Wickham’s &lt;strong&gt;Advanced R&lt;/strong&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;The three subsetting operators.&lt;/li&gt;
