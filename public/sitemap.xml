@@ -23,6 +23,15 @@
     
     <url>
     
+      <loc>/post/change-r-rscript-windows-environment-path-from-onedrive/</loc>
+      <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/add-password-to-root-mysql-on-mac-brew/</loc>
       <lastmod>2018-06-19T00:00:00+00:00</lastmod>
     </url>
@@ -382,6 +391,16 @@
     
     <url>
     
+      <loc>/categories/onedrive/</loc>
+      <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/</loc>
       <lastmod>2016-10-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -393,7 +412,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+      <lastmod>2018-07-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

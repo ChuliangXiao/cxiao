@@ -29,6 +29,62 @@
     </item>
     
     <item>
+      <title>Change R (Rscript) Windows Environment Path from OneDrive</title>
+      <link>/post/change-r-rscript-windows-environment-path-from-onedrive/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/change-r-rscript-windows-environment-path-from-onedrive/</guid>
+      <description>
+
+
+&lt;div id=&#34;pain-in-the-butt&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;pain in the butt&lt;/h3&gt;
+&lt;p&gt;When &lt;strong&gt;OneDrive&lt;/strong&gt; was installed in a computer, it’s painful using R and Rscirpt in command line.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Since the &lt;code&gt;Documents&lt;/code&gt; has been hijacked by &lt;strong&gt;OneDrive&lt;/strong&gt;, whenever you open the directory &lt;code&gt;C:\User\YourName\Documents&lt;/code&gt; it automatically redirects to &lt;code&gt;C:\Users\YourName\OneDrive - Spectrum Health\Documents&lt;/code&gt;. You don’t want to backup 2-GB R library fold to the &lt;strong&gt;OneDrive&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How to reach the real &lt;code&gt;C:\User\YourName\Documents&lt;/code&gt; instead of &lt;code&gt;C:\Users\YourName\OneDrive - Spectrum Health\Documents&lt;/code&gt;, you have to go &lt;code&gt;C:&lt;/code&gt; drive, then &lt;code&gt;User&lt;/code&gt; folder, then &lt;code&gt;YourName&lt;/code&gt; folder, then &lt;code&gt;Documents&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;R’s default environemnts
+&lt;ul&gt;
+&lt;li&gt;Home directory is &lt;code&gt;C:\Users\YourName\OneDrive - Spectrum Health\Documents&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;User library (R_LIBS_USER) is &lt;code&gt;C:\Users\YourName\OneDrive - Spectrum Health\Documents\R\win-lib\R-version&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;change-r-envrionments&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Change &lt;code&gt;R&lt;/code&gt; envrionments&lt;/h3&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Change &lt;code&gt;.Renvrion&lt;/code&gt; under &lt;code&gt;C:\Users\YourName\OneDrive - Spectrum Health\Documents&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;HOME=C:/Users/YourName
+R_USER=C:/Users/YourName
+R_LIBS_USER=C:/Users/YourName/Rpackages
+R_LIBS=C:/Program Files/R/R-3.5.2/library&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Copy the above &lt;code&gt;.Renvrion&lt;/code&gt; to &lt;code&gt;C:\User\YourName\&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;change-rscript-envrionments&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Change &lt;code&gt;Rscript&lt;/code&gt; envrionments&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In command line, set the following PATHs before &lt;code&gt;Rsciprt R_Script.R&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set HOME=C:/Users/YourName
+set R_USER=C:/Users/YourName
+set R_LIBS_USER=C:/Users/YourName/Rpackages
+Rsciprt R_Script.R&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;In &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/desktop/taskschd/task-scheduler-start-page&#34;&gt;Task Scheduler&lt;/a&gt; of &lt;a href=&#34;https://en.wikipedia.org/wiki/Batch_file&#34;&gt;.bat&lt;/a&gt; file&lt;br /&gt;
+Same as command line, those PATHs must be set before &lt;code&gt;Rsciprt R_Script.R&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Google Analytics authentication&lt;br /&gt;
+Add &lt;code&gt;ga_auth(token = &#34;C:/Users/CHU83456/.httr-oauth&#34;)&lt;/code&gt; in your &lt;code&gt;R_Script.R&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Add password to root MySQL on Mac (brew)</title>
       <link>/post/add-password-to-root-mysql-on-mac-brew/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
@@ -1504,43 +1560,6 @@ head(tmp3)&lt;/code&gt;&lt;/pre&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;What is the difference between &lt;code&gt;transform&lt;/code&gt; and &lt;code&gt;within&lt;/code&gt; &lt;a href=&#34;https://stackoverflow.com/a/22417775&#34;&gt;Stack Overflow&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://rstudio-pubs-static.s3.amazonaws.com/1053_c089bd9190624b37b1180b91d2776e10.html&#34;&gt;Data manipulation using transform(), within(), or plyr::mutate()&lt;/a&gt;&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Comparison: subset and filter</title>
-      <link>/post/comparison-subset-and-filter/</link>
-      <pubDate>Fri, 23 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/comparison-subset-and-filter/</guid>
-      <description>
-
-
-&lt;p&gt;A detailed &lt;a href=&#34;http://adv-r.had.co.nz/Subsetting.html&#34;&gt;introduction&lt;/a&gt; on &lt;code&gt;subsetting&lt;/code&gt; is seen in Hadley Wickham’s &lt;strong&gt;Advanced R&lt;/strong&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;The three subsetting operators.&lt;/li&gt;
-&lt;li&gt;The six types of subsetting.&lt;/li&gt;
-&lt;li&gt;Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/users/1017276/benjamin&#34;&gt;Benjamin&lt;/a&gt; on &lt;a href=&#34;https://stackoverflow.com/a/39882777&#34;&gt;Stack Overflow&lt;/a&gt; answered the question &lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; of the comparison between &lt;code&gt;subset()&lt;/code&gt; and &lt;code&gt;dplyr::filter()&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;They are, indeed, producing the same result, and they are very similar in concept.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;As the data sets grow, &lt;code&gt;filter&lt;/code&gt; seems gains the upper hand in efficiency.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The use of subsetting in conjunction with assignment. &lt;a href=&#34;https://stackoverflow.com/a/39882777&#34;&gt;Stack Overflow&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>

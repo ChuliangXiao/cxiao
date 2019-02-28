@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="author" content="Chuliang Xiao">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="pain in the buttWhen OneDrive was installed in a computer, it’s painful using R and Rscirpt in command line.
+Since the Documents has been hijacked by OneDrive, whenever you open the directory C:\User\YourName\Documents it automatically redirects to C:\Users\YourName\OneDrive - Spectrum Health\Documents. You don’t want to backup 2-GB R library fold to the OneDrive.
+How to reach the real C:\User\YourName\Documents instead of C:\Users\YourName\OneDrive - Spectrum Health\Documents, you have to go C: drive, then User folder, then YourName folder, then Documents.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/change-r-rscript-windows-environment-path-from-onedrive/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/blue.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/change-r-rscript-windows-environment-path-from-onedrive/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@theRoyalXiao">
+  <meta property="twitter:creator" content="@theRoyalXiao">
+  
+  <meta property="og:site_name" content="Chuliang Xiao">
+  <meta property="og:url" content="/post/change-r-rscript-windows-environment-path-from-onedrive/">
+  <meta property="og:title" content="Change R (Rscript) Windows Environment Path from OneDrive | Chuliang Xiao">
+  <meta property="og:description" content="pain in the buttWhen OneDrive was installed in a computer, it’s painful using R and Rscirpt in command line.
+Since the Documents has been hijacked by OneDrive, whenever you open the directory C:\User\YourName\Documents it automatically redirects to C:\Users\YourName\OneDrive - Spectrum Health\Documents. You don’t want to backup 2-GB R library fold to the OneDrive.
+How to reach the real C:\User\YourName\Documents instead of C:\Users\YourName\OneDrive - Spectrum Health\Documents, you have to go C: drive, then User folder, then YourName folder, then Documents.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-07-01T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-07-01T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Change R (Rscript) Windows Environment Path from OneDrive | Chuliang Xiao</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Chuliang Xiao</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#mentoring">
+            
+            <span>Mentoring</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Change R (Rscript) Windows Environment Path from OneDrive</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-01 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jul 1, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Chuliang Xiao">
+  </span>
+
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/onedrive">OneDrive</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Change%20R%20%28Rscript%29%20Windows%20Environment%20Path%20from%20OneDrive&amp;url=%2fpost%2fchange-r-rscript-windows-environment-path-from-onedrive%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fchange-r-rscript-windows-environment-path-from-onedrive%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fchange-r-rscript-windows-environment-path-from-onedrive%2f&amp;title=Change%20R%20%28Rscript%29%20Windows%20Environment%20Path%20from%20OneDrive"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fchange-r-rscript-windows-environment-path-from-onedrive%2f&amp;title=Change%20R%20%28Rscript%29%20Windows%20Environment%20Path%20from%20OneDrive"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Change%20R%20%28Rscript%29%20Windows%20Environment%20Path%20from%20OneDrive&amp;body=%2fpost%2fchange-r-rscript-windows-environment-path-from-onedrive%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<div id="pain-in-the-butt" class="section level3">
+<h3>pain in the butt</h3>
+<p>When <strong>OneDrive</strong> was installed in a computer, it’s painful using R and Rscirpt in command line.</p>
+<ul>
+<li><p>Since the <code>Documents</code> has been hijacked by <strong>OneDrive</strong>, whenever you open the directory <code>C:\User\YourName\Documents</code> it automatically redirects to <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code>. You don’t want to backup 2-GB R library fold to the <strong>OneDrive</strong>.</p>
+<ul>
+<li>How to reach the real <code>C:\User\YourName\Documents</code> instead of <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code>, you have to go <code>C:</code> drive, then <code>User</code> folder, then <code>YourName</code> folder, then <code>Documents</code>.</li>
+</ul></li>
+<li>R’s default environemnts
+<ul>
+<li>Home directory is <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code></li>
+<li>User library (R_LIBS_USER) is <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents\R\win-lib\R-version</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="change-r-envrionments" class="section level3">
+<h3>Change <code>R</code> envrionments</h3>
+<ol style="list-style-type: decimal">
+<li>Change <code>.Renvrion</code> under <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code></li>
+</ol>
+<pre><code>HOME=C:/Users/YourName
+R_USER=C:/Users/YourName
+R_LIBS_USER=C:/Users/YourName/Rpackages
+R_LIBS=C:/Program Files/R/R-3.5.2/library</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Copy the above <code>.Renvrion</code> to <code>C:\User\YourName\</code></li>
+</ol>
+</div>
+<div id="change-rscript-envrionments" class="section level3">
+<h3>Change <code>Rscript</code> envrionments</h3>
+<ul>
+<li><p>In command line, set the following PATHs before <code>Rsciprt R_Script.R</code></p>
+<pre><code>set HOME=C:/Users/YourName
+set R_USER=C:/Users/YourName
+set R_LIBS_USER=C:/Users/YourName/Rpackages
+Rsciprt R_Script.R</code></pre></li>
+<li>In <a href="https://docs.microsoft.com/en-us/windows/desktop/taskschd/task-scheduler-start-page">Task Scheduler</a> of <a href="https://en.wikipedia.org/wiki/Batch_file">.bat</a> file<br />
+Same as command line, those PATHs must be set before <code>Rsciprt R_Script.R</code>
+<ul>
+<li>Google Analytics authentication<br />
+Add <code>ga_auth(token = "C:/Users/CHU83456/.httr-oauth")</code> in your <code>R_Script.R</code></li>
+</ul></li>
+</ul>
+</div>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/sparse-matrix-and-dummy-variables/">Sparse Matrix and Dummy Variables</a></li>
+        
+        <li><a href="/post/database-with-r-postgresql/">Database with R: PostgreSQL</a></li>
+        
+        <li><a href="/post/time-series-analysis-ii-zoo/">Time Series Analysis II: zoo</a></li>
+        
+        <li><a href="/post/us-state-and-county-choropleth-map-heatmap/">US State and County Choropleth Map (Heatmap)</a></li>
+        
+        <li><a href="/post/time-series-analysis-i-date-and-time/">Time Series Analysis I: date and time </a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 Chuliang Xiao &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js?key="></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

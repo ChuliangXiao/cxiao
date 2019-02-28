@@ -1,0 +1,47 @@
+---
+title: Change R (Rscript) Windows Environment Path from OneDrive
+author: Chuliang Xiao
+date: '2018-07-01'
+slug: change-r-rscript-windows-environment-path-from-onedrive
+categories:
+  - OneDrive
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+### pain in the butt
+When **OneDrive** was installed in a computer, it's painful using R and Rscirpt in command line.  
+
+* Since the `Documents` has been hijacked by **OneDrive**, whenever you open the directory `C:\User\YourName\Documents` it automatically redirects to `C:\Users\YourName\OneDrive - Spectrum Health\Documents`. You don't want to backup 2-GB R library fold to the **OneDrive**.   
+    
+    + How to reach the real `C:\User\YourName\Documents` instead of `C:\Users\YourName\OneDrive - Spectrum Health\Documents`, you have to go `C:` drive, then `User` folder, then `YourName` folder, then `Documents`.   
+    
+* R's default environemnts  
+  + Home directory is `C:\Users\YourName\OneDrive - Spectrum Health\Documents`
+  + User library (R_LIBS_USER) is `C:\Users\YourName\OneDrive - Spectrum Health\Documents\R\win-lib\R-version`  
+
+### Change `R` envrionments
+(1) Change `.Renvrion` under `C:\Users\YourName\OneDrive - Spectrum Health\Documents`
+  ```
+  HOME=C:/Users/YourName
+  R_USER=C:/Users/YourName
+  R_LIBS_USER=C:/Users/YourName/Rpackages
+  R_LIBS=C:/Program Files/R/R-3.5.2/library
+  ```
+(2) Copy the above `.Renvrion` to `C:\User\YourName\` 
+
+### Change `Rscript` envrionments
+* In command line, set the following PATHs before `Rsciprt R_Script.R`
+  ```
+  set HOME=C:/Users/YourName
+  set R_USER=C:/Users/YourName
+  set R_LIBS_USER=C:/Users/YourName/Rpackages
+  Rsciprt R_Script.R
+  ```
+* In [Task Scheduler](https://docs.microsoft.com/en-us/windows/desktop/taskschd/task-scheduler-start-page) of [.bat](https://en.wikipedia.org/wiki/Batch_file) file   
+  Same as command line, those PATHs must be set before `Rsciprt R_Script.R` 
+  + Google Analytics authentication   
+    Add `ga_auth(token = "C:/Users/CHU83456/.httr-oauth")` in your `R_Script.R`

@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Change R (Rscript) Windows Environment Path from OneDrive</title>
+      <link>/post/change-r-rscript-windows-environment-path-from-onedrive/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/change-r-rscript-windows-environment-path-from-onedrive/</guid>
+      <description>pain in the buttWhen OneDrive was installed in a computer, it’s painful using R and Rscirpt in command line.
+Since the Documents has been hijacked by OneDrive, whenever you open the directory C:\User\YourName\Documents it automatically redirects to C:\Users\YourName\OneDrive - Spectrum Health\Documents. You don’t want to backup 2-GB R library fold to the OneDrive.
+How to reach the real C:\User\YourName\Documents instead of C:\Users\YourName\OneDrive - Spectrum Health\Documents, you have to go C: drive, then User folder, then YourName folder, then Documents.</description>
+    </item>
+    
+    <item>
       <title>Add password to root MySQL on Mac (brew)</title>
       <link>/post/add-password-to-root-mysql-on-mac-brew/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>

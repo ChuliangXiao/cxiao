@@ -1,0 +1,60 @@
+---
+title: Change R (Rscript) Windows Environment Path from OneDrive
+author: Chuliang Xiao
+date: '2018-07-01'
+slug: change-r-rscript-windows-environment-path-from-onedrive
+categories:
+  - OneDrive
+tags:
+  - R
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<div id="pain-in-the-butt" class="section level3">
+<h3>pain in the butt</h3>
+<p>When <strong>OneDrive</strong> was installed in a computer, it’s painful using R and Rscirpt in command line.</p>
+<ul>
+<li><p>Since the <code>Documents</code> has been hijacked by <strong>OneDrive</strong>, whenever you open the directory <code>C:\User\YourName\Documents</code> it automatically redirects to <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code>. You don’t want to backup 2-GB R library fold to the <strong>OneDrive</strong>.</p>
+<ul>
+<li>How to reach the real <code>C:\User\YourName\Documents</code> instead of <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code>, you have to go <code>C:</code> drive, then <code>User</code> folder, then <code>YourName</code> folder, then <code>Documents</code>.</li>
+</ul></li>
+<li>R’s default environemnts
+<ul>
+<li>Home directory is <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code></li>
+<li>User library (R_LIBS_USER) is <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents\R\win-lib\R-version</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="change-r-envrionments" class="section level3">
+<h3>Change <code>R</code> envrionments</h3>
+<ol style="list-style-type: decimal">
+<li>Change <code>.Renvrion</code> under <code>C:\Users\YourName\OneDrive - Spectrum Health\Documents</code></li>
+</ol>
+<pre><code>HOME=C:/Users/YourName
+R_USER=C:/Users/YourName
+R_LIBS_USER=C:/Users/YourName/Rpackages
+R_LIBS=C:/Program Files/R/R-3.5.2/library</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Copy the above <code>.Renvrion</code> to <code>C:\User\YourName\</code></li>
+</ol>
+</div>
+<div id="change-rscript-envrionments" class="section level3">
+<h3>Change <code>Rscript</code> envrionments</h3>
+<ul>
+<li><p>In command line, set the following PATHs before <code>Rsciprt R_Script.R</code></p>
+<pre><code>set HOME=C:/Users/YourName
+set R_USER=C:/Users/YourName
+set R_LIBS_USER=C:/Users/YourName/Rpackages
+Rsciprt R_Script.R</code></pre></li>
+<li>In <a href="https://docs.microsoft.com/en-us/windows/desktop/taskschd/task-scheduler-start-page">Task Scheduler</a> of <a href="https://en.wikipedia.org/wiki/Batch_file">.bat</a> file<br />
+Same as command line, those PATHs must be set before <code>Rsciprt R_Script.R</code>
+<ul>
+<li>Google Analytics authentication<br />
+Add <code>ga_auth(token = "C:/Users/CHU83456/.httr-oauth")</code> in your <code>R_Script.R</code></li>
+</ul></li>
+</ul>
+</div>

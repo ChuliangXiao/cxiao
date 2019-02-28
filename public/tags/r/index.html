@@ -82,7 +82,7 @@
   <meta property="og:description" content="Research Fellow">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-06-05T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-07-01T00:00:00&#43;00:00">
   
 
   
@@ -252,6 +252,21 @@
   
   
   <div>
+    <h2><a href="/post/change-r-rscript-windows-environment-path-from-onedrive/">Change R (Rscript) Windows Environment Path from OneDrive</a></h2>
+    <div class="article-style">
+      
+      <p>pain in the butt
+When OneDrive was installed in a computer, it’s painful using R and Rscirpt in command line.</p>
+
+<p>Since the Documents has been hijacked by OneDrive, whenever you open the directory C:\User\YourName\Documents it automatically redirects to C:\Users\YourName\OneDrive - Spectrum Health\Documents. You don’t want to backup 2-GB R library fold to the OneDrive.</p>
+
+<p>How to reach the real C:\User\YourName\Documents instead of C:\Users\YourName\OneDrive - Spectrum Health\Documents, you have to go C: drive, then User folder, then YourName folder, then Documents.</p>
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/sparse-matrix-and-dummy-variables/">Sparse Matrix and Dummy Variables</a></h2>
     <div class="article-style">
       
@@ -413,34 +428,6 @@ basic plot
 attach(mtcars)
 par(mfrow = c(1,2))
 plot(mpg, wt, main = &quot;wt vs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></h2>
-    <div class="article-style">
-      
-      <p>vector (or factor)</p>
-
-<p>(x &lt;- swiss$Education[1:20])</p>
-
-<h2 id="1-12-9-5-7-15-7-7-8-7-13-6-12-7-12-5-2-8-28-20-9">[1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9</h2>
-
-<h1 id="sort-the-vector">sort the vector</h1>
-
-<p>sort(x)</p>
-
-<h2 id="1-2-5-5-6-7-7-7-7-7-8-8-9-9-12-12-12-13-15-20-28">[1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28</h2>
-
-<h1 id="partial-sorting">partial sorting</h1>
-
-<p>sort(x, partial = c(10, 15))</p>
-
-<h2 id="1-2-5-5-7-7-7-7-6-7-8-8-9-9-12-12-12-13-28-20-15">[1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15</h2>
-
-<p>Partial sorting in R is different with that in Wikipedia.</p>
-
       
     </div>
   </div>

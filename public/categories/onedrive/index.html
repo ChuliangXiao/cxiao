@@ -18,7 +18,7 @@
   <meta name="description" content="Research Fellow">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tags/r/">
+  <link rel="alternate" hreflang="en-us" href="/categories/onedrive/">
 
   
 
@@ -61,15 +61,15 @@
   
 
   
-  <link rel="alternate" href="/tags/r/index.xml" type="application/rss+xml" title="Chuliang Xiao">
-  <link rel="feed" href="/tags/r/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  <link rel="alternate" href="/categories/onedrive/index.xml" type="application/rss+xml" title="Chuliang Xiao">
+  <link rel="feed" href="/categories/onedrive/index.xml" type="application/rss+xml" title="Chuliang Xiao">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/r/">
+  <link rel="canonical" href="/categories/onedrive/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -77,17 +77,17 @@
   <meta property="twitter:creator" content="@theRoyalXiao">
   
   <meta property="og:site_name" content="Chuliang Xiao">
-  <meta property="og:url" content="/tags/r/">
-  <meta property="og:title" content="R | Chuliang Xiao">
+  <meta property="og:url" content="/categories/onedrive/">
+  <meta property="og:title" content="OneDrive | Chuliang Xiao">
   <meta property="og:description" content="Research Fellow">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-03-28T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-07-01T00:00:00&#43;00:00">
   
 
   
 
-  <title>R | Chuliang Xiao</title>
+  <title>OneDrive | Chuliang Xiao</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -245,113 +245,29 @@
 
 <div class="universal-wrapper">
 
-  <h1>R</h1>
+  <h1>OneDrive</h1>
 
   
 
   
   
   <div>
-    <h2><a href="/post/comparison-sort-order-and-arrange/">Comparison: sort, order and arrange</a></h2>
+    <h2><a href="/post/change-r-rscript-windows-environment-path-from-onedrive/">Change R (Rscript) Windows Environment Path from OneDrive</a></h2>
     <div class="article-style">
       
-      <p>vector (or factor)</p>
+      <p>pain in the butt
+When OneDrive was installed in a computer, it’s painful using R and Rscirpt in command line.</p>
 
-<p>(x &lt;- swiss$Education[1:20])</p>
+<p>Since the Documents has been hijacked by OneDrive, whenever you open the directory C:\User\YourName\Documents it automatically redirects to C:\Users\YourName\OneDrive - Spectrum Health\Documents. You don’t want to backup 2-GB R library fold to the OneDrive.</p>
 
-<h2 id="1-12-9-5-7-15-7-7-8-7-13-6-12-7-12-5-2-8-28-20-9">[1] 12 9 5 7 15 7 7 8 7 13 6 12 7 12 5 2 8 28 20 9</h2>
+<p>How to reach the real C:\User\YourName\Documents instead of C:\Users\YourName\OneDrive - Spectrum Health\Documents, you have to go C: drive, then User folder, then YourName folder, then Documents.</p>
 
-<h1 id="sort-the-vector">sort the vector</h1>
-
-<p>sort(x)</p>
-
-<h2 id="1-2-5-5-6-7-7-7-7-7-8-8-9-9-12-12-12-13-15-20-28">[1] 2 5 5 6 7 7 7 7 7 8 8 9 9 12 12 12 13 15 20 28</h2>
-
-<h1 id="partial-sorting">partial sorting</h1>
-
-<p>sort(x, partial = c(10, 15))</p>
-
-<h2 id="1-2-5-5-7-7-7-7-6-7-8-8-9-9-12-12-12-13-28-20-15">[1] 2 5 5 7 7 7 7 6 7 8 8 9 9 12 12 12 13 28 20 15</h2>
-
-<p>Partial sorting in R is different with that in Wikipedia.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-transform-within-and-mutate/">Comparison: transform, within and mutate</a></h2>
-    <div class="article-style">
-      
-      Here is another comparison between two basic functions transform and within, and a tidyverse function dplyr::mutate. They all can be used for data munipulation, adding a new column to a data.frame.
-head(mtcars)</p>
-
-<h2 id="mpg-cyl-disp-hp-drat-wt-qsec-vs-am-gear-carb">mpg cyl disp hp drat wt qsec vs am gear carb</h2>
-
-<h2 id="mazda-rx4-21-0-6-160-110-3-90-2-620-16-46-0-1-4-4">Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4</h2>
-
-<h2 id="mazda-rx4-wag-21-0-6-160-110-3-90-2-875-17">Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.</h2>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/comparison-subset-and-filter/">Comparison: subset and filter</a></h2>
-    <div class="article-style">
-      
-      <p>A detailed introduction on subsetting is seen in Hadley Wickham’s Advanced R.</p>
-
-<p>The three subsetting operators.
-The six types of subsetting.
-Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).</p>
-
-<p>Benjamin on Stack Overflow answered the question 1 of the comparison between subset() and dplyr::filter().</p>
-
-<p>They are, indeed, producing the same result, and they are very similar in concept.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/from-ncl-to-r/">From NCL to R</a></h2>
-    <div class="article-style">
-      
-      <p>From the point of atmospheric science, NCL has certain natural advantages in dealing with self-described meteorological data formats, but R is improving significantly.</p>
-
-<p>Unformated Binary</p>
-
-<p>I have to say both NCL and R are not as good at reading/writing binary files as Fotran, though technically they are able to do the job.</p>
-
-<p>Self-decribed Binary</p>
-
-<p>NCL uses a single function addfile to handle all format (netCDF, HDF, GRIB, CCM, shapefile), while R requires additional packages.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/hello-world/">Hello World</a></h2>
-    <div class="article-style">
-      
-      I used to blog a little bit on Blogger when I was in China. I have stopped blogging for a long time since the emergency of social networks. Looking back at what I wrote when I was a young college student, I couldn’t help but feel how different I am right now. I really hope I can start likeing writting things again, focusing on R &amp; Data Science from a geoscience perspective.
       
     </div>
   </div>
   
 
   
-<nav>
-  <ul class="pager">
-    
-    <li><a href="/tags/r/">&lt;</a></li>
-    
-    
-  </ul>
-</nav>
-
 
 
 </div>
